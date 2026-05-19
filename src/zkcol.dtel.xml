@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZKCOL</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>BUZEI</DOMNAME>
+    <HEADLEN>17</HEADLEN>
+    <SCRLEN1>09</SCRLEN1>
+    <SCRLEN2>17</SCRLEN2>
+    <SCRLEN3>17</SCRLEN3>
+    <DDTEXT>Column Keterangan</DDTEXT>
+    <REPTEXT>Column Keterangan</REPTEXT>
+    <SCRTEXT_S>Col.Ketr.</SCRTEXT_S>
+    <SCRTEXT_M>Column Keterangan</SCRTEXT_M>
+    <SCRTEXT_L>Column Keterangan</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

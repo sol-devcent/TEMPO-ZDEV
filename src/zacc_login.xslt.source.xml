@@ -1,0 +1,100 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+
+  <tt:root name="role"/>
+
+  <tt:template>
+    <object>
+      <str name="role">
+        <tt:value ref="role.role"/>
+      </str>
+      <object name="user">
+        <num name="id">
+          <tt:value ref="role.id_u"/>
+        </num>
+        <num name="id_rekanan">
+          <tt:value ref="role.id_rekanan"/>
+        </num>
+        <str name="name">
+          <tt:value ref="role.name"/>
+        </str>
+        <str name="phone">
+          <tt:value ref="role.phone"/>
+        </str>
+        <str name="email">
+          <tt:value ref="role.email"/>
+        </str>
+        <str name="token">
+          <tt:value ref="role.token"/>
+        </str>
+        <null name="remember_token"/>
+        <str name="created_at">
+          <tt:value ref="role.created_at_u"/>
+        </str>
+        <str name="updated_at">
+          <tt:value ref="role.updated_at_u"/>
+        </str>
+        <num name="deleted">
+          <tt:value ref="role.deleted_u"/>
+        </num>
+        <bool name="status">
+          <tt:value ref="role.status_u"/>
+        </bool>
+        <num name="verified">
+          <tt:value ref="role.verified"/>
+        </num>
+        <object name="sarana">
+          <num name="id">
+            <tt:value ref="role.id_s"/>
+          </num>
+          <num name="id_group">
+            <tt:value ref="role.id_group"/>
+          </num>
+          <str name="nama_rekanan">
+            <tt:value ref="role.nama_rekanan"/>
+          </str>
+          <str name="alamat_rekanan">
+            <tt:value ref="role.alamat_rekanan"/>
+          </str>
+          <str name="no_telp">
+            <tt:value ref="role.no_telp"/>
+          </str>
+          <str name="fax">
+            <tt:value ref="role.fax"/>
+          </str>
+          <num name="provinsi">
+            <tt:value ref="role.provinsi"/>
+          </num>
+          <num name="kota">
+            <tt:value ref="role.kota"/>
+          </num>
+          <str name="latitude">
+            <tt:value ref="role.latitude"/>
+          </str>
+          <str name="longitude">
+            <tt:value ref="role.longitude"/>
+          </str>
+          <bool name="status">
+            <tt:value ref="role.status_s"/>
+          </bool>
+          <str name="logo_rekanan"/>
+          <str name="created_at">
+            <tt:value ref="role.created_at_s"/>
+          </str>
+          <str name="updated_at">
+            <tt:value ref="role.updated_at_s"/>
+          </str>
+          <num name="deleted">
+            <tt:value ref="role.deleted_s"/>
+          </num>
+          <str name="file_dokumen">
+            <tt:value ref="role.file_dokumen"/>
+          </str>
+          <null name="badan_usaha"/>
+          <null name="npwp"/>
+        </object>
+      </object>
+    </object>
+  </tt:template>
+
+</tt:transform>
