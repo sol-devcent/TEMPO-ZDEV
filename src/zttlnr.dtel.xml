@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZTTLNR</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>17</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>16</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Total nota retur</DDTEXT>
+    <REPTEXT>Total nota retur</REPTEXT>
+    <SCRTEXT_S>TtlNR</SCRTEXT_S>
+    <SCRTEXT_M>Total nota retur</SCRTEXT_M>
+    <SCRTEXT_L>Total nota retur</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <DATATYPE>CURR</DATATYPE>
+    <LENG>000013</LENG>
+    <DECIMALS>000002</DECIMALS>
+    <OUTPUTLEN>000017</OUTPUTLEN>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
