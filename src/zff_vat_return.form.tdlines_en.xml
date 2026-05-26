@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<abapGit version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TDLINES>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FOOTER1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+     <TDLINE>Jakarta, &amp;VA_DATE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+     <TDLINE>    Pembeli,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F1</TDFORMAT>
+     <TDLINE>&amp;SIGN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FOOTER2</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+     <TDLINE>,,Lembar ke-1 : Untuk Pengusaha Kena Pajak yang menerbitkan Faktur</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> Pajak</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FT</TDFORMAT>
+     <TDLINE>,,Lembar ke-2 : Untuk Pembeli</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>HEADER1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>POSITION WINDOW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>SIZE WIDTH 190 MM HEIGHT +1 LN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX HEIGHT 59 LN FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H1</TDFORMAT>
+     <TDLINE>NOTA RETUR</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER2</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H2</TDFORMAT>
+     <TDLINE>ATAS FAKTUR PAJAK NO / TANGGAL :</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER3</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>HEADER3</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H3</TDFORMAT>
+     <TDLINE>&amp;FAKTUR1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H3</TDFORMAT>
+     <TDLINE>&amp;FAKTUR2&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H3</TDFORMAT>
+     <TDLINE>&amp;FAKTUR3&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H3</TDFORMAT>
+     <TDLINE>&amp;FAKTUR4&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H3</TDFORMAT>
+     <TDLINE>&amp;FAKTUR5&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER4</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;1&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P1</TDFORMAT>
+     <TDLINE>,,PEMBELI</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,N A M A  : &amp;NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,ALAMAT   : &amp;STREET&amp; , &amp;CITY1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,N P W P  : &amp;NPWP&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER5</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;1&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P1</TDFORMAT>
+     <TDLINE>,,KEPADA PENJUAL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,N A M A  : &amp;NAMES&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,ALAMAT   : &amp;STREETS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,           &amp;STREET1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>P2</TDFORMAT>
+     <TDLINE>,,N P W P  : &amp;STCEG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,Tanggal Pengukuhan : &amp;STENR&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER6</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>HEAD3</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;1&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;14&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;13&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;102&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;90&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;102&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;120&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;102&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;158&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;129&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>JD</TDFORMAT>
+     <TDLINE>,,No,,Macam dan Jenis,,,,,,Harga BKP yang</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>JD</TDFORMAT>
+     <TDLINE>,,Urut,,Barang Kena Pajak,,,,,,dikembalikan</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>JD</TDFORMAT>
+     <TDLINE>,,,,,,,,,,(Rp)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>HEAD5</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;1&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;14&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;13&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;102&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;90&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;102&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;120&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;102&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;158&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;0&apos; MM HEIGHT &apos;129&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>J1</TDFORMAT>
+     <TDLINE>,,No,,Macam dan Jenis,,Kuantum*,,Harga satuan menurut,,Harga BKP yang</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>J1</TDFORMAT>
+     <TDLINE>,,Urut,,Barang Kena Pajak,,,,Faktur Pajak(Rp),,dikembalikan</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>J1</TDFORMAT>
+     <TDLINE>,,,,,,,,,,(Rp)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>MAIN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>SKIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>NEW-PAGE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>DETAIL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AL</TDFORMAT>
+     <TDLINE>,,&amp;EBELP&amp;,,&amp;MAKTX(40)&amp;,,,,,,&amp;AMNT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>DETAIL1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>A1</TDFORMAT>
+     <TDLINE>,,&amp;EBELP&amp;,,&amp;MAKTX(40)&amp;,,&amp;MENGE&amp;,,&amp;HASAT&amp;,,&amp;AMNT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>DIPINDAHKAN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>PI</TDFORMAT>
+     <TDLINE>,,Dipindahkan .....,,&amp;AMNT2&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PINDAHAN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>PI</TDFORMAT>
+     <TDLINE>,,Pindahan ..... ,,&amp;AMNT3&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>KOSONG</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AL</TDFORMAT>
+     <TDLINE>&amp;SPACE(180)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>NOMOR</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>JD</TDFORMAT>
+     <TDLINE>Nomor : &amp;NORET&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>PAGE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>JD</TDFORMAT>
+     <TDLINE>Halaman : &amp;PAGE1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>TOTAL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TOTAL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;0&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>TL</TDFORMAT>
+     <TDLINE>,,Jumlah Harga BKP yang dikembalikan,,&amp;AMNT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;6&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>TOTAL1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TOTAL1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>TL</TDFORMAT>
+     <TDLINE>,,Dikurangi potongan harga,,&amp;DISC&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;6&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>TOTAL2</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TOTAL2</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>TL</TDFORMAT>
+     <TDLINE>,,Dikurangi uang muka yang sudah diterima</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;6&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>TOTAL3</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TOTAL3</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>TL</TDFORMAT>
+     <TDLINE>,,Dasar Pengenaan Pajak,,&amp;DPP&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;6&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>TOTAL4</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TOTAL4</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>TL</TDFORMAT>
+     <TDLINE>,,Pajak Pertambahan Nilai yang diminta kembali = 10% x Dasar Pengenaan</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> Pajak,,&amp;PPN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;6&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>TOTAL5</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TOTAL5</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>TL</TDFORMAT>
+     <TDLINE>,,Pajak Penjualan atas Barang Mewah yang diminta kembali = 10% x Dasar</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE> Pengenaan Pajak</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE> BOX XPOS &apos;0&apos; MM YPOS &apos;6&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>ULINE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0&apos; MM YPOS &apos;1&apos; MM WIDTH &apos;190&apos; MM HEIGHT &apos;0&apos; MM FRAME 10 TW</TDLINE>
+    </TLINE>
+   </TDLINES>
+  </asx:values>
+ </asx:abap>
+</abapGit>
