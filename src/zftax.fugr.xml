@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Extended Table Maintenance (Generated)</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFTAXTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFTAX</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFTAX_CHECK</FUNCNAME>
+     <SHORT_TEXT>Tax Pattern</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_VALUE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_PATTERN</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_LENGTH</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>INT4</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_VALUE</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_SUBRC</PARAMETER>
+       <TYP>SY-SUBRC</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_VALUE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_PATTERN</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_LENGTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Natural number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_VALUE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_SUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP System Field: Return Code of ABAP Statements</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
