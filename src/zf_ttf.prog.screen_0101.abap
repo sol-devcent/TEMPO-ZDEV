@@ -1,0 +1,12 @@
+
+PROCESS BEFORE OUTPUT.
+  MODULE status.
+
+  MODULE pbo.
+
+PROCESS AFTER INPUT.
+
+  MODULE user_command.
+
+PROCESS ON VALUE-REQUEST.
+  FIELD gv_kdgrp MODULE value_kdgrp.
