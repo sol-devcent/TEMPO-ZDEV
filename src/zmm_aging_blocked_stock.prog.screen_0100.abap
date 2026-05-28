@@ -1,0 +1,7 @@
+
+PROCESS BEFORE OUTPUT.
+  MODULE status.
+  MODULE out.
+
+PROCESS AFTER INPUT.
+  MODULE user_command.

@@ -1,0 +1,10 @@
+
+PROCESS BEFORE OUTPUT.
+  MODULE status.
+  MODULE out.
+
+PROCESS AFTER INPUT.
+  MODULE user_command.
+
+PROCESS ON VALUE-REQUEST.
+  FIELD gv_lifnr MODULE f4_lifnr.
