@@ -1,0 +1,24 @@
+SHIFT wa_detail-znou LEFT DELETING LEADING '0'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
