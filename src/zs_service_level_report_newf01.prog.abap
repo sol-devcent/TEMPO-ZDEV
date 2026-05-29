@@ -1,0 +1,105 @@
+*----------------------------------------------------------------------*
+*   INCLUDE ZGHSDALV001                                                *
+*----------------------------------------------------------------------*
+*----------------------------------------------------------------------*
+*   INCLUDE ZIBM_ALV_COMMON                                            *
+*----------------------------------------------------------------------*
+INCLUDE <icon>.
+
+TYPE-POOLS: slis, truxs.
+
+TYPES : BEGIN OF ty_char,
+          poqty(15),
+          poval(15),
+          doqty(15),
+          doval(15),
+          percen(15),
+          unqty(15),
+          unval(15),
+          lead1q(15),
+          lead1v(15),
+          lead2q(15),
+          lead2v(15),
+          lead3q(15),
+          lead3v(15),
+          lead6q(15),
+          lead6v(15),
+          qty(15),
+          val(15),
+        END OF ty_char.
+
+FIELD-SYMBOLS: <fs_table> TYPE table.
+
+DATA: t_alv_fieldcat      TYPE slis_t_fieldcat_alv WITH HEADER LINE,
+      t_alv_event         TYPE slis_t_event WITH HEADER LINE,
+      t_events            TYPE slis_t_event,
+      t_alv_isort         TYPE slis_t_sortinfo_alv WITH HEADER LINE,
+      t_alv_filter        TYPE slis_t_filter_alv WITH HEADER LINE,
+      t_event_exit        TYPE slis_t_event_exit WITH HEADER LINE,
+      d_alv_isort         TYPE slis_sortinfo_alv,
+      d_alv_variant       TYPE disvariant,
+      d_alv_list_scroll   TYPE  slis_list_scroll,
+      d_alv_sort_postn    TYPE i,
+      d_alv_keyinfo       TYPE slis_keyinfo_alv,
+      d_alv_fieldcat      TYPE slis_fieldcat_alv,
+      d_alv_formname      TYPE slis_formname,
+      d_alv_ucomm         TYPE slis_formname,
+      d_alv_print         TYPE slis_print_alv,
+      d_alv_repid         LIKE sy-repid,
+      d_alv_tabix         LIKE sy-tabix,
+      d_alv_subrc         LIKE sy-subrc,
+      d_alv_screen_start_column TYPE i,
+      d_alv_screen_start_line TYPE i,
+      d_alv_screen_end_column TYPE i,
+      d_alv_screen_end_line TYPE i,
+      d_alv_layout TYPE slis_layout_alv.
+
+DATA: d_layout           TYPE slis_layout_alv,
+      d_repid            LIKE sy-repid,
+      d_print            TYPE slis_print_alv.
+
+DATA:
+  d_hdr_rpt_lines VALUE 'X',
+  d_hdr_selection(50),
+  d_hdr_rpos TYPE i,
+  d_hdr_lines TYPE i,
+  d_hdr_types,
+  d_hdr_intsf,   "Flag for intensified
+  d_hdr_low(30),
+  d_hdr_high(30),
+  d_hdr_atext(80),
+  d_hdr_lngth TYPE i,
+  d_hdr_title(999),           " Report title with padding
+  d_hdr_text1(999),           " User text 1
+  d_hdr_text2(999),           " User text 2
+  d_hdr_text3(999).           " User text 3
+
+DATA: d_hdr_begrtime TYPE i,
+      d_hdr_endrtime TYPE i,
+      d_hdr_rtime(15) VALUE 'HH:MM:SS,mm'.
+
+DATA : gt_dyn_fcat            TYPE lvc_t_fcat,
+       gt_dyn_dfcat           TYPE lvc_t_fcat,
+       gt_dyn_table           TYPE REF TO data,
+       gt_dyn_dtable          TYPE REF TO data,
+       gs_line                TYPE REF TO data,
+       gs_dline               TYPE REF TO data,
+       gv_pos                 TYPE i.
+
+DATA : BEGIN OF i_knvv OCCURS 0,
+         vkbur  LIKE  knvv-vkbur,
+         vkorg  LIKE  knvv-vkorg,
+         vtweg  LIKE  knvv-vtweg,
+         spart  LIKE  knvv-spart,
+         kunnr  LIKE  knvv-kunnr,
+         kdgrp  LIKE  knvv-kdgrp,
+         kvgr4  LIKE  knvv-kvgr4,
+       END OF i_knvv.
+
+FIELD-SYMBOLS : <fs_output>   TYPE STANDARD TABLE,
+                <fs_line>     TYPE ANY,
+                <fs>          TYPE ANY.
+
+FIELD-SYMBOLS : <fs_download> TYPE STANDARD TABLE,
+                <fs_dline>    TYPE ANY,
+                <fs_dfield>   TYPE ANY.
