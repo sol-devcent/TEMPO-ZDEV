@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_PROG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PROGDIR>
+    <NAME>ZMR_DO_MONITOR</NAME>
+    <SUBC>1</SUBC>
+    <RLOAD>E</RLOAD>
+    <FIXPT>X</FIXPT>
+    <UCCHECK>X</UCCHECK>
+   </PROGDIR>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>003</KEY>
+     <ENTRY>All DO</ENTRY>
+     <LENGTH>6</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>004</KEY>
+     <ENTRY>Not yet GI</ENTRY>
+     <LENGTH>10</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>005</KEY>
+     <ENTRY>Not yet POD</ENTRY>
+     <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>006</KEY>
+     <ENTRY>User Criteria</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>080</KEY>
+     <ENTRY>Settings</ENTRY>
+     <LENGTH>8</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>100</KEY>
+     <ENTRY>Monitoring DO</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>F58</KEY>
+     <ENTRY>Program selections</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>F59</KEY>
+     <ENTRY>Output format</ENTRY>
+     <LENGTH>13</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>F66</KEY>
+     <ENTRY>ABAP list</ENTRY>
+     <LENGTH>9</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>F72</KEY>
+     <ENTRY>SAP List Viewer</ENTRY>
+     <LENGTH>15</LENGTH>
+    </item>
+    <item>
+     <ID>R</ID>
+     <ENTRY>DO Monitoring (Header level)</ENTRY>
+     <LENGTH>28</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>ALL</KEY>
+     <ENTRY>All DO</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>CRT_DATE</KEY>
+     <ENTRY>Created on</ENTRY>
+     <LENGTH>18</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>DEL_NUM</KEY>
+     <ENTRY>Delivery</ENTRY>
+     <LENGTH>16</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>ENT_TIME</KEY>
+     <ENTRY>Entry Time</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>GI</KEY>
+     <ENTRY>Not yet GI</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>GI_DATE</KEY>
+     <ENTRY>Good Issue date</ENTRY>
+     <LENGTH>27</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>OWN</KEY>
+     <ENTRY>User Criteria</ENTRY>
+     <LENGTH>21</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>PICKDATE</KEY>
+     <ENTRY>Picking Date</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>POD</KEY>
+     <ENTRY>Not yet POD</ENTRY>
+     <LENGTH>21</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>POD_DATE</KEY>
+     <ENTRY>Proof of delivery date</ENTRY>
+     <LENGTH>30</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_BUFF</KEY>
+     <ENTRY>Use buffer</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_VARI</KEY>
+     <ENTRY>Layout</ENTRY>
+     <LENGTH>14</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>SHIP_PNT</KEY>
+     <ENTRY>Shipping point</ENTRY>
+     <LENGTH>35</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>SHIP_TO</KEY>
+     <ENTRY>Ship-to party</ENTRY>
+     <LENGTH>21</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
+   </TPOOL>
+  </asx:values>
+ </asx:abap>
+</abapGit>
