@@ -1,0 +1,9 @@
+PROCESS BEFORE OUTPUT.
+  MODULE status.
+
+PROCESS AFTER INPUT.
+  MODULE exit AT EXIT-COMMAND.
+  MODULE user_command.
+
+PROCESS ON VALUE-REQUEST.
+  FIELD gv_cabang MODULE value_cabang.
