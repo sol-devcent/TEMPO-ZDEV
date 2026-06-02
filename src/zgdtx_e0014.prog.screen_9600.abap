@@ -1,0 +1,10 @@
+
+PROCESS BEFORE OUTPUT.
+
+  MODULE m_9600_set_screen.
+
+PROCESS AFTER INPUT.
+
+  MODULE m_9600_user_command.
+
+
