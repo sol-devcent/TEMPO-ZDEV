@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZDETPAYDT</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>DATUM</DOMNAME>
+    <HEADLEN>17</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>17</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Detail Payment Date</DDTEXT>
+    <REPTEXT>Det. Payment Date</REPTEXT>
+    <SCRTEXT_S>DetPayDt</SCRTEXT_S>
+    <SCRTEXT_M>Det. Payment Date</SCRTEXT_M>
+    <SCRTEXT_L>Det. Payment Date</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
