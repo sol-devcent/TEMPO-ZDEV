@@ -1,0 +1,85 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFI_FAKTUR_PROCESSTOP
+*&---------------------------------------------------------------------*
+TABLES : sscrfields.
+
+TYPES : BEGIN OF ty_data,
+          npwp_pembeli   TYPE string,
+          nama_pembeli   TYPE string,
+          kode_transaksi TYPE string,
+          nomor_fp       TYPE string,
+          tanggal_fp     TYPE string,
+          masa_pajak     TYPE string,
+          tahun          TYPE string,
+          status_faktur  TYPE string,
+          esignstatus    TYPE string,
+          dpp            TYPE string,
+          dpp_nilai_lain TYPE string,
+          ppn            TYPE string,
+          ppnbm          TYPE string,
+          penandatangan  TYPE string,
+          referensi      TYPE string,
+          penjual        TYPE string,
+          pemungut_ppn   TYPE string,
+        END OF ty_data.
+
+TYPES : BEGIN OF ty_out,
+*          mark,
+*          icon(4),
+          npwp_pembeli   TYPE string,
+          nama_pembeli   TYPE string,
+          kode_transaksi TYPE string,
+          nomor_fp       TYPE string,
+          tanggal_fp     TYPE string,
+          masa_pajak     TYPE string,
+          tahun          TYPE string,
+          status_faktur  TYPE string,
+          esignstatus    TYPE string,
+          dpp            TYPE bseg-dmbtr,
+          dpp_nilai_lain TYPE bseg-dmbtr,
+          ppn            TYPE bseg-dmbtr,
+          ppnbm          TYPE bseg-dmbtr,
+          waers          TYPE bkpf-waers,
+          penandatangan  TYPE string,
+          referensi      TYPE string,
+          penjual        TYPE string,
+          pemungut_ppn   TYPE string,
+          style          TYPE lvc_t_styl,
+          color          TYPE lvc_t_scol,
+        END OF ty_out.
+
+CLASS : lcl_application DEFINITION DEFERRED.
+
+DATA : ok_code          TYPE sy-ucomm,
+       gs_exclude       TYPE ui_functions,
+       g_customcont     TYPE REF TO cl_gui_custom_container,
+       g_splitter       TYPE REF TO cl_gui_splitter_container,
+       g_splitter1      TYPE REF TO cl_gui_splitter_container,
+       g_contain01      TYPE REF TO cl_gui_container,
+       g_contain02      TYPE REF TO cl_gui_container,
+       g_contain03      TYPE REF TO cl_gui_container,
+       g_contain04      TYPE REF TO cl_gui_container,
+       g_tabgrid        TYPE REF TO cl_gui_alv_grid,
+       event_receiver   TYPE REF TO lcl_application,
+       selected         VALUE 'X',
+       gv_repid         LIKE sy-repid,
+       gs_variant       LIKE disvariant,
+       gs_layout_alv    TYPE lvc_s_layo,
+       gt_main_sort     TYPE lvc_t_sort WITH HEADER LINE,
+       gt_main_fieldcat TYPE lvc_t_fcat,
+       gs_stable        TYPE lvc_s_stbl,
+       gs_toolbar       TYPE stb_button,
+       gr_hierseq       TYPE REF TO cl_salv_hierseq_table,
+       gr_table         TYPE REF TO cl_salv_table,
+       g_handle_alv     TYPE i,
+       gt_bapiret2      TYPE STANDARD TABLE OF bapiret2.
+
+DATA : gt_data  TYPE STANDARD TABLE OF ty_data,
+       gt_out   TYPE STANDARD TABLE OF ty_out,
+       gt_t001k TYPE STANDARD TABLE OF t001k,
+       gt_t052  TYPE STANDARD TABLE OF t052,
+       gt_005   TYPE STANDARD TABLE OF zcoretax0005,
+       gs_t001  TYPE t001.
+
+DATA : gv_subrc TYPE sy-subrc,
+       gv_monat TYPE t247-mnr.
