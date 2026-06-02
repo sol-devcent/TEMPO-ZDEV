@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZGDTXDE_ITOTHLAST</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>WERTV8</DOMNAME>
+    <HEADLEN>37</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>37</SCRLEN3>
+    <DDTEXT>Item other condition summarized amount</DDTEXT>
+    <REPTEXT>Item other condition summarized value</REPTEXT>
+    <SCRTEXT_S>Item othsv</SCRTEXT_S>
+    <SCRTEXT_M>Item other cond sumv</SCRTEXT_M>
+    <SCRTEXT_L>Item other condition summarized value</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

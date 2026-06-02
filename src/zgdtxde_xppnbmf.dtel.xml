@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZGDTXDE_XPPNBMF</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>WERTV7</DOMNAME>
+    <HEADLEN>40</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>19</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>Item ExPPnBM amount in document currency</DDTEXT>
+    <REPTEXT>Item ExPPnBM amount in document currency</REPTEXT>
+    <SCRTEXT_S>ExPPnBM am</SCRTEXT_S>
+    <SCRTEXT_M>Item ExPPnBM amount</SCRTEXT_M>
+    <SCRTEXT_L>Item ExPPnBM amount in document currency</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
