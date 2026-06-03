@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>ZQMMATNR_FACTOR</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZQMMATNR_FACTORTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZQMMATNR_FACTOR</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZQMMATNR_FACTOR</FUNCNAME>
+     <SHORT_TEXT>Material Factorisasi</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>I_MATNR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MATNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_CHARG</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHARG_D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_WERKS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>WERKS_D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_TEXT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPI2045L2-TXT_OPER</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_INSPOPER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPI2045L2-INSPOPER</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>E_MEAN_VALUE</PARAMETER>
+       <TYP>QMEAN_VAL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>I_MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_CHARG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Batch Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_WERKS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Plant</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_TEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>List of inspection lot operations</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_INSPOPER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection Lot Operation Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>E_MEAN_VALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Mean Value</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
