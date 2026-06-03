@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function group FI</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFFIF01</SOBJ_NAME>
+    <SOBJ_NAME>LZFFITOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFFI</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_CALC_DATE</FUNCNAME>
+     <SHORT_TEXT>Date calculation</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>DATE</PARAMETER>
+       <DBFIELD>BKPF-BLDAT</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DAYS</PARAMETER>
+       <DBFIELD>BSEG-DTWS1</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MONTHS</PARAMETER>
+       <DBFIELD>BSEG-DTWS2</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SIGN</PARAMETER>
+       <DBFIELD>BSEG-XNEGP</DBFIELD>
+       <DEFAULT>&apos;+&apos;</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>YEARS</PARAMETER>
+       <DBFIELD>BSEG-DTWS3</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>CALC_DATE</PARAMETER>
+       <TYP>BKPF-BLDAT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document date in document</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DAYS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Instruction key 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MONTHS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Instruction key 2</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SIGN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Indicator: Negative posting</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>YEARS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Instruction key 3</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CALC_DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Date in Document</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
