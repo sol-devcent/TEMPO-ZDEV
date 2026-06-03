@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZTDTMN</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZTDTMN</DOMNAME>
+    <HEADLEN>18</HEADLEN>
+    <SCRLEN1>07</SCRLEN1>
+    <SCRLEN2>07</SCRLEN2>
+    <SCRLEN3>18</SCRLEN3>
+    <DDTEXT>Total DownTime Menit</DDTEXT>
+    <REPTEXT>Total Downtime mnt</REPTEXT>
+    <SCRTEXT_S>TDt Mnt</SCRTEXT_S>
+    <SCRTEXT_M>TDt Mnt</SCRTEXT_M>
+    <SCRTEXT_L>Total Downtime mnt</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
