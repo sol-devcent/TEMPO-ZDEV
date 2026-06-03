@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_EXCEL_AUTOFILTER</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Autofilter</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <LONGTEXTS_CO>
+    <item>
+     <DOKIL>
+      <ID>CO</ID>
+      <OBJECT>ZCL_EXCEL_AUTOFILTER          SET_TEXT_FILTER</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>E</TYP>
+      <VERSION>0001</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00004</TXTLINES>
+      <DOKSTATE>R</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZCL_EXCEL_AUTOFILTER          SET_TEXT_FILTER</TDNAME>
+      <TDID>CO</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Work in progress</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Currently only ONE textpattern or text is allowed</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>You may use wildcards like in select-options ( * and + )</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Rows are filtered out already, missing is the setting of the filterarea</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;PRECONDITION&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;RESULT&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;PARAMETERS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;EXCEPTIONS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;HINTS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CO>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>FILTER_AREA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Autofilter area ( rows and columns )</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_FILTER_AREA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get filter area for filter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_FILTER_RANGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get Filter range for filter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_FILTER_REFERENCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get filter reference for filter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get filter values table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_FILTER_AREA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set filter area for filter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set Filter value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set Filter values with table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>VALIDATE_AREA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Validates filter area</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table with autofilter values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>WORKSHEET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Worksheet</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IO_SHEET</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Worksheet</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_FILTER_RANGE</CMPNAME>
+     <SCONAME>R_RANGE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cell Value</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_FILTER_REFERENCE</CMPNAME>
+     <SCONAME>R_REF</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Full reference of a range</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_VALUES</CMPNAME>
+     <SCONAME>RT_FILTER</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cell Value</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_FILTER_AREA</CMPNAME>
+     <SCONAME>IS_AREA</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Autofilter area ( rows and columns )</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_VALUE</CMPNAME>
+     <SCONAME>I_COLUMN</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cell Column</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_VALUE</CMPNAME>
+     <SCONAME>I_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cell Column</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_VALUES</CMPNAME>
+     <SCONAME>IT_VALUES</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table with autofilter values</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
