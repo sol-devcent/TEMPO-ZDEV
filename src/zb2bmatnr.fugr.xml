@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>B2B Material Mapping</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZB2BMATNRTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZB2BMATNR</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZSB2B_MATNR</FUNCNAME>
+     <SHORT_TEXT>Mapping Material B2B</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>PT_ZSH_B2B</PARAMETER>
+       <DBSTRUCT>ZSH_B2B</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>PT_ZSD_B2B</PARAMETER>
+       <DBSTRUCT>ZSD_B2B</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PT_ZSH_B2B</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HEADER B2B</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PT_ZSD_B2B</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HEADER B2B</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
