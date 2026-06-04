@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZFILEB2B</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>40</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>18</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>DOWNLOAD FILE NAME</DDTEXT>
+    <REPTEXT>DOWNLOAD FILE NAME</REPTEXT>
+    <SCRTEXT_S>File Name</SCRTEXT_S>
+    <SCRTEXT_M>DOWNLOAD FILE NAME</SCRTEXT_M>
+    <SCRTEXT_L>DOWNLOAD FILE NAME</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000125</LENG>
+    <OUTPUTLEN>000125</OUTPUTLEN>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
