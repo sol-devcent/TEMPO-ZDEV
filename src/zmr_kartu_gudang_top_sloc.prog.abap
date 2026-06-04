@@ -1,0 +1,142 @@
+*----------------------------------------------------------------------*
+*   INCLUDE ZMR_KARTU_GUDANG_TOP                                       *
+*----------------------------------------------------------------------*
+
+  TABLES: MSEG, MARA, MAKT, MARC, EKKO, S031, T001W, T001L, T156T, LIKP,
+          TVSTT.
+
+  TYPES: BEGIN OF T_itab,
+             matnr  like s031-matnr,
+             werks  like s031-werks,
+             spmon  like s031-spmon,
+             UMWRK  LIKE MSEG-UMWRK,
+             MBLNR  LIKE MSEG-MBLNR,
+             zeile  LIKE mseg-zeile,
+             XBLNR  LIKE MKPF-XBLNR,
+             EBELN  LIKE MSEG-EBELN,
+             EBELP  LIKE MSEG-EBELP,
+             BUDAT  LIKE MKPF-BUDAT,
+             MJAHR  LIKE MSEG-MJAHR,
+             SMBLN  LIKE MSEG-SMBLN,
+             LGORT  LIKE MSEG-LGORT,
+             BWART  LIKE MSEG-BWART,
+             CHARG  LIKE MSEG-CHARG,
+             BTEXT  LIKE T156T-BTEXT,
+             MAKTX  LIKE MAKT-MAKTX,
+             MEINS  LIKE MARA-MEINS,
+             NAME1  LIKE T001W-NAME1,
+             NAME2(60),
+             name3  LIKE kna1-name3,
+             SGTXT  LIKE MSEG-SGTXT,
+             SHKZG  LIKE MSEG-SHKZG,
+             MENGE  LIKE MSEG-MENGE,
+             MASUK  LIKE MSEG-MENGE,
+             charg_m  like mseg-charg,
+             vfdat_m  like mseg-vfdat,
+             RESWK  LIKE EKKO-RESWK,
+             GSBER  LIKE MSEG-GSBER,
+             LIFNR  LIKE MSEG-LIFNR,
+             KELUAR LIKE MSEG-MENGE,
+             charg_k  like mseg-charg,
+             vfdat_k  like mseg-vfdat,
+             KUNNR  LIKE MSEG-KUNNR,
+             mzubb  like s031-mzubb,
+             magbb  like s031-magbb,
+             vfdat  like mseg-vfdat,
+         END OF T_itab.
+
+  TYPES: BEGIN OF TA_ITAB1,
+           MATNR    LIKE S031-MATNR,
+           WERKS    LIKE S031-WERKS,
+           SPMON    LIKE S031-SPMON,
+           LGORT    LIKE S031-LGORT,
+           MZUBB    LIKE S031-MZUBB,
+           MAGBB    LIKE S031-MAGBB,
+         END OF TA_ITAB1.
+
+  TYPES: BEGIN OF TA_DELMAT,
+           MATNR    LIKE S031-MATNR,
+           WERKS    LIKE S031-WERKS,
+         END OF TA_DELMAT.
+
+  TYPES: BEGIN OF TA_BEGIN,
+           MATNR    LIKE S031-MATNR,
+           WERKS    LIKE S031-WERKS,
+           BEGSTC   LIKE S031-MZUBB,
+         END OF TA_BEGIN.
+
+  DATA:  BEGIN OF TA_PROFL OCCURS 0,
+           MATNR    LIKE MARA-MATNR,
+           MEINS    LIKE MARA-MEINS,
+           MAKTX    LIKE MAKT-MAKTX,
+           PROFL    LIKE MARA-PROFL.
+  DATA:  END OF TA_PROFL.
+
+  DATA:  BEGIN OF TA_STOCK OCCURS 0,
+           matnr   LIKE s032-matnr,
+           mbwbest LIKE s032-mbwbest,
+           beg_st  LIKE s032-mbwbest.
+  DATA:  END   OF TA_STOCK.
+
+  DATA: I_itab  TYPE T_itab OcCURS 0,
+        va_month(2) type n,
+        WA_itab TYPE T_itab,
+        I_ITAB1  TYPE TA_ITAB1 OCCURS 0,
+        WA_ITAB1 TYPE TA_ITAB1,
+        I_ITAB2  TYPE T_ITAB OCCURS 0,
+        WA_ITAB2 TYPE T_ITAB,
+        I_BEGIN  TYPE TA_BEGIN OCCURS 0,
+        WA_BEGIN TYPE TA_BEGIN,
+        I_DELMAT TYPE TA_DELMAT OCCURS 0,
+        WA_DELMAT TYPE TA_DELMAT,
+        sw(1),
+        va_labst like mard-labst,
+        va_insme like mard-insme,
+        va_speme like mard-speme,
+        va_umlme like mard-umlme,
+        va_umlmc like marc-umlmc,
+        VA_TRAME LIKE marc-trame,
+        va_spmon like s031-spmon,
+        va_lblab like mslb-lblab,
+        va_stock like s031-mzubb,
+        va_end_stock like s031-mzubb,
+        va_MSEHT like T006A-MSEHT,
+        va_mzubb like s031-mzubb,
+        va_magbb like s031-magbb.
+
+  data:  VA_MAKTX(50),
+         VA_PERIOD(14),
+         VA_KUNNR(10),
+         BULAN(2),
+         VA_XBLNR     LIKE MKPF-XBLNR,
+         VA_LGORT     LIKE MSEG-LGORT,
+         VA_CHARG     LIKE MSEG-CHARG,
+         VA_SHKZG     LIKE MSEG-SHKZG,
+         VA_MENGE     LIKE MSEG-MENGE,
+         VA_LGOBE     LIKE T001L-LGOBE,
+         VA_LVORM     LIKE MARC-LVORM,
+         VA_VSTEL     LIKE LIKP-VSTEL,
+         VA_WERKS     LIKE S031-WERKS,
+         VA_MEINS     LIKE MARA-MEINS,
+         VA_NAME1     LIKE T001W-NAME1,
+         VA_BEGSTC    LIKE S031-MZUBB,
+         TOTAL_MASUK  LIKE S031-MZUBB,
+         TOTAL_KELUAR LIKE S031-MZUBB,
+         VA_ENDSTC    LIKE S031-MZUBB,
+         ZEBRA        TYPE I.
+
+  data:  va_nou type i,
+         va_line type i value 10,
+         ctr    type i,
+         va_page type i,
+         va_text(30),
+         tot_dmbtr1   like regup-dmbtr,
+         tot_dmbtr2   like regup-dmbtr,
+         va_PERNR like pa0001-PERNR,
+         c1    type i,
+         w0    type i,
+         w1    type i,  w2    type i,  w3    type i,  w4    type i,
+         w5    type i,  w6    type i,  w7    type i,  w8    type i,
+         W9    TYPE I.
+
+  Ranges: ra_spmon for s031-spmon.
