@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZGDTXDE_PRTNRVI</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZGDTXDO_CHECK</DOMNAME>
+    <HEADLEN>27</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>19</SCRLEN2>
+    <SCRLEN3>27</SCRLEN3>
+    <DDTEXT>Print Nota Retur for VAT-in</DDTEXT>
+    <REPTEXT>Print Nota Retur for VAT-in</REPTEXT>
+    <SCRTEXT_S>NR Prt VI</SCRTEXT_S>
+    <SCRTEXT_M>Print NR for VAT in</SCRTEXT_M>
+    <SCRTEXT_L>Print Nota Retur for VAT-in</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>

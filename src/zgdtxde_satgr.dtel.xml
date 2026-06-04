@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZGDTXDE_SATGR</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZGDTXDO_REPTYPE</DOMNAME>
+    <HEADLEN>24</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>18</SCRLEN2>
+    <SCRLEN3>24</SCRLEN3>
+    <DDTEXT>Grouping of Satuan lines</DDTEXT>
+    <REPTEXT>Grouping of Satuan lines</REPTEXT>
+    <SCRTEXT_S>Grp of Sat</SCRTEXT_S>
+    <SCRTEXT_M>Grouping of Satuan</SCRTEXT_M>
+    <SCRTEXT_L>Grouping of Satuan lines</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
