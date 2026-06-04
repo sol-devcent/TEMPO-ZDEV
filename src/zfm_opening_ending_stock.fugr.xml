@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>FM Opening &amp; Ending Stock</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFM_OPENING_ENDING_STOCKF01</SOBJ_NAME>
+    <SOBJ_NAME>LZFM_OPENING_ENDING_STOCKTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFM_OPENING_ENDING_STOCK</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFM_OPENING_ENDING_STOCK</FUNCNAME>
+     <SHORT_TEXT>Get Opening &amp; ending stock by material</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>MATNR</PARAMETER>
+       <TYP>MATNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>WERKS</PARAMETER>
+       <TYP>WERKS_D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SPMON</PARAMETER>
+       <TYP>SPMON</TYP>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_STOCK</PARAMETER>
+       <DBSTRUCT>ZMS_OPENING_ENDING_STOCK</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WERKS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Plant</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SPMON</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Period to analyze - month</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_STOCK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>for FM ZFM_OPENING_ENDING_STOCK</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
