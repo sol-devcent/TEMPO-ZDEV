@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZTX</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>&amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>002</MSGNR>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>505</MSGNR>
+     <TEXT>Faktur pajak date &amp; is earlier than billing date.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>506</MSGNR>
+     <TEXT>Tax period &amp; has been closed or branch &amp; is not defined</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>507</MSGNR>
+     <TEXT>Tax period &amp; has not been closed or branch &amp; is not defined</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>508</MSGNR>
+     <TEXT>Billing date must be within the same period.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>509</MSGNR>
+     <TEXT>Please execute program via designated transaction code or menu.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>510</MSGNR>
+     <TEXT>Error when modifying table &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>511</MSGNR>
+     <TEXT>Billing date must be within the same month with Tax period.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>512</MSGNR>
+     <TEXT>The process is only possible for last month billing.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>513</MSGNR>
+     <TEXT>Error when deleting records from table &amp;.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZTX</ARBGB>
+     <MSGNR>514</MSGNR>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
