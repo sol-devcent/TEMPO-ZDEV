@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>PPN 11</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZ_PPN11F01</SOBJ_NAME>
+    <SOBJ_NAME>LZ_PPN11TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZ_PPN11</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_PPN11</FUNCNAME>
+     <SHORT_TEXT>PPN 11</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_BUKRS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>RTAX1U38-BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_MWSKZ</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>RTAX1U38-MWSKZ</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_WRBTR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>NETWR_AK</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_CALTY</PARAMETER>
+       <TYP>CHAR5</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_DATUM</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SY-DATUM</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_MASTX</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABPER_RF</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PO_WRBTR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>NETWR_AK</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PO_MWSKZ</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPIACTX09-TAX_CODE</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PO_PPNTX</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR10</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PO_PPN</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR2</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_MWSKZ</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sales Tax Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_WRBTR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_CALTY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>R/2 table</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_DATUM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Current Date of Application Server</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_MASTX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Settlement period</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PO_WRBTR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PO_MWSKZ</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sales Tax Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PO_PPNTX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character Field Length = 10</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PO_PPN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Version Number Component</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
