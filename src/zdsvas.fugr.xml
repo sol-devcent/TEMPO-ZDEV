@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Z DSVAS: Document administration</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZDSVASTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZDSVAS</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_DSVAS_DOC_FILENAME_SPLIT</FUNCNAME>
+     <SHORT_TEXT>Doc File Name Split</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PF_DOCID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TEXT255</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PF_DIRECTORY</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TEXT255</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PF_FILENAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TEXT255</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PF_EXTENSION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TEXT255</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PF_DOCID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Complete file name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PF_DIRECTORY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Directory</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PF_FILENAME</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PF_EXTENSION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Extension</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
