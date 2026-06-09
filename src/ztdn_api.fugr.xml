@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>API function Group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZTDN_APIF01</SOBJ_NAME>
+    <SOBJ_NAME>LZTDN_APIF02</SOBJ_NAME>
+    <SOBJ_NAME>LZTDN_APIF03</SOBJ_NAME>
+    <SOBJ_NAME>LZTDN_APIF04</SOBJ_NAME>
+    <SOBJ_NAME>LZTDN_APIF05</SOBJ_NAME>
+    <SOBJ_NAME>LZTDN_APITOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZTDN_API</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZTDNSD_F0001</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Get Voucher</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>KDMAT</PARAMETER>
+       <TYP>KDMAT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>MATNR</PARAMETER>
+       <TYP>MATNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>VCRNO</PARAMETER>
+       <TYP>ZVCRNO</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>VCRAMT</PARAMETER>
+       <TYP>WRBTR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>WAERS</PARAMETER>
+       <TYP>WAERS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>KDMAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material belonging to the customer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VCRNO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Vourcher Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VCRAMT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WAERS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Currency Key</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0002</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Get Routelist</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>KUNNR</PARAMETER>
+       <TYP>KUNNR</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>KUNNR</PARAMETER>
+       <TYP>KUNNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>VKBUR</PARAMETER>
+       <TYP>VKBUR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>KUNNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material belonging to the customer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KUNNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material belonging to the customer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VKBUR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Vourcher Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0003</FUNCNAME>
+     <SHORT_TEXT>Send Stock alokasi for TRD</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PROSES</PARAMETER>
+       <DEFAULT>&apos;TDN_TRD&apos;</DEFAULT>
+       <TYP>CHAR10</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SALES_OFFICE</PARAMETER>
+       <TYP>VKBUR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PERIODE</PARAMETER>
+       <TYP>SPMON</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>API</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_MATERIAL</PARAMETER>
+       <DBSTRUCT>MARA</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PROSES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material belonging to the customer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_OFFICE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sales Office</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PERIODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Period to analyze - month</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>API</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Trigger From TDN</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_MATERIAL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>General Material Data</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0004</FUNCNAME>
+     <SHORT_TEXT>Interface for Create Customer TRD</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PROSES</PARAMETER>
+       <DEFAULT>&apos;TDN_CUSTOMER&apos;</DEFAULT>
+       <TYP>CHAR15</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PHONE_NUMBER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR20</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR25</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FLAG</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>API</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PATHNAME</PARAMETER>
+       <DBFIELD>EDI_PATH-PTHNAM</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SAP_ID</PARAMETER>
+       <TYP>KUNNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PROSES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material belonging to the customer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PHONE_NUMBER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Phone Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No Order</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FLAG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag Change</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>API</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Trigger From TDN</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PATHNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Path name (including file name)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SAP_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Number 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0005</FUNCNAME>
+     <SHORT_TEXT>Re upload AWB Image by No Order</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR25</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>NO_AWB</PARAMETER>
+       <TYP>ZNOAWB</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No Order</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_AWB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No. Awb</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0006</FUNCNAME>
+     <SHORT_TEXT>Posting eVoudher</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR25</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>BELNR</PARAMETER>
+       <TYP>BELNR_D</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No Order</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BELNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Accounting Document Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0007</FUNCNAME>
+     <SHORT_TEXT>Posting eVoudher</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BSTKD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NO_ORDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No Order</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0008</FUNCNAME>
+     <SHORT_TEXT>Start shipment for Tempo Mart</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NO_SHIPMENT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>EXTI1</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NO_SHIPMENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>NO_SHIPMENT TDN</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0009</FUNCNAME>
+     <SHORT_TEXT>Interface for Change Customer TRD</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>KUNNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>KUNNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VWERK</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>VWERK</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>KUNN2</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>KUNNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>KUNRG</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>KUNRG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SAP_ID</PARAMETER>
+       <TYP>KUNNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>KUNNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VWERK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Delivery Plant</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KUNN2</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Sold</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KUNRG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Payer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SAP_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Number 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTDNSD_F0010</FUNCNAME>
+     <SHORT_TEXT>Send data Intransit to Tempomart</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>VBELN</PARAMETER>
+       <TYP>VBELN</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR100</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>JSON_OUT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>VBELN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sales and Distribution Document Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount in document currency</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JSON_OUT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
