@@ -1,0 +1,2 @@
+FUNCTION-POOL ZWM_EAN11_MATNR.              "MESSAGE-ID ..
+

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>EAN11 to MATNR</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZWM_EAN11_MATNRTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZWM_EAN11_MATNR</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZWM_CHECK_MATNR</FUNCNAME>
+     <SHORT_TEXT>Check Material</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_CHUMAT</PARAMETER>
+       <TYP>RLMOB-CHUMAT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_MATNR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MARA-MATNR</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_MATNR</PARAMETER>
+       <TYP>MARA-MATNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_CHARG</PARAMETER>
+       <TYP>MCH1-CHARG</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_BATCH</PARAMETER>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_CHUMAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>HU: Material number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_CHARG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Batch Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_BATCH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Indicator</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZWM_EAN11_MATNR</FUNCNAME>
+     <SHORT_TEXT>EAN11 to MATNR</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>EAN11</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MEAN-EAN11</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>MATNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MARA-MATNR</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>EAN11</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>International Article Number (EAN/UPC)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
