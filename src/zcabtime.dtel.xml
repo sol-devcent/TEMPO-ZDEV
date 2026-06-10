@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZCABTIME</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>UZEIT</DOMNAME>
+    <HEADLEN>29</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>29</SCRLEN3>
+    <DDTEXT>Register/Lapor di Cabang Time</DDTEXT>
+    <REPTEXT>Register/Lapor di Cabang Time</REPTEXT>
+    <SCRTEXT_S>Reg. Bran</SCRTEXT_S>
+    <SCRTEXT_M>Waktu Lapor dicabang</SCRTEXT_M>
+    <SCRTEXT_L>Register/Lapor di Cabang Time</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
