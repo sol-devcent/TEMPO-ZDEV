@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>FM WM</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZWMFM_001TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZWMFM_001</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZWMFM_CHECK</FUNCNAME>
+     <SHORT_TEXT>FM Check WM</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_MATNR</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MARA-MATNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_LGNUM</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>LTAK-LGNUM</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_MENGE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MSEG-MENGE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_LGTYP</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>LAGP-LGTYP</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_LGPLA</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>LAGP-LGPLA</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_MEINS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>MSEG-MEINS</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_SUBRC</PARAMETER>
+       <TYP>SY-SUBRC</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_LGNUM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Warehouse Number / Warehouse Complex</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_MENGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Quantity</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_LGTYP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Storage Type</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_LGPLA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Storage Type</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_MEINS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Base Unit of Measure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_SUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Value of ABAP Statements</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
