@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_SAC7</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Class for SAC7</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>DELETE_SPECIAL_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete Special Characer in SAC7</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>M_OPEN_DATASET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Open dataset</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>DELETE_SPECIAL_CHAR</CMPNAME>
+     <SCONAME>PI_CHAR</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character 1500</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DELETE_SPECIAL_CHAR</CMPNAME>
+     <SCONAME>PO_CHAR</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Character 1500</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DELETE_SPECIAL_CHAR</CMPNAME>
+     <SCONAME>PROJECT_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Field length 18</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>M_OPEN_DATASET</CMPNAME>
+     <SCONAME>PARAM_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>File Path</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>M_OPEN_DATASET</CMPNAME>
+     <SCONAME>T_RETURN</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table Type for table</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
