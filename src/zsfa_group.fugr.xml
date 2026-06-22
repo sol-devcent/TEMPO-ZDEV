@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group TIMOS</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZSFA_GROUPF01</SOBJ_NAME>
+    <SOBJ_NAME>LZSFA_GROUPTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZSFA_GROUP</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZSFASD_F001</FUNCNAME>
+     <SHORT_TEXT>Create Customer</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_PROCESS</PARAMETER>
+       <TYP>CHAR30</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_SORTL</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>KNA1-SORTL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>CUSTOMER_CODE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR10</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PI_TYPE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PI_MESSAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPI_MSG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_PROCESS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>30 Characters</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_SORTL</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CUSTOMER_CODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Single-Character Flag</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Text</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZSFASD_F002</FUNCNAME>
+     <SHORT_TEXT>Message Handling</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_SUBRC</PARAMETER>
+       <TYP>SY-SUBRC</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_FUNCTION</PARAMETER>
+       <TYP>RS38L-NAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPI_MSG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_SUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP System Field: Return Code of ABAP Statements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_FUNCTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name of Function Module</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Text</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZSFASD_F003</FUNCNAME>
+     <SHORT_TEXT>RFC Create Order TIMOS</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_PROSES</PARAMETER>
+       <TYP>CHAR15</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_ORDER_SFA</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SUBMI_SD</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>QUOTATION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>VBELN</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_STATUS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MESSAGE_ERROR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR200</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_NO_ERROR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>EDINUM</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CUSTOM_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_PROSES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Jenis Proses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_ORDER_SFA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No Order TiMOS</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>QUOTATION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Quotation Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Status</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MESSAGE_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Error</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_NO_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No Error</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CUSTOM_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
