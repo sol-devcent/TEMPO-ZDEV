@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZQM</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message for QM</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp;1 &amp;2 &amp;3 &amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Form ini khusus untuk Notification Type Z4 (QM-RS Internal Notification)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>No authorization for Notification Type &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>No authorization to reverse material document from UD in plant &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Are you sure you want to reverse mat. doc. from UD</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>No authorization to cancel UD</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>for Inspection &amp;?</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Inspection data not found based on selection</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Report ini khusus untuk ZRM(Raw Material) dan ZPM(Pack Material)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Master Inspection Characteristic for Microbiology not found.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZQM</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Setting in table ZDGQMMTART is missing.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
