@@ -1,0 +1,24 @@
+WRITE wa_detail-itmamt TO gv_itmamt CURRENCY header-waers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
