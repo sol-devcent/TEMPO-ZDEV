@@ -1,0 +1,29 @@
+break bcdik.
+WRITE va_menget TO va_menget1 UNIT va_meins.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

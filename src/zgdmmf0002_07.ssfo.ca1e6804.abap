@@ -1,0 +1,20 @@
+WRITE gv_menge TO gv_mengec UNIT gv_meins.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+va_matnr = t_header-matnr.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

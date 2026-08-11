@@ -1,0 +1,25 @@
+TYPES: va_zgesstichpr(13) TYPE p DECIMALS 0.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

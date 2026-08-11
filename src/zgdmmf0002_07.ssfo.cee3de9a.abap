@@ -1,0 +1,24 @@
+DESCRIBE TABLE i_dt LINES gv_lines.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

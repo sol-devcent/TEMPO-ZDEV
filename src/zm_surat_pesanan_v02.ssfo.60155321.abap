@@ -1,0 +1,23 @@
+gv_len = STRLEN( gs_header-pbfno ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
