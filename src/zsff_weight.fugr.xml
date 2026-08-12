@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>SFF Weight</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZSFF_WEIGHTF01</SOBJ_NAME>
+    <SOBJ_NAME>LZSFF_WEIGHTTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZSFF_WEIGHT</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZSFF_WEIGHT</FUNCNAME>
+     <SHORT_TEXT>SFF Weight</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_PROCESS</PARAMETER>
+       <TYP>CHAR30</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_DATA</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MSGTYP</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR1</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPI_MSG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>PT_FP_PGI</PARAMETER>
+       <DBSTRUCT>ZSFFST001_TMP</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>PT_WH_PRINT</PARAMETER>
+       <DBSTRUCT>ZSFFST003</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>PT_WH_PRINT_VND</PARAMETER>
+       <DBSTRUCT>ZSFFST004</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_PROCESS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>30 Characters</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Data Return</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MSGTYP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Type</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Text</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PT_FP_PGI</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fullpack PGI</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PT_WH_PRINT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Weighing Label</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PT_WH_PRINT_VND</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Weighing Label (Vendor)</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
