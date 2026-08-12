@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group for Dumping</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZDMPFG001F01</SOBJ_NAME>
+    <SOBJ_NAME>LZDMPFG001TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZDMPFG001</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZDMPFM001</FUNCNAME>
+     <SHORT_TEXT>Function Module for Dumping</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_PROCESS</PARAMETER>
+       <TYP>CHAR30</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_SECOND</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>INT4</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPI_MSG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>LINES</PARAMETER>
+       <DBSTRUCT>TLINE</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_PROCESS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>30 Characters</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_SECOND</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Natural number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Text</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LINES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>SAPscript: Text Lines</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
