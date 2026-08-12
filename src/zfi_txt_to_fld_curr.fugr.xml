@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Text to field currenncy</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFI_TXT_TO_FLD_CURRTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFI_TXT_TO_FLD_CURR</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZPSSV_TEXT_INTO_FIELD_CURRENCY</FUNCNAME>
+     <SHORT_TEXT>Convert text field into internal file with currency</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>I_AMOUNT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_CURRENCY</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>E_AMOUNT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>WRONG_AMOUNT</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>WRONG_CURRENCY</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>WRONG_DECIMAL</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>I_AMOUNT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_CURRENCY</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>E_AMOUNT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WRONG_AMOUNT</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WRONG_CURRENCY</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WRONG_DECIMAL</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
