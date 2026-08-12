@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Update Resb</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZTSPPPFM001TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZTSPPPFM001</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZTSPPPFM001</FUNCNAME>
+     <UPDATE_TASK>1</UPDATE_TASK>
+     <SHORT_TEXT>Update RESB</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_ADD</PARAMETER>
+       <DBSTRUCT>ZPPRESB_ADD</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_IRESB</PARAMETER>
+       <DBSTRUCT>RESB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_URESB</PARAMETER>
+       <DBSTRUCT>RESB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ONR00</PARAMETER>
+       <DBSTRUCT>ONR00</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_JEST</PARAMETER>
+       <DBSTRUCT>JEST</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_JSTO</PARAMETER>
+       <DBSTRUCT>JSTO</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZKMMPPDT019</PARAMETER>
+       <DBSTRUCT>ZKMMPPDT019</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZSFFPPDT004</PARAMETER>
+       <DBSTRUCT>ZSFFPPDT004</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZKMMPPDT024</PARAMETER>
+       <DBSTRUCT>ZKMMPPDT024</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_RESB</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_UPDATE_RESB</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_ONR00</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_ZPPRESB_ADD</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_JEST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_JSTO</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_ZKMMPPDT019</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_ZSFFPPDT004</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_INSERT_ZKMMPPDT024</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_ADD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZPPRESB_ADD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_IRESB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reservation/dependent requirements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_URESB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reservation/dependent requirements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ONR00</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>General Object Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_JEST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Individual Object Status</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_JSTO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Status object information</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZKMMPPDT019</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KMM Weighing History</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZSFFPPDT004</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>SFF-W Tara Weight</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZKMMPPDT024</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KMM3 Weighing History</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_RESB</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data RESB</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_UPDATE_RESB</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error update data RESB</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_ONR00</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data ONROO</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_ZPPRESB_ADD</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data ZPPRESB_ADD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_JEST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data JEST</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_JSTO</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data JSTO</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_ZKMMPPDT019</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data ZKMMPPDT019</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_ZSFFPPDT004</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>error_insert_zsffppdt004</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_INSERT_ZKMMPPDT024</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error insert data ZKMMPPDT024</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTSPPPFM002</FUNCNAME>
+     <UPDATE_TASK>1</UPDATE_TASK>
+     <SHORT_TEXT>Update RESB</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_ADD</PARAMETER>
+       <DBSTRUCT>ZPPRESB_ADD</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_DRESB</PARAMETER>
+       <DBSTRUCT>RESB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_URESB</PARAMETER>
+       <DBSTRUCT>RESB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ONR00</PARAMETER>
+       <DBSTRUCT>ONR00</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_JEST</PARAMETER>
+       <DBSTRUCT>JEST</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_JSTO</PARAMETER>
+       <DBSTRUCT>JSTO</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZKMMPPDT024</PARAMETER>
+       <DBSTRUCT>ZKMMPPDT024</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZKMMPPDT023</PARAMETER>
+       <DBSTRUCT>ZKMMPPDT023</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZKMMPPDT019</PARAMETER>
+       <DBSTRUCT>ZKMMPPDT019</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZTSPPPDT011</PARAMETER>
+       <DBSTRUCT>ZTSPPPDT011</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZTSPPPDT012</PARAMETER>
+       <DBSTRUCT>ZTSPPPDT012</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZSFFPPDT002</PARAMETER>
+       <DBSTRUCT>ZSFFPPDT002</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZSFFPPDT004</PARAMETER>
+       <DBSTRUCT>ZSFFPPDT004</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_RESB</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_UPDATE_RESB</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ONR00</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_JEST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_JSTO</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZPPRESB_ADD</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZKMMPPDT019</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZTSPPPDT011</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZTSPPPDT012</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZSFFPPDT002</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZKMMPPDT023</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>ERROR_DELETE_ZKMMPPDT024</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IT_ADD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZPPRESB_ADD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_DRESB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reservation/dependent requirements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_URESB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reservation/dependent requirements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ONR00</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>General Object Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_JEST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Individual Object Status</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_JSTO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Status object information</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZKMMPPDT024</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KMM3 Weighing History</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZKMMPPDT023</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KMM3 Detail Reservation for Fullpack</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZKMMPPDT019</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>KMM Weighing History</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZTSPPPDT011</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Detail Reservation for Fullpack (TSP)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZTSPPPDT012</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Status Proses Dumping</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZSFFPPDT002</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Detail Reservation for Fullpack (SFF)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZSFFPPDT004</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>SFF-W Tara Weight</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_RESB</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data RESB</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_UPDATE_RESB</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error update data RESB</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ONR00</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ONROO</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_JEST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data JEST</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_JSTO</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data JSTO</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZPPRESB_ADD</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZPPRESB_ADD</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZKMMPPDT019</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZKMMPPDT019</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZTSPPPDT011</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZTSPPPDT011</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZTSPPPDT012</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZTSPPPDT012</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZSFFPPDT002</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZSFFPPDT002</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZKMMPPDT023</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZKMMPPDT023</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERROR_DELETE_ZKMMPPDT024</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error delete data ZKMMPPDT024</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
