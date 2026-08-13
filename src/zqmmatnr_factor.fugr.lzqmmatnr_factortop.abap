@@ -1,0 +1,2 @@
+FUNCTION-POOL ZQMMATNR_FACTOR.              "MESSAGE-ID ..
+
