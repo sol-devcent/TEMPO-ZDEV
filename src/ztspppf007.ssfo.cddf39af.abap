@@ -1,0 +1,24 @@
+DESCRIBE TABLE GT_BATCH LINES gv_lines.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
