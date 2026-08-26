@@ -1,0 +1,23 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+<tt:root name="ackno"/>
+<tt:template>
+    <object>
+      <array>
+        <tt:loop ref=".ackno">
+          <object>
+            <str name="Material">
+              <tt:value ref="$ref.matnr"/>
+            </str>
+            <str name="Batch">
+              <tt:value ref="$ref.charg"/>
+            </str>
+            <str name="SN">
+              <tt:value ref="$ref.senum"/>
+            </str>
+          </object>
+        </tt:loop>
+      </array>
+    </object>
+</tt:template>
+</tt:transform>
