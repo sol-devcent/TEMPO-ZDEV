@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group Asset</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFFG_ASSETTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFFG_ASSET</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZFFM_ASSET</FUNCNAME>
+     <SHORT_TEXT>Function Asset</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>ANTS</PARAMETER>
+       <DBFIELD>ANTS</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_DATBIS</PARAMETER>
+       <DBFIELD>ANEP-BZDAT</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>E_ANLCV</PARAMETER>
+       <DBFIELD>ANLCV</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_ANEA</PARAMETER>
+       <DBSTRUCT>ANEA</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_ANEP</PARAMETER>
+       <DBSTRUCT>ANEP</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_ANFM</PARAMETER>
+       <DBSTRUCT>ANFM</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_ANLB</PARAMETER>
+       <DBSTRUCT>ANLB</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_ANLC</PARAMETER>
+       <DBSTRUCT>ANLC</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_ANLZ</PARAMETER>
+       <DBSTRUCT>ANLZ</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_ANLBZA</PARAMETER>
+       <DBSTRUCT>ANLBZA</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>ANTS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Substructure of Asset Master Record (ANLA)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_DATBIS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Asset Value Date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>E_ANLCV</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Asset Reporting: ANLC Fields Plus Various Totals</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANEA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Asset Line Items for Proportional Values</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANEP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Asset Line Items</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANFM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Error messages from dep. calc.</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANLB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Depreciation terms</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANLC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Asset Value Fields</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANLZ</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Time-Dependent Asset Allocations</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_ANLBZA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Time-Dependent Depreciation Terms</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
