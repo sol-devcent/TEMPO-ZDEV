@@ -1,0 +1,1424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function group for Tax System</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZGDTXFG001F01</SOBJ_NAME>
+    <SOBJ_NAME>LZGDTXFG001TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZGDTXFG001</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_GDTXFC_CHECK_TAX_PERIOD</FUNCNAME>
+     <SHORT_TEXT>Tax System: Check Tax Period</SHORT_TEXT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_STATUS</PARAMETER>
+       <TYP>CHAR01</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_UNAME</PARAMETER>
+       <DBFIELD>SY-UNAME</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>PROGRAM_RUNNING</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>TAX_PERIOD_PROGRAM_NOT_FOUND</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FE_STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_UNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>R/3 System, user logon name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PROGRAM_RUNNING</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>The program is still running</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TAX_PERIOD_PROGRAM_NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Tax period program is not found</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_ACCT_BRNCH_DETM</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit - Branch of Tax determination</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BRNCH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZGDTXDE_BRNCH</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <DBFIELD>ZGDTXST0008</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_BSEG</PARAMETER>
+       <DBFIELD>ZGDTXST0008</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_TX00101</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0101</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>BRANCH_IS_NOT_MAINTAINED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BRNCH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax Branch</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax system: Billing structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_BSEG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax system: Billing structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX00101</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Tax Branch Determination</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BRANCH_IS_NOT_MAINTAINED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Branch is not maintained</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_ADDT_INF</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit - Additional Info</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_ADDT_INFO</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit - Additional Info</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_VBPA</PARAMETER>
+       <DBSTRUCT>VBPA</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_VBPA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sales Document: Partner</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_BRNCH_BUSLN_DET</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit - Branch &amp; Business line determination</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_SUBRC</PARAMETER>
+       <DBFIELD>SY-SUBRC</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_TX00101</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0101</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_ERROR</PARAMETER>
+       <DBSTRUCT>ZGDTXST0011</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_SUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value, return value after ABAP statements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX00101</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Tax Branch Determination</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Item message</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_PPNBM_ITEM_DETM</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit - PPnBM Determination</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_SUBRC</PARAMETER>
+       <DBFIELD>SY-SUBRC</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_SUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value, return value after ABAP statements</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_TAX_PERIOD</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit - Tax period determination</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <DBFIELD>ZGDTXST0007</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <DBFIELD>ZGDTXST0008</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BUSLN</PARAMETER>
+       <DBFIELD>ZGDTXDT0102-BUSLN</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_FAKDAT</PARAMETER>
+       <DBFIELD>ZGDTXDT0003-FAKDAT</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_FAKDAT</PARAMETER>
+       <DBFIELD>ZGDTXDT0003-FAKDAT</DBFIELD>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_MASATX</PARAMETER>
+       <DBFIELD>ZGDTXDT0003-MASATX</DBFIELD>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_GJAHR</PARAMETER>
+       <DBFIELD>BKPF-GJAHR</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>FI_BSEG_CANNOT_BE_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>FI_VBRK_CANNOT_BE_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>BUSLINE_NOT_DEFINED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VBRK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Billing structure for tax processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax system: Billing structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BUSLN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Line</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_FAKDAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Faktur pajak date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_FAKDAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Faktur pajak date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_MASATX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Settlement period</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_GJAHR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BSEG_CANNOT_BE_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>FI_BSEG parameter must be filled for Non-trade business line</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_VBRK_CANNOT_BE_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>FI_VBRK parameter must be filled for Trade business line</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BUSLINE_NOT_DEFINED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Business line is invalid</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_VATIN_DATE</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit for VAT-in date determination</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <DBFIELD>ZGDTXST0008</DBFIELD>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_FAKDAT</PARAMETER>
+       <DBFIELD>ZGDTXDT0003-FAKDAT</DBFIELD>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_MASATX</PARAMETER>
+       <DBFIELD>ZGDTXDT0003-MASATX</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax system: Billing structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_FAKDAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Faktur pajak date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_MASATX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Settlement period</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_EXIT_VATIN_NUMBER</FUNCNAME>
+     <SHORT_TEXT>Tax System: User exit for custom VAT-in FP number</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <DBFIELD>ZGDTXST0008</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BSEG2</PARAMETER>
+       <DBFIELD>ZGDTXST0008</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_FAKTURNO</PARAMETER>
+       <DBFIELD>ZGDTXDT0012-FAKTURNO</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_BSEG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax system: Billing structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BSEG2</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Billing structure (additional info)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_FAKTURNO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Faktur pajak number</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_FORMAT_TO_ESPT</FUNCNAME>
+     <SHORT_TEXT>Tax System: Formatting report to eSPT</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VAT_TYPE</PARAMETER>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_ZGDTXST0012</PARAMETER>
+       <DBFIELD>ZGDTXST0012</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_ZGDTXST0013</PARAMETER>
+       <DBFIELD>ZGDTXST0013</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_ESPT</PARAMETER>
+       <DBFIELD>ZGDTXST0014</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>KODELAMP_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>KODESTAT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>KODEDOK_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NPWP_IS_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NPWP_NAME_IS_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>VAT_OUT_STRUCT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>VAT_IN_STRUCT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VAT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>&quot;I&quot; for VAT-in, &quot;O&quot; for VAT-out</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_ZGDTXST0012</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT-in Report Structure (filled if FI_VAT_TYPE = &quot;I&quot;)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_ZGDTXST0013</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT-out Report Structure (filled if FI_VAT_TYPE =&quot;O&quot;)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_ESPT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System - eSPT Format</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODELAMP_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Lampiran is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODESTAT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Status is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODEDOK_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Dokumen is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_IS_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>NPWP is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_NAME_IS_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>NPWP Name is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VAT_OUT_STRUCT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>VAT Out Structure must be filled</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VAT_IN_STRUCT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>VAT-In Structure must be filled</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_FORMAT_TO_ESPT1</FUNCNAME>
+     <SHORT_TEXT>Tax System: Formatting report to eSPT</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VAT_TYPE</PARAMETER>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_ZGDTXST0012</PARAMETER>
+       <DBFIELD>ZGDTXST0012</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_ZGDTXST0013</PARAMETER>
+       <DBFIELD>ZGDTXST0013</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_ESPT</PARAMETER>
+       <DBFIELD>ZGDTXST0014</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>KODELAMP_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>KODESTAT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>KODEDOK_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NPWP_IS_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NPWP_NAME_IS_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>VAT_OUT_STRUCT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>VAT_IN_STRUCT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VAT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>&quot;I&quot; for VAT-in, &quot;O&quot; for VAT-out</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_ZGDTXST0012</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT-in Report Structure (filled if FI_VAT_TYPE = &quot;I&quot;)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_ZGDTXST0013</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT-out Report Structure (filled if FI_VAT_TYPE =&quot;O&quot;)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_ESPT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System - eSPT Format</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODELAMP_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Lampiran is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODESTAT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Status is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODEDOK_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Dokumen is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_IS_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>NPWP is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_NAME_IS_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>NPWP Name is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VAT_OUT_STRUCT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>VAT Out Structure must be filled</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VAT_IN_STRUCT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>VAT-In Structure must be filled</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_FORMAT_TO_ESPT1_V001</FUNCNAME>
+     <SHORT_TEXT>Tax System: Formatting report to eSPT ( save 22/02/2011 )</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_VAT_TYPE</PARAMETER>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_ZGDTXST0012</PARAMETER>
+       <DBFIELD>ZGDTXST0012</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_ZGDTXST0013</PARAMETER>
+       <DBFIELD>ZGDTXST0013</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_ESPT</PARAMETER>
+       <DBFIELD>ZGDTXST0014</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>KODELAMP_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>KODESTAT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>KODEDOK_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NPWP_IS_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NPWP_NAME_IS_BLANK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>VAT_OUT_STRUCT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>VAT_IN_STRUCT_MUST_BE_FILLED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_VAT_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>&quot;I&quot; for VAT-in, &quot;O&quot; for VAT-out</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_ZGDTXST0012</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT-in Report Structure (filled if FI_VAT_TYPE = &quot;I&quot;)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_ZGDTXST0013</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT-out Report Structure (filled if FI_VAT_TYPE =&quot;O&quot;)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_ESPT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System - eSPT Format</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODELAMP_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Lampiran is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODESTAT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Status is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KODEDOK_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Kode Dokumen is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_IS_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>NPWP is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_NAME_IS_BLANK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>NPWP Name is blank</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VAT_OUT_STRUCT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>VAT Out Structure must be filled</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VAT_IN_STRUCT_MUST_BE_FILLED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>VAT-In Structure must be filled</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_GET_BILLING_TAX_INFN</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Tax System: Get Billing Tax Info - new</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_TX02IN</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0002</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_TX02OUT</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0002</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FT_TX02IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Faktur pajak - Details</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX02OUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Faktur pajak - Details</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_GET_BILLING_TAX_INFO</FUNCNAME>
+     <SHORT_TEXT>Tax system: User exit - Get Billing info (obsolete)</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_TX02IN</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0002</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_TX02OUT</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0002</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FT_TX02IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Faktur pajak - Details</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX02OUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Faktur pajak - Details</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_LOCK_PROGRAM</FUNCNAME>
+     <SHORT_TEXT>Tax System: Program lock</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_REPID</PARAMETER>
+       <TYP>REPID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_UNAME</PARAMETER>
+       <DBFIELD>SY-UNAME</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NO_PROGRAM_FOUND</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>PROGRAM_RUNNING</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_REPID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP Program Name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_UNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>R/3 System, user logon name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_PROGRAM_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Tax program is not maintained</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PROGRAM_RUNNING</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Program is still running</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_PRINT_FORMS</FUNCNAME>
+     <SHORT_TEXT>Tax System: Print Faktur Pajak</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_DISPLAY</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_REPORT</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_CHECKING_ONLY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_NONLIVES</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_FOREX</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_MPAGE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_PRINTER</PARAMETER>
+       <DBFIELD>ITCPO-TDDEST</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <DBFIELD>BSIS-BUKRS</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_PKP</PARAMETER>
+       <DBSTRUCT>ZGDTXST0001</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_CUSTOMER</PARAMETER>
+       <DBSTRUCT>ZGDTXST0002</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_ITEM</PARAMETER>
+       <DBSTRUCT>ZGDTXST0003</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_SIGNATURE</PARAMETER>
+       <DBSTRUCT>ZGDTXST0005</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_TAX</PARAMETER>
+       <DBSTRUCT>ZGDTXST0006</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_ERROR_RESULT</PARAMETER>
+       <DBSTRUCT>ZGDTXST0001</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>DATA_TOO_LONG</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>PPNBM_TOO_LONG</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>DATE_WORD_NOT_MAINTAINED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_DISPLAY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Display form</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_REPORT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_CHECKING_ONLY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_NONLIVES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_FOREX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_MPAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_PRINTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Spool: Output device</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_PKP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out PKP structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_CUSTOMER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out customer structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_ITEM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out Item structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_SIGNATURE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: PKP officer structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TAX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: XPBM Tariff structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_ERROR_RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out PKP structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DATA_TOO_LONG</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PPNBM_TOO_LONG</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DATE_WORD_NOT_MAINTAINED</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_PRINT_SMARTFORMS</FUNCNAME>
+     <SHORT_TEXT>Tax System: Printing FP using Smartforms</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_DISPLAY</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_REPORT</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_CHECKING_ONLY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_NONLIVES</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_FOREX</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_MPAGE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR01</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_PRINTER</PARAMETER>
+       <DBFIELD>ITCPO-TDDEST</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <DBFIELD>BSIS-BUKRS</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_PKP</PARAMETER>
+       <DBSTRUCT>ZGDTXST0001</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_CUSTOMER</PARAMETER>
+       <DBSTRUCT>ZGDTXST0002</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_ITEM</PARAMETER>
+       <DBSTRUCT>ZGDTXST0003</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_SIGNATURE</PARAMETER>
+       <DBSTRUCT>ZGDTXST0005</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_TAX</PARAMETER>
+       <DBSTRUCT>ZGDTXST0006</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_ERROR_RESULT</PARAMETER>
+       <DBSTRUCT>ZGDTXST0001</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>DATA_TOO_LONG</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>PPNBM_TOO_LONG</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>DATE_WORD_NOT_MAINTAINED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_DISPLAY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Display form</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_REPORT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_CHECKING_ONLY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_NONLIVES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_FOREX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_MPAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field length 1</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_PRINTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Spool: Output device</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_PKP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out PKP structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_CUSTOMER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out customer structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_ITEM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out Item structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_SIGNATURE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: PKP officer structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TAX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: XPBM Tariff structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_ERROR_RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out PKP structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DATA_TOO_LONG</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PPNBM_TOO_LONG</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DATE_WORD_NOT_MAINTAINED</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_RELEASE_PROGRAM</FUNCNAME>
+     <SHORT_TEXT>Tax System: Release program</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_REPID</PARAMETER>
+       <TYP>REPID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_SUBRC</PARAMETER>
+       <DBFIELD>SY-SUBRC</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NO_PROGRAM_FOUND</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_REPID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP Program Name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_SUBRC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return value, return value after ABAP statements</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_PROGRAM_FOUND</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GDTXFC_TAX_CFG_ORG_DETMN</FUNCNAME>
+     <SHORT_TEXT>Tax System: Tax organization structure extract</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FI_BRNCH</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZGDTXDE_BRNCH</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BUSLN</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZGDTXDE_BUSLN</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FE_BUKRS</PARAMETER>
+       <TYP>BUKRS</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_BUSDS</PARAMETER>
+       <TYP>ZGDTXDE_BUSDS</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_BDESC</PARAMETER>
+       <TYP>ZGDTXDE_BDESC</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_HO_IND</PARAMETER>
+       <TYP>ZGDTXDE_HOIND</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FE_HOLD</PARAMETER>
+       <TYP>ZGDTXDE_HCOMPANY</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>FT_TX00101</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0101</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_TX00102</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0102</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>FT_TX00103</PARAMETER>
+       <DBSTRUCT>ZGDTXDT0103</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>COMPANY_CODE_NOT_ASSIGNED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>BUSINESS_LINE_NOT_MAINTAINED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>BRANCH_CONFIG_NOT_MAINTAINED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>BUSLINE_CONFIG_NOT_MAINTAINED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>TAXCONSOL_CONFIG_NOT_MAINTAIN</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FI_BRNCH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax Branch</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BUSLN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Line</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FI_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_BUSDS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Line Description</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_BDESC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax Branch Description</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_HO_IND</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Head office indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FE_HOLD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Holding company</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX00101</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Tax Branch Determination</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX00102</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: Tax Business Lines</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FT_TX00103</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Tax System: VAT-out Invoice Consolidation</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>COMPANY_CODE_NOT_ASSIGNED</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BUSINESS_LINE_NOT_MAINTAINED</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BRANCH_CONFIG_NOT_MAINTAINED</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BUSLINE_CONFIG_NOT_MAINTAINED</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TAXCONSOL_CONFIG_NOT_MAINTAIN</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
