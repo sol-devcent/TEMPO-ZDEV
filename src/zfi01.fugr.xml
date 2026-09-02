@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function group for FI</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZFI01F01</SOBJ_NAME>
+    <SOBJ_NAME>LZFI01TOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZFI01</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZF_FAKTUR</FUNCNAME>
+     <SHORT_TEXT>Faktur modified</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>BUKRS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FAKDAT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZGDTXDE_FAKDAT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MASATX</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABPER_RF</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FAKTURIN</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZGDTXDE_FAKNO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TCODE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SY-TCODE</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FAKTUROUT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR21</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FAKDAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Faktur pajak date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MASATX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Settlement period</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FAKTURIN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Version Number Component</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TCODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP System Field: Current Transaction Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FAKTUROUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Field Name</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZF_NPWP_MODIFICATION</FUNCNAME>
+     <SHORT_TEXT>NPWP MODIFICATION FUNCTION</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NPWP_IN</PARAMETER>
+       <DBFIELD>ZFVATA1-STCEG</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>NPWP_OUT</PARAMETER>
+       <DBFIELD>ZFVATA1-STCEG</DBFIELD>
+       <REFERENCE>X</REFERENCE>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NPWP_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT registration number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NPWP_OUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>VAT registration number</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZMONTH_NAME</FUNCNAME>
+     <SHORT_TEXT>Month Name</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>MONTH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>C</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>C</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>MONTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Month</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Month Name</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZMONTH_NUMERIC</FUNCNAME>
+     <SHORT_TEXT>Month in NumChar ( reverse FM ZMONTH_NAME )</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>C</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>MONTH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>NUMC2</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NAME</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MONTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Two digit number</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZSPELL_AMOUNT</FUNCNAME>
+     <SHORT_TEXT>Convert numbers and figures in words</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>AMOUNT</PARAMETER>
+       <DEFAULT>0</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CURRENCY</PARAMETER>
+       <DBFIELD>SY-WAERS</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FILLER</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <DBFIELD>SY-LANGU</DBFIELD>
+       <DEFAULT>SY-LANGU</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>IN_WORDS</PARAMETER>
+       <DBFIELD>SPELL</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NOT_FOUND</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>TOO_LARGE</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>AMOUNT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Amount/number that is/are to be coverted</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CURRENCY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Currency for amounts, for number SPACE</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FILLER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Filler with which the output field is entered</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language indicator for conversion in words</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IN_WORDS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Field string with amount/number and figure in words</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Argument was not found in T015Z</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TOO_LARGE</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Amount is too large for being converted</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZTEST</FUNCNAME>
+     <SHORT_TEXT>TESTING</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>NILAI1</PARAMETER>
+       <DEFAULT>0</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+       <TYP>P</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>NILAI2</PARAMETER>
+       <DEFAULT>0</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+       <TYP>P</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PERCENT</PARAMETER>
+       <TYP>P</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>NILAI1</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NILAI2</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PERCENT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_GET_DELTA_TIME_FROM_DT</FUNCNAME>
+     <SHORT_TEXT>Calculate time between 2 times ( copy from GET_DELTA_TIME_FROM_DT )</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>T1</PARAMETER>
+       <TYP>T</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>T2</PARAMETER>
+       <TYP>T</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>D1</PARAMETER>
+       <TYP>D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>D2</PARAMETER>
+       <TYP>D</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>T3</PARAMETER>
+       <TYP>T</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>T1</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Time: Begin</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T2</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Time: End</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>D1</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Date: Begin</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>D2</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Date: End</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T3</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Delta Time</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+   <LONGTEXTS_ZSPELL_AMOUNT>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZSPELL_AMOUNT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0016</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00040</TXTLINES>
+      <DOKSTATE>R</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZSPELL_AMOUNT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00016</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Der Funktionsbaustein SPELL_AMOUNT dient der Umsetzung eines Betrages</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>oder einer Zahl in Worte. Folgende Möglichkeiten der Anwendung</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>bestehen:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Umsetzung einer Zahl in Worte</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>Dazu sind nur die Übergabeparameter LANGUAGE und AMOUNT zu füllen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Umsetzung eines Betrags in Worte</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>Dazu sind die Felder LANGUAGE, CURRENCY und AMOUNT zu füllen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Vor- und Nachkommastellen eines Betrags</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>Dazu sind die Parameter CURRENCY und AMOUNT zu füllen. Das Feld</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>LANGUAGE ist explizit mit dem Wert SPACE zu übergeben! Diese</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Möglichkeit wurde zur Verfügung gestellt, um das Laufzeitverhalten des</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Bausteins zu optimieren.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die Übergabe der umgesetzten Beträge geschieht mittels der Struktur</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>SPELL. In den Feldern NUMBER und DECIMAL werden die Vor- und</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Nachkommastellen, in WORD und DECWORD der Betrag in Worten und in den</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Feldern DIGnn die Ziffern in Worten eingestellt. Die in Worten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>umgesetzten Zahlen können durch einen Stern oder andere FILLER</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>geschützt werden.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;HINTS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Bei der Benutzung der ersten zwei Möglichkeiten ist zu beachten, daß</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>stets im rufenden Programm geprüft werden muß, ob die Sprache, die zur</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Umsetzung in Worte erforderlich ist, auch gefüllt ist.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;EXAMPLE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Das Programm &lt;DS:REPO.RFSSPELL&gt;RF_SPELL&lt;/&gt; enthält einen beispielhaften</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Aufruf des Funktionsbausteins und kann zu Testzwecken verwendet werden.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FURTHER_SOURCES_OF_INF&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Zur Umsetzung der Zahlen in Worte wird die Tabelle</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>&lt;DS:TRAN.OBA9&gt;T015Z&lt;/&gt; (Ziffern und Zahlen in Worten) verwendet. Da die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Zahlengrammatik verschiedener Sprachen stark von der mitteleuropäischen</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>(speziell deutschen bzw. englischen) Zahlengrammatik abweichen können,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sind Anpassungen notwendig. Speziell sei auf folgende Sprachen</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>hingewiesen:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_P&gt;Portugiesisch&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_R&gt;Russisch&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_Q&gt;Slowakisch&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_S&gt;Spanisch&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_2&gt;Thai&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_C&gt;Tschechisch&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_3&gt;Koreanisch&lt;/&gt;</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZSPELL_AMOUNT</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0014</VERSION>
+      <TXTLINES>00032</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZSPELL_AMOUNT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00014</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Function module SPELL_AMOUNT converts an amount or number into words.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>It can be used as follows:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Convert a number into words</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>To do this, the transfer parameters LANGUAGE and AMOUNT have to be</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>entered.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Convert an amount into words</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>To do this, the fields LANGUAGE, CURRENCY, and AMOUNT have to be</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>entered.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Set the number of places before and after the decimal point for an</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>amount</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>To do this, the parameters CURRENCY and AMOUNT have to be entered. The</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>LANGUAGE field must be transferred with the value SPACE! This option</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>optimizes the runtime of the function module.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The structure SPELL transfers the converted amounts. The FB enters the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>number of places before and after the decimal point in the NUMBER and</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>DECIMAL fields, the amount in words in the WORD and DECWORD fields, and</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>the figure in words in the DIGnn fields. The numbers converted into</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>words can be protected by a star or some other FILLER.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;HINTS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>If you are using the first two functions, the system always checks</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>whether the language required for the conversion is also entered in the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>calling program.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;EXAMPLE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Program &lt;DS:REPO.RFSSPELL&gt;RF_SPELL&lt;/&gt; contains a sample call of the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>function module. You can use it for test purposes.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FURTHER_SOURCES_OF_INF&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The FB uses table &lt;DS:TRAN.OBA9&gt;T015Z&lt;/&gt; (figures and numbers in words)</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>for the conversion. You may have to modify this table since the grammar</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>for numbers in other languages may differ from the rules of grammar for</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Central European numbers (especially between German and English). Take</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>note of the following languages:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_P&gt;Portuguese&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_R&gt;Russian&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_S&gt;Spanish&lt;/&gt;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>&lt;DS:TX.FI_SPELL_AMOUNT_2&gt;Thai&lt;/&gt;</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_ZSPELL_AMOUNT>
+  </asx:values>
+ </asx:abap>
+</abapGit>
