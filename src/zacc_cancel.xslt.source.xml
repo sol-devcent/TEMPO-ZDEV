@@ -1,0 +1,20 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="cancel"/>
+  <tt:template>
+    <object>
+      <array>
+        <tt:loop ref=".cancel">
+          <object>
+            <str name="ProcessOrder">
+              <tt:value ref="$ref.aufnr"/>
+            </str>
+            <str name="SN">
+              <tt:value ref="$ref.senum"/>
+            </str>
+          </object>
+        </tt:loop>
+      </array>
+    </object>
+  </tt:template>
+</tt:transform>

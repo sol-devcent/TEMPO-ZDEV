@@ -1,0 +1,83 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+  <tt:root name="upload"/>
+  <tt:template>
+    <object>
+      <array>
+        <tt:loop ref=".upload">
+          <object>
+            <num name="id">
+              <tt:value ref="$ref.id"/>
+            </num>
+            <str name="ProcessOrder">
+              <tt:value ref="$ref.aufnr"/>
+            </str>
+            <str name="SN">
+              <tt:value ref="$ref.senum"/>
+            </str>
+            <num name="OrderQty">
+              <tt:value ref="$ref.psmng"/>
+            </num>
+            <str name="Material">
+              <tt:value ref="$ref.matnr"/>
+            </str>
+            <str name="Description">
+              <tt:value ref="$ref.maktx"/>
+            </str>
+            <str name="Plant">
+              <tt:value ref="$ref.werks"/>
+            </str>
+            <str name="Sloc">
+              <tt:value ref="$ref.lgort"/>
+            </str>
+            <str name="Kemasan_ID">
+              <tt:value ref="$ref.kemasan"/>
+            </str>
+            <str name="NIE">
+              <tt:value ref="$ref.nie"/>
+            </str>
+            <str name="GTIN">
+              <tt:value ref="$ref.gtin"/>
+            </str>
+            <str name="Batch">
+              <tt:value ref="$ref.charg"/>
+            </str>
+            <str name="ED">
+              <tt:value ref="$ref.vfdat"/>
+            </str>
+            <str name="Aggregasi1">
+              <tt:value ref="$ref.aggr1"/>
+            </str>
+            <str name="Pack_date1">
+              <tt:value ref="$ref.packdat1"/>
+            </str>
+            <str name="Aggregasi2">
+              <tt:value ref="$ref.aggr2"/>
+            </str>
+            <str name="Pack_date2">
+              <tt:value ref="$ref.packdat2"/>
+            </str>
+            <num name="StatusPrint">
+              <tt:value ref="$ref.stspr"/>
+            </num>
+            <num name="StatusAgg">
+              <tt:value ref="$ref.stsag"/>
+            </num>
+            <num name="StatusAck">
+              <tt:value ref="$ref.stsac"/>
+            </num>
+            <str name="createdAt">
+              <tt:value ref="$ref.crtdt"/>
+            </str>
+            <str name="updatedAt">
+              <tt:value ref="$ref.upddt"/>
+            </str>
+            <str name="sapprocessid">
+              <tt:value ref="$ref.sapprocessid"/>
+            </str>
+          </object>
+        </tt:loop>
+      </array>
+    </object>
+  </tt:template>
+</tt:transform>
