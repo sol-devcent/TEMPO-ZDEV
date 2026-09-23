@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>event trigger</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZTIAM_EVENTTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZTIAM_EVENT</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZBP_EVENT_RAISE</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Trigger Background Event</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>EVENTID</PARAMETER>
+       <TYP>CHAR40</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>EVENTPARM</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR40</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TARGET_INSTANCE</PARAMETER>
+       <DBFIELD>MSXXLIST-NAME</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TARGET_MODE</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BTCH0000-CHAR1</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>BAD_EVENTID</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EVENTID_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EVENTID_MISSING</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RAISE_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>EVENTID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field of length 40</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EVENTPARM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character field of length 40</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TARGET_INSTANCE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Application Server Name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TARGET_MODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reference type CHAR1 for background processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BAD_EVENTID</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Invalid Event ID</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EVENTID_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Unknown Event</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EVENTID_MISSING</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Event ID Missing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RAISE_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Error when Triggering the Event</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

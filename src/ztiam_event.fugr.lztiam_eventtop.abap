@@ -1,0 +1,2 @@
+FUNCTION-POOL ZTIAM_EVENT.                  "MESSAGE-ID ..
+
