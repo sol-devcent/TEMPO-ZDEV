@@ -1,0 +1,1882 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<abapGit version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TDLINES>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FUSS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Release 2.1: BOTTOM statements removed</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3FUSS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FUSS00</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;MKPF-VGART&amp; = &apos;WL&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F1</TDFORMAT>
+     <TDLINE>Issued by:,,        ,,S I G N A T U R E</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F1</TDFORMAT>
+     <TDLINE>Issued by:,,&amp;*MKPF-USNAM&amp;        ,,S I G N A T U R E</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FUSS01</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;SK&amp; = &apos;&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;USER&amp; = &apos;&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;ALKES&amp; = &apos;&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_ASISTEN_APOTEKER IN PROGRAM ZMM_GI_REALOKASI</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-LGORT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BUKRS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-MATNR&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-UMWRK&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-UMLGO&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;SK&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;USER&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;ALKES&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ALKES&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>Penanggung Jawab</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>Penanggung Jawab PBF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_SIGN01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_NOSK01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_SIGN IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-LGORT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-UMWRK&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-UMLGO&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_SIGN01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_NOSK01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ALKES&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>&amp;USER&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F5</TDFORMAT>
+     <TDLINE>&amp;SK&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>&amp;V_SIGN01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F5</TDFORMAT>
+     <TDLINE>&amp;V_NOSK01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FUSS02</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;MSEG-WERKS(2)&amp; = &apos;07&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>Tanda Terima</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;MSEG-WERKS(2)&amp; = &apos;07&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>(Ka.Gdg/ W&amp;D Spv/Mgr)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FUSS03</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>Menyetujui</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>(Kepala Cabang)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>FUSS04</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;MSEG-WERKS(2)&amp; = &apos;07&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>Mengetahui</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;MSEG-WERKS(2)&amp; = &apos;07&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>F4</TDFORMAT>
+     <TDLINE>(Stock Control)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>KOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Release 2.1: TOP statements removed</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Document Header of GR slip, Version 3, WM Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3LVSKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                      ,,No.,,&amp;*MKPF-MBLNR&amp;,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> of &amp;SAPSCRIPT-FORMPAGES&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_GRTM IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MKPF-CPUTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;      &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp; ------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone       :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material         ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>SLoc.,,Batch    ,,Expired Date,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3BACOLVSKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>L1</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                            ,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>BC</TDFORMAT>
+     <TDLINE>,,&lt;BC&gt;&amp;*MKPF-MBLNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_GRTM IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MKPF-CPUTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;      &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>Storage Loc.,,Batch     ,,Expired Date,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Document Header of GR Slip, Version 3, Stock Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3KOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                      ,,No.,,&amp;*MKPF-MBLNR&amp;,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> of &amp;SAPSCRIPT-FORMPAGES&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_GRTM IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MKPF-CPUTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;      &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;LGORTSPLIT&amp; IS INITIAL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Stor. loc. &amp;*MSEG-LGORT&amp;  &amp;*LADR-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;*MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>   ,,MPN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>SLoc,,Batch          ,,Storage bin                ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3BACOKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>L1</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                                         ,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> of &amp;SAPSCRIPT-FORMPAGES&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>BC</TDFORMAT>
+     <TDLINE>,,&lt;BC&gt;&amp;*MKPF-MBLNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_GRTM IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MKPF-CPUTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;      &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;*MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>   ,,MPN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>SLoc,,Batch          ,,Storage bin                ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Document Header of GR Slip, Vers. 3 - Consumable Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3KOPF1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;,,No.,,&amp;*MKPF-MBLNR&amp;,,Page ,,&amp;PAGE&amp;  of</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;SAPSCRIPT-FORMPAGES&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_GRTM IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MKPF-CPUTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;      &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;*MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>   ,,MPN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>Acct.assgt.          ,,Recipient                  ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3BACOKOPF1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                                     ,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>BC</TDFORMAT>
+     <TDLINE>,,&lt;BC&gt;&amp;*MKPF-MBLNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>DEFINE &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PERFORM F_GRTM IN PROGRAM ZMM_GRGI_SLIP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MKPF-CPUTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;MSEG-BWART&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>USING &amp;T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>CHANGING &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPERFORM</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;      &amp;V_GRTM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;*MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>   ,,MPN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>Acct.assgt.          ,,Recipient                  ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>MAIN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Release 2.1: elements (/E) set outside PROTECT statements</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Item in GR Slip, Version 3 - WM Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3LVSMAT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&amp;MSEG-ZEILE&amp;,,&amp;MSEG-MATNR&amp;,,&amp;EKPO-TXZ01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>,,&amp;AM07M-MFRPN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>&amp;MSEG-LGORT&amp;,,&amp;MSEG-CHARG&amp;,,&amp;MSEG-VFDAT&amp;,,&amp;MSEG-MENGE&amp;,,&amp;MSEG-MEINS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>&amp;T157E-GRTXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Item in GR Slip, Version 3 - Consumable Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3VERBRMAT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&amp;MSEG-ZEILE&amp;,,&amp;MSEG-MATNR&amp;,,&amp;EKPO-TXZ01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>,,&amp;AM07M-MFRPN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&amp;AM07M-RSTYP&amp;,,&amp;AM07M-KONTIERUNG&amp;,,&amp;MSEG-WEMPF&amp;,,&amp;MSEG-ERFMG&amp;,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;MSEG-ERFME&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&amp;T157E-GRTXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>*---- Item in GR Slip, Version 3 - Stock Material --------------------*</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3LGMAT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>&amp;MSEG-ZEILE&amp;,,&amp;MSEG-MATNR&amp;,,&amp;EKPO-TXZ01&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;MSEG-EMATN&amp; IS INITIAL.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>,,&amp;AM07M-MFRPN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&amp;MSEG-LGORT&amp;,,&amp;MSEG-CHARG&amp;,,&amp;MSEG-VFDAT&amp;,,&amp;MSEG-MENGE&amp;,,&amp;MSEG-MEINS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&amp;T157E-GRTXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>RÜKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Release 2.1: TOP statements removed</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Document Header of GR Slip, Version 3 - WM Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3LVSKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                      ,,No.,,&amp;*MKPF-MBLNR&amp;,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date : &amp;*MKPF-BUDAT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp; ------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07m-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>WNo./Ty./Coordinates ,,TR no.   ,,Pri             ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>Reas. for ret. del.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3BACOLVSKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>L1</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                            ,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>BC</TDFORMAT>
+     <TDLINE>,,&lt;BC&gt;&amp;*MKPF-MBLNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>WNo./Ty./Coordinates ,,TR no.   ,,Pri             ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T5</TDFORMAT>
+     <TDLINE>Reas. for ret. del.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Document Header of GR Slip, Version 3 - Stock Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3KOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                      ,,No.,,&amp;*MKPF-MBLNR&amp;,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>SLoc,,Batch          ,,Storage bin                ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Reas. for ret. del.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3BACOKOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>L1</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                                         ,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>BC</TDFORMAT>
+     <TDLINE>,,&lt;BC&gt;&amp;*MKPF-MBLNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>SLoc,,Batch          ,,Storage bin                ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Reas. for ret. del.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>Document Header of GR Slip, Vers. 3 - Consumable Material</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3KOPF1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;,,No.,,&amp;*MKPF-MBLNR&amp;,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>Acct.assgt.          ,,Recipient                  ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>Reas. for ret. del.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>WE3BACOKOPF1</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>LK</TDFORMAT>
+     <TDLINE>&amp;AM07M-HDLNE&amp;                                     ,,Page ,,&amp;PAGE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>BC</TDFORMAT>
+     <TDLINE>,,&lt;BC&gt;&amp;*MKPF-MBLNR&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Goods receipt date :,,&amp;*MKPF-BUDAT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>K1</TDFORMAT>
+     <TDLINE>Current date       :,,&amp;*MKPF-CPUDT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Plant       :,,&amp;*T001W-WERKS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Description :,,&amp;*T001W-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>&amp;AM07M-LITXT&amp;,,&amp;AM07M-LIBZG&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>Name        :,,&amp;*AM07M-NAME1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M1</TDFORMAT>
+     <TDLINE>PO          :,,&amp;*EKKO-EBELN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M4</TDFORMAT>
+     <TDLINE>Pur. group  :,,&amp;*EKKO-EKGRP&amp;,,&amp;*T024-EKNAM&amp;,,Telephone      :,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;*T024-EKTEL&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+     <TDLINE>Itm,,Material             ,,Description</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>Acct.assgt.          ,,Recipient                  ,,Qty. ,,Un</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>Reas. for ret. del.</TDLINE>
+    </TLINE>
+   </TDLINES>
+  </asx:values>
+ </asx:abap>
+</abapGit>
