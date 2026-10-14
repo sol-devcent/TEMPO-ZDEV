@@ -34,6 +34,13 @@ FUNCTION ztwsit_f0001.
   ELSE.
     status = 'S'.
     CASE zproses.
+      WHEN 'TIMDES'.
+        PERFORM f_timdes_data CHANGING zproses gv_event zdata status lv_message.
+        proses = zproses.
+        event = gv_event.
+        data = zdata.
+        message = lv_message.
+
       WHEN 'TIMWAS'.
         PERFORM f_tws_data CHANGING zproses gv_event zdata status.
         proses = zproses.
@@ -100,10 +107,11 @@ FUNCTION ztwsit_f0001.
         event = gv_event.
         data = zdata.
       WHEN 'TNF'.
-        PERFORM f_proses_tnf CHANGING  zproses gv_event zdata status.
+        PERFORM f_proses_tnf CHANGING  zproses gv_event zdata status lv_message.
         proses = zproses.
         event = gv_event.
         data = zdata.
+        message = lv_message.
       WHEN OTHERS.
         sy-subrc = 1.
         CONCATENATE 'Err: Project' zproses 'tidak ditemukan' INTO lv_message SEPARATED BY space.
@@ -112,6 +120,7 @@ FUNCTION ztwsit_f0001.
         proses = zproses.
         event = zevent.
         data = zdata.
+        message = lv_message.
     ENDCASE.
   ENDIF.
 ***  CALL FUNCTION 'DIALOG_SET_WITH_DIALOG'.

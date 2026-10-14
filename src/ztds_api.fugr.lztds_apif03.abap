@@ -176,7 +176,7 @@ ENDFORM.                    " F_PROSES_EPROC
 *      <--P_STATUS  text
 *----------------------------------------------------------------------*
 FORM f_proses_new_tdn  CHANGING p_zproses
-                             p_event
+                              p_event
                              p_zdata
                              p_status
                              p_message.
@@ -187,17 +187,19 @@ FORM f_proses_new_tdn  CHANGING p_zproses
   DATA: lv_status(1), lv_message(100), lv_sap_id TYPE kunnr.
   DATA: lv_event TYPE char40.
   DATA: lv_low LIKE tvarvc-low.
-  DATA: lv_proses(10), lv_market(15), ld_mess(100).
+  DATA: lv_proses(15), lv_market(15), ld_mess(100).
+  DATA: lv_batch(20).
   DATA: BEGIN OF lt_material OCCURS 0.
           INCLUDE STRUCTURE mara.
         DATA: END OF lt_material.
+  DATA: ls_ztdnsddt025  TYPE ztdnsddt025.
   lv_market = p_event.
   p_status = 'P'.
   lv_proses = p_event.
 
-
   p_status = 'S'.
   CONDENSE p_zdata.
+  lv_batch = p_zdata.
   ls_ztdsitdt006-zproses = 'TDN'.
   ls_ztdsitdt006-zevent = p_event.
   ls_ztdsitdt006-zdata = p_zdata.
@@ -216,13 +218,13 @@ FORM f_proses_new_tdn  CHANGING p_zproses
           proses   = p_event
           no_order = lv_no_order " phone_number = lv_phone
           api      = 'X'
-"          PATHNAME = '/inbound/tdn/customer/customer_trd.json'
+"         PATHNAME = '/inbound/tdn/customer/customer_trd.json'
         IMPORTING
           sap_id   = lv_sap_id
           status   = lv_status
           message  = lv_message.
-       p_message = lv_message.
-       p_zdata = lv_message.
+      p_message = lv_message.
+      p_zdata = lv_message.
       "OTHERS                 = 5.
     WHEN 'TDN_AWBIMAGE'.
       lv_event = p_event.
@@ -377,11 +379,37 @@ FORM f_proses_new_tdn  CHANGING p_zproses
           p_status = 'E'.
         ENDIF.
       ENDIF.
-**    WHEN 'TDN_LAZADA'.
-**      lv_market = 'LAZADA'.
-**      SUBMIT ztdnsd_i006  WITH p_proses = lv_proses
-**                          WITH p_market = lv_market
-**                          AND RETURN.
+    WHEN 'TDN_NEWORDER' OR 'TDN_NEWMP'.
+      p_status = 'S'.
+      lv_batch = p_zdata.
+      IF lv_batch IS NOT INITIAL.
+        lv_market = 'SHOPEE'.
+        ls_ztdnsddt025-znotrans  = lv_batch.
+        ls_ztdnsddt025-erdat  = sy-datum.
+        ls_ztdnsddt025-erzet = sy-uzeit.
+        ls_ztdnsddt025-ernam = sy-uname.
+        MODIFY  ztdnsddt025 FROM ls_ztdnsddt025.
+        COMMIT WORK AND WAIT.
+        SUBMIT ztdnsd_i006  WITH p_proses = lv_proses
+                            WITH p_market = lv_market
+                            WITH p_batch = lv_batch
+                            AND RETURN.
+      ENDIF.
+    WHEN 'TDN_NEWTSHD'.
+      p_status = 'S'.
+      lv_batch = p_zdata.
+      IF lv_batch IS NOT INITIAL.
+        ls_ztdnsddt025-znotrans  = lv_batch.
+        ls_ztdnsddt025-erdat  = sy-datum.
+        ls_ztdnsddt025-erzet = sy-uzeit.
+        ls_ztdnsddt025-ernam = sy-uname.
+        MODIFY  ztdnsddt025 FROM ls_ztdnsddt025.
+        COMMIT WORK AND WAIT.
+        SUBMIT ztdnsd_i012  WITH p_proses = lv_proses
+                            "WITH p_market = lv_market
+                            WITH p_batch = lv_batch
+                            AND RETURN.
+      ENDIF.
     WHEN 'TDN_STATUS'.
       lv_market = 'STATUS'.
       CALL FUNCTION 'ZBP_EVENT_RAISE'

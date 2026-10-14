@@ -39,15 +39,6 @@ FORM f_proses_acc  CHANGING p_zproses
     WHEN 'ACC_AGGR'.
       CONDENSE p_zdata.
       lv_event = p_event.
-      CALL FUNCTION 'ZBP_EVENT_RAISE'
-        EXPORTING
-          eventid                = lv_event "'ZACC_AGGR'
-        EXCEPTIONS
-          bad_eventid            = 1 " eventparm = gv_EVENTPARM
-          eventid_does_not_exist = 2
-          eventid_missing        = 3
-          raise_failed           = 4.
-      "OTHERS                 = 5.
       CLEAR: lv_err.
       lv_zdata = p_zdata.
       SELECT SINGLE * INTO ls_zaccppdt001 FROM zaccppdt001
@@ -91,6 +82,8 @@ FORM f_proses_acc  CHANGING p_zproses
         ls_zaccppdt002-message = 'Di trigger'.
         MODIFY zaccppdt001 FROM ls_zaccppdt001.
         COMMIT WORK.
+        lv_event = p_event.
+
       ELSEIF ls_zaccppdt001-status = 'E'.
         ls_zaccppdt002-zproses = ls_zaccppdt001-zproses =  ls_ztdsitdt006-zevent. "p_event.
         ls_zaccppdt002-zdata = ls_zaccppdt001-zdata = lv_zdata. "p_zdata.
@@ -113,6 +106,15 @@ FORM f_proses_acc  CHANGING p_zproses
         ls_zaccppdt002-message = 'Sdh pernah ditrigger'.
       ENDIF.
       MODIFY zaccppdt002 FROM ls_zaccppdt002.
+      CALL FUNCTION 'ZBP_EVENT_RAISE'
+        EXPORTING
+          eventid                = lv_event "'ZACC_AGGR'
+        EXCEPTIONS
+          bad_eventid            = 1 " eventparm = gv_EVENTPARM
+          eventid_does_not_exist = 2
+          eventid_missing        = 3
+          raise_failed           = 4.
+
     WHEN 'ZACCSEND'.
       CONDENSE p_zdata.
       lv_event = p_event.
