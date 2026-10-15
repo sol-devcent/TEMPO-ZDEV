@@ -1538,6 +1538,7 @@ ENDFORM.                    "F_TOP_OF_PAGE
 *  <--  p2        text
 *----------------------------------------------------------------------*
 FORM f_proses_data .
+  DATA: lt_zfvatdtbuyer TYPE STANDARD TABLE OF zfvatdtbuyer.
   DATA: lv_filename TYPE edi_path-pthnam.
   DATA: gv_json      TYPE string.
   DATA: l_len TYPE i.
@@ -1546,7 +1547,22 @@ FORM f_proses_data .
   DATA: lv_msg(150).
   DATA: lt_header TYPE STANDARD TABLE OF ty_header_xml.
   CLEAR: lt_header[].
+
   IF gt_header_xml[] IS NOT INITIAL.
+    DATA: lt_header_xml LIKE gt_header_xml.
+    lt_header_xml = VALUE #( FOR wa IN gt_header_xml WHERE ( chkbx = 'X' ) ( wa ) ).
+    IF lt_header_xml[] IS NOT INITIAL.
+      DATA(lt_kunrg) = lt_header_xml[].
+      SORT lt_kunrg BY kunrg.
+      DELETE ADJACENT DUPLICATES FROM lt_kunrg COMPARING kunrg.
+      SELECT a~kunnr, a~stceg, a~stcd1, a~stcd3, a~stcd5, a~stcd6, a~counc, a~cityc,
+             b~name_co
+        FROM kna1 AS a INNER JOIN adrc AS b ON b~addrnumber = a~adrnr
+        FOR ALL ENTRIES IN @lt_kunrg
+        WHERE kunnr = @lt_kunrg-kunrg
+        INTO TABLE @DATA(lt_customer).
+    ENDIF.
+
     LOOP AT gt_header_xml INTO gs_header_xml WHERE chkbx = 'X'.
       APPEND gs_header_xml TO lt_header.
 
@@ -1566,7 +1582,26 @@ FORM f_proses_data .
       gs_zcoretax0005-ernam = sy-uname.
       MODIFY zcoretax0005 FROM gs_zcoretax0005.
 
+      APPEND INITIAL LINE TO lt_zfvatdtbuyer ASSIGNING FIELD-SYMBOL(<lt_zfvatdtbuyer>).
+      <lt_zfvatdtbuyer>-vkorg   = gs_header_xml-bukrs.
+      <lt_zfvatdtbuyer>-vkbur   = gs_header_xml-vkbur.
+      <lt_zfvatdtbuyer>-vbeln   = gs_header_xml-vbeln.
+      <lt_zfvatdtbuyer>-zuonr   = gs_header_xml-zuonr.
+      <lt_zfvatdtbuyer>-dueyr   = p_perio(4).
+      <lt_zfvatdtbuyer>-kunrg   = gs_header_xml-kunrg.
+      <lt_zfvatdtbuyer>-name_co = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-name_co OPTIONAL ).
+      <lt_zfvatdtbuyer>-stceg   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-stceg OPTIONAL ).
+      <lt_zfvatdtbuyer>-stcd1   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-stcd1 OPTIONAL ).
+      <lt_zfvatdtbuyer>-stcd3   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-stcd3 OPTIONAL ).
+      <lt_zfvatdtbuyer>-stcd5   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-stcd5 OPTIONAL ).
+      <lt_zfvatdtbuyer>-stcd6   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-stcd6 OPTIONAL ).
+      <lt_zfvatdtbuyer>-counc   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-counc OPTIONAL ).
+      <lt_zfvatdtbuyer>-cityc   = VALUE #( lt_customer[ kunnr = gs_header_xml-kunrg ]-cityc OPTIONAL ).
     ENDLOOP.
+
+    IF lt_zfvatdtbuyer[] IS NOT INITIAL.
+      MODIFY zfvatdtbuyer FROM TABLE lt_zfvatdtbuyer.
+    ENDIF.
 
     PERFORM f_prepare_xml_header.
     DATA: lv_urut TYPE i.
