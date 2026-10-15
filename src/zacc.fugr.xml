@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Accuracy</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZACCTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZACC</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZACC_MODIFY</FUNCNAME>
+     <UPDATE_TASK>1</UPDATE_TASK>
+     <SHORT_TEXT>Accuracy modifiy</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>TABNAME</PARAMETER>
+       <DBFIELD>RSRD1-TBMA_VAL</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>UPDKZ</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>UPDKZ_D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MATNR</PARAMETER>
+       <DBFIELD>ZACCDTM-MATNR</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CHARG</PARAMETER>
+       <DBFIELD>ZACCDTM-CHARG</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SENUM</PARAMETER>
+       <DBFIELD>ZACCDTM-SENUM</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>IT_ZACCDTM</PARAMETER>
+       <DBSTRUCT>ZACCDTM</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZACCDTD</PARAMETER>
+       <DBSTRUCT>ZACCDTD</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZACCDTA</PARAMETER>
+       <DBSTRUCT>ZACCDTA</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_S501</PARAMETER>
+       <DBSTRUCT>S501</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZACCMMDT001</PARAMETER>
+       <DBSTRUCT>ZACCMMDT001</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_ZACCMMDT001ER</PARAMETER>
+       <DBSTRUCT>ZACCMMDT001ER</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>IT_BRANCH</PARAMETER>
+       <DBSTRUCT>ZMDCC_BRANCH</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TABNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table name, 16 characters</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UPDKZ</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Update indicator</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CHARG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Batch Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SENUM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Serial Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZACCDTM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Master SN</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZACCDTD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Detail Transaction</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZACCDTA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Aggregate Transaction</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_S501</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Accuracy Header Trans Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZACCMMDT001</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Acc. SN Upload</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_ZACCMMDT001ER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Acc. SN Upload Error log</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_BRANCH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>PID DCC - Branch</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
