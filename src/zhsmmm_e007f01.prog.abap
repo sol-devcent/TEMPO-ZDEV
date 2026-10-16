@@ -3205,7 +3205,8 @@ FORM f_display_attachment_new  USING    fu_row fu_column fu_getoff.
          lt_form01 TYPE STANDARD TABLE OF itcoo,
          lt_form02 TYPE STANDARD TABLE OF itcoo,
          lt_form03 TYPE STANDARD TABLE OF itcoo,
-         lt_form04 TYPE STANDARD TABLE OF itcoo.
+         lt_form04 TYPE STANDARD TABLE OF itcoo,
+         lt_form05 TYPE STANDARD TABLE OF itcoo.
 
   DATA : lt_otf     TYPE TABLE OF itcoo,
          lv_objlen  TYPE sood-objlen,
@@ -3233,6 +3234,7 @@ FORM f_display_attachment_new  USING    fu_row fu_column fu_getoff.
           pt_form02           = lt_form02
           pt_form03           = lt_form03
           pt_form04           = lt_form04
+          pt_form05           = lt_form05
         EXCEPTIONS
           product_group_error = 1
           OTHERS              = 2.
@@ -3240,6 +3242,8 @@ FORM f_display_attachment_new  USING    fu_row fu_column fu_getoff.
 
     IF lt_form01[] IS NOT INITIAL.
       lt_otf[] = lt_form01[].
+    ELSEIF lt_form05[] IS NOT INITIAL.
+      lt_otf[] = lt_form05[].
     ELSEIF lt_form02[] IS NOT INITIAL.
       lt_otf[] = lt_form02[].
     ELSEIF lt_form03[] IS NOT INITIAL.
