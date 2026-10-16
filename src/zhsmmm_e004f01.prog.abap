@@ -13,6 +13,7 @@ FORM f_init_data .
          ls_group  LIKE LINE OF lr_group,
          ls_004    LIKE LINE OF gt_004,
          lv_zeile  TYPE zgdmmt0004x-zeile,
+         lv_nou    TYPE zgdmmt0004x-nou,
          lv_answer,
          lv_subrc  TYPE sy-subrc.
 
@@ -127,11 +128,56 @@ FORM f_init_data .
       AND ( zgroup1 = space
        OR   zgroup1 IN lr_group ).
 
+
+  gt_004_rfq[] = gt_004[].
+  DELETE gt_004_rfq[] WHERE zeile = '0002'.
+  DELETE gt_004_rfq[] WHERE zeile = '0004'.
+  DELETE gt_004_rfq[] WHERE zeile = '0005'.
+  DELETE gt_004_rfq[] WHERE zeile = '0006'.
+  DELETE gt_004_rfq[] WHERE zeile = '0007'.
+  DELETE gt_004_rfq[] WHERE zeile = '0009'.
+  DELETE gt_004_rfq[] WHERE zeile = '0010'.
+  DELETE gt_004_rfq[] WHERE zeile = '0011'.
+  DELETE gt_004_rfq[] WHERE zeile = '0012'.
+  DELETE gt_004_rfq[] WHERE zeile = '0013'.
+  DELETE gt_004_rfq[] WHERE zeile = '0014'.
+  DELETE gt_004_rfq[] WHERE zeile = '0015'.
+  DELETE gt_004_rfq[] WHERE zeile = '0016'.
+  DELETE gt_004_rfq[] WHERE zeile = '0017'.
+**  DELETE gt_004_rfq[] WHERE zeile = '0018'.
+**  DELETE gt_004_rfq[] WHERE zeile = '0019'.
+**  DELETE gt_004_rfq[] WHERE zeile = '0020'.
+**  DELETE gt_004_rfq[] WHERE zeile = '0021'.
+  "  DELETE gt_004_rfq[] WHERE zeile = '0022'.
+  DELETE gt_004_rfq[] WHERE zeile = '0026'.
+  DELETE gt_004_rfq[] WHERE zeile = '0027'.
+  DELETE gt_004_rfq[] WHERE zeile = '0028'.
+  DELETE gt_004_rfq[] WHERE zeile = '0029'.
+  DELETE gt_004_rfq[] WHERE zeile = '0031'.
+  "  DELETE gt_004_rfq[] WHERE zeile = '0032'.
+
   LOOP AT gt_004 INTO ls_004.
     ls_004-xeile  = ls_004-zeile.
     ADD 1 TO lv_zeile.
     ls_004-zeile = lv_zeile.
     MODIFY gt_004 FROM ls_004 TRANSPORTING zeile xeile.
+  ENDLOOP.
+  lv_zeile = 0. lv_nou = 0.
+  LOOP AT gt_004_rfq INTO ls_004.
+    ls_004-xeile  = ls_004-zeile.
+    ADD 1 TO lv_zeile.
+    IF ls_004-zeile = '0032'.
+      CLEAR: ls_004-nou, ls_004-description.
+    ELSEIF ls_004-zeile = '0019' OR ls_004-zeile = '0020' OR ls_004-zeile = '0021' OR ls_004-zeile = '0022' OR ls_004-zeile = '0023'.
+      CLEAR: ls_004-nou.
+    ELSE.
+      ADD 1 TO lv_nou.
+      ls_004-nou = lv_nou.
+    ENDIF.
+
+    ls_004-zeile = lv_zeile.
+    MODIFY gt_004_rfq FROM ls_004 TRANSPORTING zeile xeile nou.
+    CLEAR: ls_004.
   ENDLOOP.
 
   CLEAR lv_subrc.
@@ -1044,6 +1090,255 @@ FORM f_process_data .
   ENDCASE.
 ENDFORM.                    " F_PROCESS_DATA
 
+
+*&---------------------------------------------------------------------*
+*&      Form  F_PROCESS_DATA
+*&---------------------------------------------------------------------*
+FORM f_process_data_rfq .
+  DATA : lt_xekpo TYPE STANDARD TABLE OF ekpo,
+         lt_xekko TYPE STANDARD TABLE OF ekko,
+         lt_04y   TYPE STANDARD TABLE OF zgdmmt004y.
+
+  DATA : ls_xekpo   LIKE LINE OF lt_xekpo,
+         ls_xekko   LIKE LINE OF lt_xekko,
+         ls_ekko    LIKE LINE OF gt_ekko,
+         ls_ekpo    LIKE LINE OF gt_ekpo,
+         ls_eket    LIKE LINE OF gt_eket,
+         ls_eban    LIKE LINE OF gt_eban,
+         ls_lfa1    LIKE LINE OF gt_lfa1,
+         ls_mara    LIKE LINE OF gt_mara,
+         ls_x04x    LIKE LINE OF gt_x04x,
+         ls_x04y    LIKE LINE OF gt_x04y,
+         ls_04y     LIKE LINE OF lt_04y,
+         ls_x04p    LIKE LINE OF gt_x04p,
+         ls_xsplitq LIKE LINE OF gt_xsplitq,
+         ls_chart   LIKE LINE OF gt_chart.
+
+  DATA : lv_menge         TYPE eket-menge,
+         lv_smeng         TYPE eban-menge,
+         lv_lifnr         TYPE lfa1-lifnr,
+         lv_kbetr         TYPE konp-kbetr,
+         lv_alloc         TYPE eban-menge,
+         lv_meins         TYPE ekpo-meins,
+         lv_fieldname(30),
+         lv_ebeln         TYPE ekko-ebeln,
+         lv_waers         TYPE ekko-waers,
+         lv_netpr         TYPE ekpo-netpr,
+         lv_matnr         TYPE ekpo-matnr.
+
+  DATA : lv_po  TYPE i,
+         lv_npo TYPE i.
+
+  DATA : ls_eine LIKE LINE OF gt_eine,
+         ls_eina LIKE LINE OF gt_eina.
+
+  FIELD-SYMBOLS : <fs>        TYPE any.
+
+  gs_head-submi   = pa_submi.
+
+  CASE gv_trtyp.
+    WHEN 'H'.
+      CLEAR : lv_menge.
+
+      lt_xekko[] = gt_ekko_rfq[].
+      SORT lt_xekko BY lifnr ebeln.
+      IF gt_ekpo_rfq[] IS NOT INITIAL.
+        PERFORM f_get_price_unit_rfq.
+
+        lt_xekpo[] = gt_ekpo[].
+        SORT lt_xekpo BY werks matnr.
+        DELETE ADJACENT DUPLICATES FROM lt_xekpo COMPARING werks matnr.
+        LOOP AT gt_lfa1_rfq INTO ls_lfa1.
+          CLEAR : ls_xekko, lv_ebeln.
+          LOOP AT lt_xekko INTO ls_xekko
+                           WHERE lifnr = ls_lfa1-lifnr.
+            LOOP AT gt_ekpo_rfq INTO ls_ekpo WHERE werks = gs_head-werks
+                                           AND matnr = gs_head-matnr
+                                           AND ebeln = ls_xekko-ebeln.
+              lv_meins = ls_ekpo-meins.
+              IF lv_netpr IS INITIAL.
+                lv_netpr  = ls_ekpo-netpr.
+              ENDIF.
+
+              LOOP AT gt_eket_rfq INTO ls_eket WHERE ebeln = ls_ekpo-ebeln
+                                             AND ebelp = ls_ekpo-ebelp.
+                ADD ls_eket-menge TO lv_menge.
+              ENDLOOP.
+            ENDLOOP.
+
+            IF sy-subrc = 0.
+              IF lv_ebeln IS INITIAL.
+                lv_waers  = ls_xekko-waers.
+                lv_ebeln  = ls_xekko-ebeln.
+              ENDIF.
+            ENDIF.
+          ENDLOOP.
+
+          READ TABLE gt_ekpo_rfq INTO ls_ekpo
+                             WITH KEY werks = gs_head-werks
+                                      matnr = gs_head-matnr
+                                      ebeln = lv_ebeln.
+          IF sy-subrc <> 0.
+            CONTINUE.
+          ENDIF.
+
+          ASSIGN COMPONENT 'LIFNR' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = ls_lfa1-lifnr.
+          ASSIGN COMPONENT 'NAME1' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = ls_lfa1-name1.
+          ASSIGN COMPONENT 'MATNR' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = gs_head-matnr.
+          ASSIGN COMPONENT 'MAKTX' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = gs_head-maktx.
+          ASSIGN COMPONENT 'MFRPN' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = ls_lfa1-mfrpn.
+          ASSIGN COMPONENT 'APLFZ' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = ls_lfa1-aplfz.
+          ASSIGN COMPONENT 'EBELN' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = lv_ebeln.
+          ASSIGN COMPONENT 'MEINS' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = lv_meins.
+          ASSIGN COMPONENT 'MENGE' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = lv_menge.
+
+          CLEAR : ls_eina, lv_matnr.
+* cari berdasarkan material MPN
+          CONDENSE ls_ekpo-idnlf.
+          IF ls_ekpo-idnlf IS NOT INITIAL.
+            lv_matnr = ls_ekpo-idnlf.
+          ELSE.
+            lv_matnr = ls_ekpo-matnr.
+          ENDIF.
+
+          READ TABLE gt_eina INTO ls_eina
+                             WITH KEY lifnr = ls_lfa1-lifnr
+                                      matnr = lv_matnr.
+
+          IF sy-subrc = 0.
+            CLEAR ls_eine.
+            READ TABLE gt_eine INTO ls_eine
+                               WITH KEY infnr = ls_eina-infnr
+                                        werks = space.
+            IF sy-subrc = 0.
+              ASSIGN COMPONENT 'NETPR' OF STRUCTURE <fs_lmain1> TO <fs>.
+              <fs> = ls_eine-netpr.
+              ASSIGN COMPONENT 'WAERS' OF STRUCTURE <fs_lmain1> TO <fs>.
+              <fs> = ls_eine-waers.
+              ASSIGN COMPONENT 'PEINH' OF STRUCTURE <fs_lmain1> TO <fs>.
+              <fs> = ls_eine-peinh.
+              ASSIGN COMPONENT 'BPRME' OF STRUCTURE <fs_lmain1> TO <fs>.
+              <fs> = ls_eine-bprme.
+            ENDIF.
+          ELSE.
+          ENDIF.
+
+**          CASE gv_quarter.
+**            WHEN 1.
+**              PERFORM f_get_percen_alokasi TABLES gt_zm73_1_rfq
+**                                           USING ls_lfa1-lifnr
+**                                           CHANGING lv_kbetr.
+**            WHEN 2.
+**              PERFORM f_get_percen_alokasi TABLES gt_zm73_2_rfq
+**                                           USING ls_lfa1-lifnr
+**                                           CHANGING lv_kbetr.
+**            WHEN 3.
+**              PERFORM f_get_percen_alokasi TABLES gt_zm73_3_rfq
+**                                           USING ls_lfa1-lifnr
+**                                           CHANGING lv_kbetr.
+**            WHEN 4.
+**              PERFORM f_get_percen_alokasi TABLES gt_zm73_4_rfq
+**                                           USING ls_lfa1-lifnr
+**                                           CHANGING lv_kbetr.
+**          ENDCASE.
+**          ASSIGN COMPONENT 'KBETR' OF STRUCTURE <fs_lmain1> TO <fs>.
+**          <fs> = lv_kbetr.
+**
+**          PERFORM f_calculate_alokasi USING lv_kbetr lv_smeng
+**                                      CHANGING lv_alloc.
+
+          ASSIGN COMPONENT 'ALLOC' OF STRUCTURE <fs_lmain1> TO <fs>.
+          <fs> = lv_alloc.
+**
+          PERFORM f_calculate_actual_alokasi USING ls_lfa1-lifnr.
+
+          APPEND <fs_lmain1> TO <fs_main1>.
+          CLEAR : lv_menge, lv_netpr.
+        ENDLOOP.
+      ENDIF.
+
+    WHEN 'V' OR 'A'.
+
+      PERFORM f_get_price_unit_rfq.
+
+      LOOP AT gt_x04x_rfq INTO ls_x04x.
+        ASSIGN COMPONENT 'LIFNR' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-lifnr.
+        ASSIGN COMPONENT 'NAME1' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-name1.
+        ASSIGN COMPONENT 'MATNR' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-matnr.
+        SELECT SINGLE maktx
+          FROM makt
+          INTO ls_x04x-maktx
+          WHERE matnr = ls_x04x-matnr.
+        ASSIGN COMPONENT 'MAKTX' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-maktx.
+        ASSIGN COMPONENT 'MFRPN' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-mfrpn.
+        ASSIGN COMPONENT 'EBELN' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-ebeln.
+        ASSIGN COMPONENT 'NETPR' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-netpr.
+        ASSIGN COMPONENT 'WAERS' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-waers.
+
+        CLEAR ls_eina.
+        READ TABLE gt_eina INTO ls_eina
+                           WITH KEY lifnr = ls_x04x-lifnr
+                                    matnr = ls_x04x-matnr.
+        IF sy-subrc = 0.
+          CLEAR ls_eine.
+          READ TABLE gt_eine INTO ls_eine
+                             WITH KEY infnr = ls_eina-infnr.
+          IF sy-subrc = 0.
+            ASSIGN COMPONENT 'PEINH' OF STRUCTURE <fs_lmain1> TO <fs>.
+            <fs> = ls_eine-peinh.
+            ASSIGN COMPONENT 'BPRME' OF STRUCTURE <fs_lmain1> TO <fs>.
+            <fs> = ls_eine-bprme.
+          ENDIF.
+        ENDIF.
+
+        ASSIGN COMPONENT 'MENGE' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-etmen.
+        ASSIGN COMPONENT 'BOBOT' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-bobot.
+        ASSIGN COMPONENT 'ALLOC' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-bamng.
+        ASSIGN COMPONENT 'MEINS' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-bamei.
+        ASSIGN COMPONENT 'KBETR' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-kbetr.
+        ASSIGN COMPONENT 'REVIS' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-menge.
+        ASSIGN COMPONENT 'KBETR1' OF STRUCTURE <fs_lmain1> TO <fs>.
+        <fs> = ls_x04x-kbet1.
+
+"        PERFORM f_calculate_actual_alokasi USING ls_x04x-lifnr.
+
+        APPEND <fs_lmain1> TO <fs_main1>.
+
+        ls_chart-lifnr = ls_x04x-lifnr.
+        ls_chart-menge = ls_x04x-etmen.
+        ls_chart-zeile    = 0.
+        ls_chart-check    = 'X'.
+        APPEND ls_chart TO gt_chart.
+        ADD ls_chart-menge TO gv_menge.
+
+        CLEAR : <fs_lmain1>, ls_chart.
+      ENDLOOP.
+  ENDCASE.
+ENDFORM.                    " F_PROCESS_DATA
+
 *&---------------------------------------------------------------------*
 *&      Form  F_PRINT_DATA
 *&---------------------------------------------------------------------*
@@ -1374,6 +1669,9 @@ FORM f_user_command .
             IF lv_subrc IS INITIAL.
               IF gt_heads[] IS INITIAL.
                 PERFORM f_print_form USING lv_ucomm 'X' '' 'X' ''.
+                IF gt_lfa1_rfq[] IS NOT INITIAL.
+                  PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
+                ENDIF.
                 IF gv_po IS INITIAL.
                   PERFORM f_print_lampiran_pr USING lv_ucomm '' 'X' 'X' 'X'.
                 ELSE.
@@ -1381,6 +1679,9 @@ FORM f_user_command .
                 ENDIF.
               ELSEIF pa_prgrp IS INITIAL.
                 PERFORM f_print_form USING lv_ucomm 'X' '' 'X' ''.
+                IF gt_lfa1_rfq[] IS NOT INITIAL.
+                  PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
+                ENDIF.
                 IF gv_po IS INITIAL.
                   PERFORM f_print_lampiran_pr USING lv_ucomm 'X' 'X' 'X' ''.
                 ELSE.
@@ -1389,6 +1690,9 @@ FORM f_user_command .
                 PERFORM f_print_lampiran USING lv_ucomm '' 'X' 'X' 'X'.
               ELSE.
                 PERFORM f_print_form USING lv_ucomm 'X' '' 'X' ''.
+                IF gt_lfa1_rfq[] IS NOT INITIAL.
+                  PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
+                ENDIF.
                 IF gv_po IS INITIAL.
                   PERFORM f_print_lampiran_pr USING lv_ucomm 'X' 'X' 'X' ''.
                 ELSE.
@@ -1464,6 +1768,9 @@ FORM f_user_command .
           PERFORM f_prepare_lampiran.
 
           PERFORM f_print_form USING lv_ucomm 'X' '' 'X' ''.
+          IF gt_lfa1_rfq[] IS NOT INITIAL.
+            PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
+          ENDIF.
           IF gv_po IS INITIAL.
             PERFORM f_print_lampiran_pr USING lv_ucomm 'X' 'X' 'X' ''.
           ELSE.
@@ -1602,13 +1909,20 @@ FORM f_user_command .
       PERFORM f_prepare_lampiran.
       IF gt_heads[] IS INITIAL.
         PERFORM f_print_form USING lv_ucomm 'X' '' '' ''.
-        IF gv_po IS INITIAL.
-          PERFORM f_print_lampiran_pr USING lv_ucomm '' 'X' '' ''.
-        ELSE.
-          PERFORM f_print_lampiran_po USING lv_ucomm '' 'X' '' ''.
+        IF gt_lfa1_rfq[] IS NOT INITIAL.
+          PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
         ENDIF.
+        IF gv_po IS INITIAL.
+          PERFORM f_print_lampiran_pr USING lv_ucomm 'X' 'X' '' ''.
+        ELSE.
+          PERFORM f_print_lampiran_po USING lv_ucomm 'X' 'X' 'X' ''.
+        ENDIF.
+
       ELSEIF pa_prgrp IS INITIAL.
         PERFORM f_print_form USING lv_ucomm 'X' '' '' ''.
+        IF gt_lfa1_rfq[] IS NOT INITIAL.
+          PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
+        ENDIF.
         IF gv_po IS INITIAL.
           PERFORM f_print_lampiran_pr USING lv_ucomm 'X' 'X' '' ''.
         ELSE.
@@ -1617,6 +1931,9 @@ FORM f_user_command .
         PERFORM f_print_lampiran USING lv_ucomm '' 'X' '' ''.
       ELSE.
         PERFORM f_print_form USING lv_ucomm 'X' '' '' ''.
+        IF gt_lfa1_rfq[] IS NOT INITIAL.
+          PERFORM f_print_form_rfq USING lv_ucomm 'X' 'X' '' ''.
+        ENDIF.
         IF gv_po IS INITIAL.
           PERFORM f_print_lampiran_pr USING lv_ucomm 'X' 'X' '' ''.
         ELSE.
@@ -1628,6 +1945,7 @@ FORM f_user_command .
         ELSE.
           PERFORM f_print_lampiran USING lv_ucomm '' 'X' '' ''.
         ENDIF.
+        "        PERFORM f_print_form_rfq USING lv_ucomm '' 'X' '' ''.
       ENDIF.
 
     WHEN '&FPKH'.
@@ -1896,6 +2214,7 @@ FORM  f_create_dyn_int_table .
   PERFORM f_create_dyn_graph USING 1.
 
   PERFORM f_dyn_table USING 'MAIN'.
+  PERFORM f_dyn_table USING 'MAIN1'.
   PERFORM f_dyn_table USING 'DETL'.
   PERFORM f_dyn_table USING 'LABEL'.
   PERFORM f_dyn_table USING 'GRAPH'.
@@ -2093,6 +2412,22 @@ FORM f_dyn_table  USING    fu_tabname.
         ASSIGN lt_dyn_table->* TO <fs_main>.
         CREATE DATA ls_line LIKE LINE OF <fs_main>.
         ASSIGN ls_line->* TO <fs_lmain>.
+      ENDIF.
+    WHEN 'MAIN1'.
+      CALL METHOD cl_alv_table_create=>create_dynamic_table
+        EXPORTING
+          it_fieldcatalog           = gt_main_fieldcat
+          i_length_in_byte          = 'X'
+          i_style_table             = 'X'
+        IMPORTING
+          ep_table                  = lt_dyn_table
+        EXCEPTIONS
+          generate_subpool_dir_full = 1
+          OTHERS                    = 2.
+      IF sy-subrc = 0.
+        ASSIGN lt_dyn_table->* TO <fs_main1>.
+        CREATE DATA ls_line LIKE LINE OF <fs_main1>.
+        ASSIGN ls_line->* TO <fs_lmain1>.
       ENDIF.
 
     WHEN 'DETL'.
@@ -2686,6 +3021,171 @@ FORM f_zm73n  TABLES   ft_zm73   LIKE gt_zm73_1
 ENDFORM.                    " F_ZM73N
 
 *&---------------------------------------------------------------------*
+*&      Form  F_ZM73N
+*&---------------------------------------------------------------------*
+FORM f_zm73n_rfq  TABLES   ft_zm73   LIKE gt_zm73_1
+              USING    fu_datum fu_quarter.
+
+  DATA : lr_werks TYPE RANGE OF ekpo-werks,
+         lr_ekgrp TYPE RANGE OF ekko-ekgrp,
+         lr_matnr TYPE RANGE OF ekpo-matnr,
+         lr_loekz TYPE RANGE OF ekpo-loekz,
+         lr_lifnr TYPE RANGE OF lfa1-lifnr.
+
+  DATA : ls_werks    LIKE LINE OF lr_werks,
+         ls_ekgrp    LIKE LINE OF lr_ekgrp,
+         ls_matnr    LIKE LINE OF lr_matnr,
+         ls_loekz    LIKE LINE OF lr_loekz,
+         ls_lifnr    LIKE LINE OF lr_lifnr,
+         ls_lfa1     LIKE LINE OF gt_lfa1,
+         ls_material LIKE LINE OF gt_material.
+
+  DATA : lt_zm73  TYPE STANDARD TABLE OF ty_zm73,
+         ls_zm73  LIKE LINE OF lt_zm73,
+         lt_xm73  TYPE STANDARD TABLE OF ty_zm73,
+         ls_xm73  LIKE LINE OF lt_zm73,
+         lt_ym73  TYPE STANDARD TABLE OF ty_zm73,
+         ls_ym73  LIKE LINE OF lt_zm73,
+         lr_zm73n TYPE REF TO data,
+         ls_zm73n TYPE REF TO data,
+         ls_pgmit LIKE LINE OF gt_pgmit.
+
+  DATA : lv_datum TYPE sy-datum,
+         lv_bobot TYPE zbobottop,
+         lv_lines TYPE numc2,
+         lv_diff  TYPE i.
+
+  FIELD-SYMBOLS : <fs_zm73n>  TYPE ANY TABLE,
+                  <fs_lzm73n> TYPE any,
+                  <fs>        TYPE any.
+  FIELD-SYMBOLS : <fs_zm73n_rfq>  TYPE ANY TABLE,
+                  <fs_lzm73n_rfq> TYPE any.
+
+  ls_werks-sign   = 'I'.
+  ls_werks-option = 'EQ'.
+  ls_werks-low    = so_werks-low.
+  APPEND ls_werks TO lr_werks.
+
+  ls_ekgrp-sign   = 'I'.
+  ls_ekgrp-option = 'EQ'.
+  ls_ekgrp-low    = pa_ekgrp.
+  APPEND ls_ekgrp TO lr_ekgrp.
+
+  CASE 'X'.
+    WHEN radio1.
+      ls_matnr-sign   = 'I'.
+      ls_matnr-option = 'EQ'.
+      ls_matnr-low    = so_matnr-low.
+      APPEND ls_matnr TO lr_matnr.
+    WHEN radio2.
+      LOOP AT gt_pgmit INTO ls_pgmit.
+        ls_matnr-sign   = 'I'.
+        ls_matnr-option = 'EQ'.
+        ls_matnr-low    = ls_pgmit-matnr.
+        APPEND ls_matnr TO lr_matnr.
+
+        ls_material-matnr = ls_pgmit-matnr.
+        APPEND ls_material TO gt_material.
+        CLEAR ls_material.
+      ENDLOOP.
+  ENDCASE.
+
+  IF pa_ean11 IS NOT INITIAL.
+    ls_matnr-low    = pa_ean11.
+    ls_matnr-sign   = 'I'.
+    ls_matnr-option = 'EQ'.
+    APPEND ls_matnr TO lr_matnr.
+  ENDIF.
+
+  SORT gt_material BY matnr.
+  DELETE ADJACENT DUPLICATES FROM gt_material COMPARING matnr.
+
+  ls_loekz-sign   = 'E'.
+  ls_loekz-option = 'EQ'.
+  ls_loekz-low    = 'L'.
+  APPEND ls_loekz TO lr_loekz.
+
+  LOOP AT gt_lfa1_rfq INTO ls_lfa1.
+    ls_lifnr-sign   = 'I'.
+    ls_lifnr-option = 'EQ'.
+    ls_lifnr-low    = ls_lfa1-lifnr.
+    APPEND ls_lifnr TO lr_lifnr.
+  ENDLOOP.
+
+  lv_datum  = fu_datum - 1.
+
+  cl_salv_bs_runtime_info=>set(
+    EXPORTING display  = abap_false
+              metadata = abap_false
+              data     = abap_true ).
+
+  SUBMIT zm_vendor_evaluation_newv3
+    WITH so_werks  IN lr_werks
+    WITH so_ekgrp  IN lr_ekgrp
+    WITH so_matnr  IN lr_matnr
+    WITH p_assdt   EQ lv_datum
+    WITH so_loekz  IN lr_loekz
+    WITH so_lifnr  IN lr_lifnr
+    WITH p_nodisp  EQ 'X'
+    WITH p_get6    EQ 'X'
+    WITH p_old     EQ pa_ean11
+    WITH p_quart   EQ fu_quarter
+    WITH pa_mjahr  EQ pa_mjahr
+    AND RETURN.
+
+  TRY.
+      cl_salv_bs_runtime_info=>get_data_ref(
+        IMPORTING r_data = lr_zm73n ).
+      ASSIGN lr_zm73n->* TO <fs_zm73n_rfq>.
+
+      IF <fs_zm73n_rfq> IS ASSIGNED.
+        CREATE DATA ls_zm73n LIKE LINE OF <fs_zm73n_rfq>.
+        ASSIGN ls_zm73n->* TO <fs_lzm73n_rfq>.
+      ENDIF.
+
+    CATCH cx_salv_bs_sc_runtime_info.
+      MESSAGE `Unable to retrieve ALV data` TYPE 'E'.
+  ENDTRY.
+
+  IF <fs_zm73n_rfq> IS ASSIGNED.
+    LOOP AT <fs_zm73n_rfq> ASSIGNING <fs_lzm73n_rfq>.
+      ASSIGN COMPONENT 'LIFNR' OF STRUCTURE <fs_lzm73n_rfq> TO <fs>.
+      ls_zm73-lifnr = <fs>.
+      ASSIGN COMPONENT 'HARGA' OF STRUCTURE <fs_lzm73n_rfq> TO <fs>.
+      ls_zm73-harga = <fs>.
+      ASSIGN COMPONENT 'BOBOTTOTAL' OF STRUCTURE <fs_lzm73n_rfq> TO <fs>.
+      ls_zm73-bobot = <fs>.
+      IF ls_zm73-harga = 0.
+        CONTINUE.
+      ENDIF.
+      APPEND ls_zm73 TO lt_zm73.
+    ENDLOOP.
+  ENDIF.
+
+
+*  CASE 'X'.
+*    WHEN radio1.
+*    WHEN radio2.
+  PERFORM f_calculate_average TABLES lt_zm73.
+*  ENDCASE.
+
+  cl_salv_bs_runtime_info=>clear_all( ).
+
+  PERFORM f_calculate_top4_bobot TABLES lt_zm73
+                                 CHANGING lv_bobot lv_lines.
+  PERFORM f_calculate_score_diff TABLES lt_zm73
+                                 USING  lv_bobot lv_lines
+                                 CHANGING lv_diff.
+
+  IF lv_diff IS NOT INITIAL.
+    PERFORM f_calculate_under3% TABLES lt_zm73
+                                USING  lv_diff.
+  ENDIF.
+
+  ft_zm73[] = lt_zm73[].
+ENDFORM.                    " F_ZM73N
+
+*&---------------------------------------------------------------------*
 *&      Form  F_GET_FROM_ZM73N
 *&---------------------------------------------------------------------*
 FORM f_get_from_zm73n .
@@ -2720,6 +3220,42 @@ FORM f_get_from_zm73n .
       PERFORM f_sort_vendor TABLES gt_zm73_4.
   ENDCASE.
 ENDFORM.                    " F_GET_FROM_ZM73N
+
+***&---------------------------------------------------------------------*
+***&      Form  F_GET_FROM_ZM73N
+***&---------------------------------------------------------------------*
+**FORM f_get_from_zm73n_rfq .
+**  CASE gv_quarter.
+**    WHEN 1.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_1_rfq
+**                      USING gv_d1 1.
+**      PERFORM f_sort_vendor_rfq TABLES gt_zm73_1_rfq.
+**    WHEN 2.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_1_rfq
+**                      USING gv_d1 1.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_2_rfq
+**                      USING gv_d2 2.
+**      PERFORM f_sort_vendor_rfq TABLES gt_zm73_2_rfq.
+**    WHEN 3.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_1_rfq
+**                      USING gv_d1 1.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_2_rfq
+**                      USING gv_d2 2.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_3_rfq
+**                      USING gv_d3 3.
+**      PERFORM f_sort_vendor_rfq TABLES gt_zm73_3_rfq.
+**    WHEN 4.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_1_rfq
+**                      USING gv_d1 1.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_2_rfq
+**                      USING gv_d2 2.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_3_rfq
+**                      USING gv_d3 3.
+**      PERFORM f_zm73n_rfq TABLES gt_zm73_4_rfq
+**                      USING gv_d4 4.
+**      PERFORM f_sort_vendor_rfq TABLES gt_zm73_4_rfq.
+**  ENDCASE.
+**ENDFORM.                    " F_GET_FROM_ZM73N
 
 *&---------------------------------------------------------------------*
 *&      Form  F_GET_OUTSTANDING_PR
@@ -2960,20 +3496,50 @@ FORM f_sort_vendor  TABLES   ft_zm73 LIKE gt_zm73_1.
       ENDLOOP.
     ENDIF.
   ENDIF.
+ENDFORM.                    " F_SORT_VENDOR
 
-*****  LOOP AT gt_lfa1 INTO ls_lfa1.
-*****    CLEAR ls_zm73.
-*****    READ TABLE ft_zm73 INTO ls_zm73
-*****                       WITH KEY lifnr = ls_lfa1-lifnr.
-*****    IF sy-subrc = 0.
-*****      ls_lfa1-sortl   = sy-tabix.
-*****    ELSE.
-*****      ls_lfa1-sortl   = 999.
-*****    ENDIF.
-*****    MODIFY gt_lfa1 FROM ls_lfa1 TRANSPORTING sortl.
-*****  ENDLOOP.
-*****
-*****  SORT gt_lfa1 BY sortl lifnr.
+*&---------------------------------------------------------------------*
+*&      Form  F_SORT_VENDOR
+*&---------------------------------------------------------------------*
+FORM f_sort_vendor_rfq  TABLES   ft_zm73 LIKE gt_zm73_1.
+  DATA : ls_lfa1  LIKE LINE OF gt_lfa1,
+         ls_zm73  TYPE ty_zm73,
+         lt_xzm73 TYPE STANDARD TABLE OF ty_zm73,
+         ls_xzm73 TYPE ty_zm73,
+         ls_ekko  LIKE LINE OF gt_ekko,
+         lt_xeban TYPE STANDARD TABLE OF eban,
+         ls_xeban LIKE LINE OF lt_xeban,
+         ls_ekpo  LIKE LINE OF gt_ekpo.
+
+  IF gt_lfa1[] IS INITIAL.
+    lt_xzm73[] = ft_zm73[].
+    SORT lt_xzm73 BY lifnr.
+    DELETE ADJACENT DUPLICATES FROM lt_xzm73 COMPARING lifnr.
+    IF lt_xzm73[] IS NOT INITIAL.
+      SELECT *
+        FROM lfa1
+        INTO CORRESPONDING FIELDS OF TABLE gt_lfa1_rfq
+        FOR ALL ENTRIES IN lt_xzm73
+        WHERE lifnr = lt_xzm73-lifnr.
+
+      LOOP AT lt_xzm73 INTO ls_xzm73.
+        ls_ekko-lifnr   = ls_xzm73-lifnr.
+        APPEND ls_ekko TO gt_ekko_rfq.
+        CLEAR ls_ekko.
+      ENDLOOP.
+
+      lt_xeban[] = gt_eban[].
+      SORT lt_xeban BY werks matnr.
+      DELETE ADJACENT DUPLICATES FROM lt_xeban COMPARING werks matnr.
+      LOOP AT lt_xeban INTO ls_xeban.
+        ls_ekpo-werks   = ls_xeban-werks.
+        ls_ekpo-matnr   = ls_xeban-matnr.
+        ls_ekpo-meins   = ls_xeban-meins.
+        APPEND ls_ekpo TO gt_ekpo_rfq.
+        CLEAR ls_ekpo.
+      ENDLOOP.
+    ENDIF.
+  ENDIF.
 ENDFORM.                    " F_SORT_VENDOR
 
 *&---------------------------------------------------------------------*
@@ -3232,6 +3798,55 @@ FORM f_get_last_purchased .
                        TRANSPORTING mfrpn mfrnr aplfz datab
                                     kbetr konwa kpein kmein
                        WHERE lifnr = ls_eina-lifnr.
+      ELSE.
+        CLEAR ls_lfa1.
+        READ TABLE gt_lfa1_rfq INTO ls_lfa1
+                   WITH KEY lifnr = ls_eina-lifnr.
+        CLEAR ls_eine.
+        READ TABLE lt_eine INTO ls_eine
+                           WITH KEY infnr = ls_eina-infnr. "ls_xeipa-infnr.
+        IF sy-subrc = 0.
+          ls_lfa1-aplfz   = ls_eine-aplfz.
+        ENDIF.
+        ls_lfa1-mfrpn   = ls_mara-mfrpn.
+        ls_lfa1-mfrnr   = ls_mara-mfrnr.
+
+        CLEAR ls_ekpo.
+        READ TABLE gt_ekpo_rfq INTO ls_ekpo
+                           WITH KEY idnlf = ls_eina-matnr.
+        IF ls_ekpo-idnlf IS NOT INITIAL.
+          lv_matnr  = ls_ekpo-idnlf.
+        ELSE.
+          lv_matnr  = so_matnr-low.
+        ENDIF.
+
+        CLEAR ls_a018.
+        READ TABLE lt_a018 INTO ls_a018
+                           WITH KEY lifnr = ls_lfa1-lifnr
+                                    matnr = lv_matnr.
+        IF sy-subrc = 0.
+          READ TABLE lt_konp INTO ls_konp
+                             WITH KEY knumh = ls_a018-knumh.
+          IF sy-subrc = 0.
+            ls_lfa1-kbetr   = ls_konp-kbetr.
+            ls_lfa1-konwa   = ls_konp-konwa.
+            ls_lfa1-kpein   = ls_konp-kpein.
+            ls_lfa1-kmein   = ls_konp-kmein.
+          ENDIF.
+          ls_lfa1-datab   = ls_a018-datab.
+        ENDIF.
+        CLEAR : ls_a018, ls_konp.
+**        IF ls_lfa1-kbetr IS INITIAL.
+**          gv_subrc = 7.
+**          gv_lifnr = ls_lfa1-lifnr.
+**          EXIT.
+**        ENDIF.
+        MODIFY gt_lfa1_rfq FROM ls_lfa1
+                       TRANSPORTING mfrpn mfrnr aplfz datab
+                                    kbetr konwa kpein kmein
+                       WHERE lifnr = ls_eina-lifnr.
+
+
       ENDIF.
     ENDIF.
   ENDLOOP.
@@ -3525,7 +4140,7 @@ FORM f_prepare_data .
          lv_ppeinh(20),
          lv_pprme(10).
 
-  CLEAR : gt_detail[], gt_detail, gt_xsuppl[], gt_xsuppl, gt_palloc[],
+  CLEAR : gt_detail[], gt_detail, gt_xsuppl[], gt_xsuppl_rfq[], gt_xsuppl_rfq, gt_xsuppl, gt_palloc[],
           gt_palloc, gt_sub[], gt_sub.
 
   gs_header-zalno   = pa_zalno.
@@ -3590,6 +4205,9 @@ FORM f_prepare_data .
 
   PERFORM f_form_detail.
   PERFORM f_form_supplier.
+  IF gt_lfa1_rfq[] IS NOT INITIAL.
+    PERFORM f_form_supplier_rfq.
+  ENDIF.
 ENDFORM.                    " F_PREPARE_DATA
 
 *&---------------------------------------------------------------------*
@@ -3710,6 +4328,142 @@ FORM f_print_form  USING    fu_ucomm fu_close fu_open fu_nodialog fu_mail.
         t_detail           = gt_detail
         t_sub              = gt_sub
         t_suppl            = gt_xsuppl
+        t_nsupl            = lt_nsupl.
+
+    IF fu_open IS INITIAL AND
+      fu_close IS INITIAL.
+      d_ctrl_param-no_open = 'X'.
+    ELSEIF lv_lines > 1.
+      d_ctrl_param-no_open = 'X'.
+    ENDIF.
+  ENDLOOP.
+
+  IF fu_mail IS NOT INITIAL.
+    PERFORM f_send_mail USING ls_info ls_options ''.
+  ENDIF.
+ENDFORM.                    " F_PRINT_FORM
+
+*&---------------------------------------------------------------------*
+*&      Form  F_PRINT_FORM
+*&---------------------------------------------------------------------*
+FORM f_print_form_rfq  USING    fu_ucomm fu_close fu_open fu_nodialog fu_mail.
+  DATA : lt_supplier TYPE STANDARD TABLE OF zgdmmst0053,
+         ls_supplier TYPE zgdmmst0053,
+         ls_lfa1     TYPE lfa1.
+
+  DATA : lv_menget  LIKE eket-menge,
+         lv_record  TYPE i,
+         lv_totpage TYPE i,
+         lv_lines   TYPE i,
+         lv_times   TYPE i,
+         lv_count   TYPE i,
+         lv_div     TYPE i,
+         lv_mod     TYPE i.
+
+  DATA : x1 TYPE i,
+         x2 TYPE i.
+
+  DATA : lt_nsupl     TYPE STANDARD TABLE OF zgdmmst0055.
+
+  DATA : ls_info    TYPE ssfcrescl,
+         ls_options TYPE ssfcresop.
+
+  p_tdform  = 'ZHSMMMSF0014'.
+  PERFORM f_determine_smrt_funcmod USING p_tdform
+                                         d_smrt_funcmod
+                                         d_frm_subrc.
+
+  d_ctrl_param-no_open  = 'X'. "fu_open.
+  d_ctrl_param-no_close = fu_close.
+
+
+  CASE fu_ucomm.
+    WHEN '&POS'.
+      d_output_opt-tdnoprev     = 'X'.
+      d_ctrl_param-no_dialog    = fu_nodialog.
+      d_ctrl_param-preview      = space.
+      d_ctrl_param-getotf       = 'X'.
+    WHEN '&PREV'.
+      d_output_opt-tdnoprint    = 'X'.
+      d_ctrl_param-preview      = 'X'.
+  ENDCASE.
+
+
+  DESCRIBE TABLE gt_sub LINES lv_totpage.
+  DESCRIBE TABLE gt_lfa1_rfq LINES lv_record.
+  lv_div  = lv_record DIV 3.
+  lv_mod  = lv_record MOD 3.
+
+  IF lv_mod <> 0.
+    lv_times = lv_div + 1.
+  ELSE.
+    lv_times = lv_div.
+  ENDIF.
+
+  IF x1 IS INITIAL.
+    x1 = 1.
+    x2 = x1 + 2.
+  ENDIF.
+
+  DO lv_times TIMES.
+    CLEAR lv_count.
+    LOOP AT gt_lfa1_rfq INTO ls_lfa1 FROM x1 TO x2.
+      ADD 1 TO lv_count.
+      CASE lv_count.
+        WHEN 1.
+          ls_supplier-lifnr1  = ls_lfa1-lifnr.
+        WHEN 2.
+          ls_supplier-lifnr2  = ls_lfa1-lifnr.
+        WHEN 3.
+          ls_supplier-lifnr3  = ls_lfa1-lifnr.
+      ENDCASE.
+    ENDLOOP.
+
+    APPEND ls_supplier TO lt_supplier.
+    CLEAR ls_supplier.
+
+    x1 = x2 + 1.
+    x2 = x1 + 2.
+  ENDDO.
+
+  DESCRIBE TABLE lt_supplier LINES lv_lines.
+
+*  gs_header-ekgrp = pa_ekgrp.
+
+  LOOP AT lt_supplier INTO ls_supplier.
+    PERFORM f_supplier_data_rfq TABLES lt_nsupl
+                            USING ls_supplier-lifnr1 ls_supplier-lifnr2
+                                  ls_supplier-lifnr3.
+
+    IF fu_open IS INITIAL AND
+      fu_close IS INITIAL.
+      AT FIRST.
+        d_ctrl_param-no_open = 'X'.
+      ENDAT.
+
+      AT LAST.
+        d_ctrl_param-no_close = space.
+      ENDAT.
+    ENDIF.
+
+    CALL FUNCTION d_smrt_funcmod
+      EXPORTING
+        control_parameters = d_ctrl_param
+        output_options     = d_output_opt
+        user_settings      = space
+        t_header           = gs_header
+        wa_supplier        = ls_supplier
+        va_menget          = lv_menget
+        va_record          = lv_record
+        va_totpage         = lv_totpage
+        va_lines           = lv_lines
+      IMPORTING
+        job_output_info    = ls_info
+        job_output_options = ls_options
+      TABLES
+        t_detail           = gt_detail
+        t_sub              = gt_sub
+        t_suppl            = gt_xsuppl_rfq
         t_nsupl            = lt_nsupl.
 
     IF fu_open IS INITIAL AND
@@ -3890,6 +4644,25 @@ FORM f_04c  USING    fu_zalno.
     APPEND ls_04c TO gt_04c.
     CLEAR ls_04c.
   ENDLOOP.
+
+  LOOP AT gt_xsuppl_rfq INTO ls_xsuppl.
+    ls_04c-zalno        = fu_zalno.
+    ls_04c-lifnr        = ls_xsuppl-lifnr.
+    CLEAR ls_004.
+    READ TABLE gt_004_rfq INTO ls_004
+                      WITH KEY zeile = ls_xsuppl-zeile.
+    IF sy-subrc = 0.
+      ls_04c-zeile        = ls_004-xeile.
+    ENDIF.
+    IF ls_04c-zeile = 1.
+      ADD 1 TO lv_posnr.
+    ENDIF.
+    ls_04c-posnr        = lv_posnr.
+    ls_04c-value        = ls_xsuppl-value.
+    APPEND ls_04c TO gt_04c_rfq.
+    CLEAR ls_04c.
+  ENDLOOP.
+
 ENDFORM.                    " F_04C
 
 *&---------------------------------------------------------------------*
@@ -4087,6 +4860,99 @@ FORM f_form_supplier .
 ENDFORM.                    " F_FORM_SUPPLIER
 
 *&---------------------------------------------------------------------*
+*&      Form  F_FORM_SUPPLIER
+*&---------------------------------------------------------------------*
+FORM f_form_supplier_rfq .
+  DATA : ls_lfa1   LIKE LINE OF gt_lfa1,
+         ls_004    LIKE LINE OF gt_004,
+         ls_xsuppl LIKE LINE OF gt_xsuppl,
+         ls_x04c   LIKE LINE OF gt_x04c,
+         ls_palloc LIKE LINE OF gt_palloc.
+
+  DATA : lv_qcode(10),
+         lv_value(100).
+
+  LOOP AT gt_lfa1_rfq INTO ls_lfa1.
+    LOOP AT gt_004_rfq INTO ls_004.
+      ls_xsuppl-lifnr        = ls_lfa1-lifnr.
+      ls_xsuppl-zeile        = ls_004-zeile.
+      ls_xsuppl-nou          = ls_004-nou.
+      ls_xsuppl-description  = ls_004-description.
+      ls_xsuppl-zend         = ls_004-zend.
+
+      CASE gv_quarter.
+        WHEN 1.
+          lv_qcode = 'p_q1'.
+        WHEN 2.
+          lv_qcode = 'p_q2'.
+        WHEN 3.
+          lv_qcode = 'p_q3'.
+        WHEN 4.
+          lv_qcode = 'p_q4'.
+      ENDCASE.
+
+      PERFORM f_replace_code USING lv_qcode ls_004-period ls_004-zgroup1 pa_mjahr
+                             CHANGING ls_xsuppl-description ls_palloc-description.
+
+      CASE gv_trtyp.
+        WHEN 'H'.
+          IF ls_004-field IS NOT INITIAL.
+            PERFORM f_get_value_rfq USING ls_xsuppl-lifnr ls_004-field ls_lfa1-datab
+                                      ls_lfa1-kbetr ls_lfa1-konwa
+                                      ls_lfa1-kpein ls_lfa1-kmein
+                                      ls_palloc-description
+                                CHANGING ls_xsuppl-value  ls_palloc-value.
+          ELSE.
+            PERFORM f_get_value_rfq USING ls_xsuppl-lifnr ls_004-description
+                                      '' '' '' '' ''
+                                      ls_palloc-description
+                                CHANGING ls_xsuppl-value ls_palloc-value.
+          ENDIF.
+        WHEN OTHERS.
+          IF ls_004-description = 'Pertimbangan/Alasan'.
+            PERFORM f_get_value_rfq USING ls_xsuppl-lifnr ls_004-description
+                                      '' '' '' '' ''
+                                      ls_palloc-description
+                                CHANGING ls_xsuppl-value ls_palloc-value.
+          ELSEIF ls_004-field(4) = 'ALOC'.
+            PERFORM f_get_value_rfq USING ls_xsuppl-lifnr ls_004-field
+                                      '' '' '' '' ''
+                                      ls_palloc-description
+                                CHANGING ls_xsuppl-value ls_palloc-value.
+          ELSEIF ls_004-field(5) = 'ACTLK'.
+            PERFORM f_get_value_rfq USING ls_xsuppl-lifnr ls_004-field
+                                      '' '' '' '' ''
+                                      ls_palloc-description
+                                CHANGING ls_xsuppl-value ls_palloc-value.
+          ELSE.
+            CLEAR ls_x04c.
+            READ TABLE gt_x04c_rfq INTO ls_x04c
+                               WITH KEY lifnr = ls_xsuppl-lifnr
+                                        zeile = ls_004-xeile.
+            IF sy-subrc = 0.
+              ls_xsuppl-value = ls_x04c-value.
+              IF ls_palloc-description IS NOT INITIAL.
+                ls_palloc-value = ls_x04c-value.
+              ENDIF.
+            ENDIF.
+          ENDIF.
+      ENDCASE.
+
+      IF ls_palloc-description IS NOT INITIAL AND
+        ls_palloc-value IS NOT INITIAL.
+        ls_palloc-lifnr  = ls_xsuppl-lifnr.
+        APPEND ls_palloc TO gt_palloc.
+      ENDIF.
+      CLEAR : ls_palloc, lv_value.
+      "      IF ls_xsuppl-description IS NOT INITIAL.
+      APPEND ls_xsuppl TO gt_xsuppl_rfq.
+      "      ENDIF.
+      CLEAR ls_xsuppl.
+    ENDLOOP.
+  ENDLOOP.
+ENDFORM.                    " F_FORM_SUPPLIER
+
+*&---------------------------------------------------------------------*
 *&      Form  F_REPLACE_CODE
 *&---------------------------------------------------------------------*
 FORM f_replace_code  USING    fu_qcode fu_period fu_zgroup1 fu_mjahr
@@ -4234,7 +5100,6 @@ FORM f_get_value  USING    fu_lifnr fu_field fu_datab fu_kbetr fu_konwa
         ASSIGN COMPONENT fu_field OF STRUCTURE <fs_lmain> TO <fs>.
         fc_value = <fs>.
       ENDIF.
-
     WHEN 'TDLINE'.
       READ TABLE <fs_main> ASSIGNING <fs_lmain>
                            WITH KEY ('LIFNR') = fu_lifnr.
@@ -4384,6 +5249,244 @@ FORM f_get_value  USING    fu_lifnr fu_field fu_datab fu_kbetr fu_konwa
 ENDFORM.                    " F_GET_VALUE
 
 *&---------------------------------------------------------------------*
+*&      Form  F_GET_VALUE
+*&---------------------------------------------------------------------*
+FORM f_get_value_rfq  USING    fu_lifnr fu_field fu_datab fu_kbetr fu_konwa
+                           fu_kpein fu_kmein fu_description
+                  CHANGING fc_value fc_value1.
+  DATA : lv_datum     TYPE sy-datum,
+         lv_tmeng(20),
+         lv_tmein(5),
+         ls_zm73      TYPE ty_zm73,
+         ls_lfm1      LIKE LINE OF gt_lfm1,
+         ls_t052u     LIKE LINE OF gt_t052u.
+
+  DATA : ls_heads  LIKE LINE OF gt_heads,
+         ls_total  LIKE LINE OF gt_total,
+         lv_tdname TYPE thead-tdname,
+         lt_text   TYPE STANDARD TABLE OF ty_text,
+         ls_text   LIKE LINE OF lt_text,
+         ls_actal  LIKE LINE OF gt_actal.
+
+  DATA : lv_datab TYPE sy-datum,
+         ls_aloc  LIKE LINE OF gt_aloc,
+         lv_aloc  TYPE p DECIMALS 0.
+
+  FIELD-SYMBOLS : <fs>    TYPE any.
+
+  CLEAR fc_value.
+
+  CASE fu_field.
+    WHEN 'KBETR'.
+      PERFORM f_kbetr_calc USING fu_kbetr fu_konwa
+                                 fu_kpein fu_kmein
+                           CHANGING fc_value.
+
+    WHEN 'MENGE'.
+      PERFORM f_menge_calc USING '1' fu_lifnr
+                           CHANGING fc_value.
+
+    WHEN 'DATAB'.
+      WRITE fu_datab TO fc_value DD/MM/YYYY.
+
+    WHEN 'EBELN'.
+      CLEAR ls_heads.
+      READ TABLE gt_heads INTO ls_heads
+                          WITH KEY lifnr = fu_lifnr.
+      IF ls_heads-count = 1.
+        fc_value = ls_heads-ebeln.
+      ELSEIF ls_heads-count > 1.
+        fc_value = 'Lihat Lampiran'.
+      ENDIF.
+
+    WHEN 'LIFNR'.
+*      READ TABLE gt_total INTO ls_total
+*                          WITH KEY lifnr = fu_lifnr.
+*      IF sy-subrc = 0.
+*      fc_value = 'Lihat Lampiran'.
+*      ENDIF.
+      fc_value = ' '.
+
+    WHEN 'TOTAL'.
+      PERFORM f_menge_calc USING '2' fu_lifnr
+                           CHANGING fc_value.
+
+    WHEN 'PO_MENGE'.
+      CLEAR ls_heads.
+      READ TABLE gt_heads INTO ls_heads
+                          WITH KEY lifnr = fu_lifnr.
+      IF ls_heads-count = 1.
+        fc_value = ls_heads-totalt.
+      ENDIF.
+
+    WHEN 'PO_EINDT'.
+      CLEAR ls_heads.
+      READ TABLE gt_heads INTO ls_heads
+                          WITH KEY lifnr = fu_lifnr.
+      IF ls_heads-count = 1.
+        WRITE ls_heads-eindt TO fc_value DD/MM/YYYY.
+        CONDENSE fc_value NO-GAPS.
+      ENDIF.
+
+    WHEN 'NAME1'.
+      READ TABLE <fs_main1> ASSIGNING <fs_lmain1>
+                           WITH KEY ('LIFNR') = fu_lifnr.
+      IF sy-subrc = 0.
+        ASSIGN COMPONENT fu_field OF STRUCTURE <fs_lmain1> TO <fs>.
+        fc_value = <fs>.
+      ENDIF.
+    WHEN 'TDLINE'.
+      READ TABLE <fs_main1> ASSIGNING <fs_lmain1>
+                           WITH KEY ('LIFNR') = fu_lifnr.
+      IF sy-subrc = 0.
+        ASSIGN COMPONENT 'MFRPN' OF STRUCTURE <fs_lmain1> TO <fs>.
+        fc_value = <fs>.
+      ENDIF.
+
+    WHEN 'APLFZ'.
+      READ TABLE <fs_main1> ASSIGNING <fs_lmain1>
+                           WITH KEY ('LIFNR') = fu_lifnr.
+      IF sy-subrc = 0.
+        ASSIGN COMPONENT 'APLFZ' OF STRUCTURE <fs_lmain1> TO <fs>.
+        fc_value = <fs>.
+        CONDENSE fc_value.
+      ENDIF.
+
+    WHEN 'BOBOTT'.
+**      CLEAR ls_zm73.
+**      CASE gv_quarter.
+**        WHEN 1.
+**          READ TABLE gt_zm73_1_rfq INTO ls_zm73
+**                               WITH KEY lifnr = fu_lifnr.
+**        WHEN 2.
+**          READ TABLE gt_zm73_2_rfq INTO ls_zm73
+**                               WITH KEY lifnr = fu_lifnr.
+**        WHEN 3.
+**          READ TABLE gt_zm73_3_rfq INTO ls_zm73
+**                               WITH KEY lifnr = fu_lifnr.
+**        WHEN 4.
+**          READ TABLE gt_zm73_4_rfq INTO ls_zm73
+**                               WITH KEY lifnr = fu_lifnr.
+**      ENDCASE.
+**      fc_value = ls_zm73-bobot.
+**      CONDENSE fc_value.
+
+    WHEN 'Quotation'.
+      READ TABLE <fs_main1> ASSIGNING <fs_lmain1>
+                           WITH KEY ('LIFNR') = fu_lifnr.
+      IF sy-subrc = 0.
+        ASSIGN COMPONENT 'EBELN' OF STRUCTURE <fs_lmain1> TO <fs>.
+        fc_value = <fs>.
+        CONDENSE fc_value.
+      ENDIF.
+
+    WHEN 'Pertimbangan/Alasan'.
+      fc_value = '"tidak memberikan offer'.
+
+**      IF pa_zalno IS INITIAL.
+**        CONCATENATE pa_submi gs_head-vrsio fu_lifnr INTO lv_tdname.
+**      ELSE.
+**        CONCATENATE pa_submi pa_zalno gs_head-vrsio fu_lifnr INTO lv_tdname.
+**      ENDIF.
+**      READ TABLE gt_text INTO ls_text
+**                         WITH KEY head-tdname = lv_tdname.
+**      IF sy-subrc = 0.
+**        fc_value = '"tidak memberikan offer'.
+**      ELSE.
+**        PERFORM f_read_text TABLES lt_text
+**                            USING  lv_tdname.
+**        IF lt_text[] IS NOT INITIAL .
+**          fc_value = '"tidak memberikan offer'.
+**        ENDIF.
+**      ENDIF.
+
+    WHEN 'TOP'.
+      READ TABLE gt_lfm1 INTO ls_lfm1
+                         WITH KEY lifnr = fu_lifnr.
+      IF sy-subrc = 0.
+        READ TABLE gt_t052u INTO ls_t052u
+                            WITH KEY zterm = ls_lfm1-zterm.
+        IF sy-subrc = 0.
+          CONCATENATE ls_t052u-zterm '-' ls_t052u-text1 INTO fc_value
+          SEPARATED BY space.
+        ENDIF.
+      ENDIF.
+
+    WHEN 'LASTPUR'.
+      PERFORM f_last_purchasing_date USING fu_lifnr
+                                     CHANGING fc_value.
+
+    WHEN 'PRICE'.
+      PERFORM f_last_purchasing_price USING fu_lifnr
+                                      CHANGING fc_value.
+
+    WHEN OTHERS.
+      IF fu_field(4) = 'ACTS'.
+***        CASE fu_field+4(1).
+***          WHEN 1.
+***            READ TABLE gt_zm73_1_rfq INTO ls_zm73
+***                                 WITH KEY lifnr = fu_lifnr.
+***          WHEN 2.
+***            READ TABLE gt_zm73_2_rfq INTO ls_zm73
+***                                 WITH KEY lifnr = fu_lifnr.
+***          WHEN 3.
+***            READ TABLE gt_zm73_3_rfq INTO ls_zm73
+***                                 WITH KEY lifnr = fu_lifnr.
+***          WHEN 4.
+***            READ TABLE gt_zm73_4_rfq INTO ls_zm73
+***                                 WITH KEY lifnr = fu_lifnr.
+***        ENDCASE.
+***
+***        fc_value = ls_zm73-%aloc.
+***        CONDENSE fc_value.
+***        IF fu_description IS NOT INITIAL.
+***          fc_value1 = fc_value.
+***          TRANSLATE fc_value1 USING '.,'.
+***          CONDENSE fc_value1 NO-GAPS.
+***        ENDIF.
+      ELSEIF fu_field(4) = 'ALOC'.
+        CONCATENATE pa_mjahr '0630' INTO lv_datab.
+
+        READ TABLE gt_aloc INTO ls_aloc
+                           WITH KEY lifnr = fu_lifnr.
+
+        LOOP AT gt_aloc INTO ls_aloc WHERE lifnr = fu_lifnr.
+          lv_aloc = ls_aloc-kbetr / 10.
+          IF ls_aloc-datab <= lv_datab.
+            fc_value = lv_aloc.
+          ELSE.
+            fc_value = lv_aloc.
+          ENDIF.
+          CONDENSE fc_value.
+        ENDLOOP.
+      ELSEIF fu_field(5) = 'ACTLK'.
+***        CLEAR ls_actal.
+***        READ TABLE gt_actal INTO ls_actal
+***                            WITH KEY lifnr = fu_lifnr.
+***        CASE fu_field+5(1).
+***          WHEN 1.
+***            fc_value = ls_actal-act01.
+***            CONDENSE fc_value.
+***          WHEN 2.
+***            fc_value = ls_actal-act02.
+***            CONDENSE fc_value.
+***          WHEN 3.
+***            fc_value = ls_actal-act03.
+***            CONDENSE fc_value.
+***          WHEN 4.
+***            fc_value = ls_actal-act04.
+***            CONDENSE fc_value.
+***        ENDCASE.
+      ENDIF.
+
+*      PERFORM f_dyn_field USING fu_field '1'
+*                          CHANGING fc_value.
+*      SHIFT fc_value LEFT DELETING LEADING space.
+  ENDCASE.
+ENDFORM.                    " F_GET_VALUE
+
+
+*&---------------------------------------------------------------------*
 *&      Form  F_DYN_FIELD
 *&---------------------------------------------------------------------*
 FORM f_dyn_field  USING    fu_value fu_count
@@ -4501,6 +5604,53 @@ FORM f_supplier_data  TABLES   ft_nsupl STRUCTURE zgdmmst0055
 ENDFORM.                    " F_SUPPLIER_DATA
 
 *&---------------------------------------------------------------------*
+*&      Form  F_SUPPLIER_DATA
+*&---------------------------------------------------------------------*
+FORM f_supplier_data_rfq  TABLES   ft_nsupl STRUCTURE zgdmmst0055
+                      USING    fu_lifnr1 fu_lifnr2 fu_lifnr3.
+  DATA : lt_xsuppl TYPE STANDARD TABLE OF zgdmmst002x,
+         ls_nsupl  TYPE zgdmmst0055,
+         ls_xsuppl LIKE LINE OF gt_xsuppl,
+         lt_lifnr  TYPE STANDARD TABLE OF range_lifnr,
+         ls_004    LIKE LINE OF gt_004.
+
+  DATA : lv_count   TYPE i.
+
+  CLEAR : ft_nsupl[].
+
+  PERFORM f_range_lifnr TABLES lt_lifnr
+                        USING fu_lifnr1.
+  PERFORM f_range_lifnr TABLES lt_lifnr
+                        USING fu_lifnr2.
+  PERFORM f_range_lifnr TABLES lt_lifnr
+                        USING fu_lifnr3.
+
+  LOOP AT gt_xsuppl_rfq INTO ls_xsuppl WHERE lifnr IN lt_lifnr.
+    APPEND ls_xsuppl TO lt_xsuppl.
+  ENDLOOP.
+
+  LOOP AT gt_004_rfq INTO ls_004.
+    LOOP AT lt_xsuppl INTO ls_xsuppl WHERE zeile = ls_004-zeile.
+      ls_nsupl-zeile       = ls_xsuppl-zeile.
+      ls_nsupl-nou         = ls_xsuppl-nou.
+      ls_nsupl-keterangan  = ls_xsuppl-description.
+      ls_nsupl-zend        = ls_xsuppl-zend.
+      ADD 1 TO lv_count.
+      CASE lv_count.
+        WHEN 1.
+          ls_nsupl-csupl1      = ls_xsuppl-value.
+        WHEN 2.
+          ls_nsupl-csupl2      = ls_xsuppl-value.
+        WHEN 3.
+          ls_nsupl-csupl3      = ls_xsuppl-value.
+      ENDCASE.
+    ENDLOOP.
+    APPEND ls_nsupl TO ft_nsupl.
+    CLEAR : ls_nsupl, lv_count.
+  ENDLOOP.
+ENDFORM.                    " F_SUPPLIER_DATA
+
+*&---------------------------------------------------------------------*
 *&      Form  F_RANGE_LIFNR
 *&---------------------------------------------------------------------*
 FORM f_range_lifnr  TABLES   ft_lifnr STRUCTURE range_lifnr
@@ -4552,6 +5702,37 @@ FORM f_get_pembayaran  .
     ENDIF.
   ENDIF.
 ENDFORM.                    " F_GET_PEMBAYARAN
+
+*&---------------------------------------------------------------------*
+*&      Form  F_GET_PEMBAYARAN
+*&---------------------------------------------------------------------*
+FORM f_get_pembayaran_rfq  .
+  DATA : lt_lfm1    TYPE STANDARD TABLE OF lfm1.
+
+  IF gt_lfa1_rfq[] IS NOT INITIAL.
+    SELECT *
+      FROM lfm1
+      APPENDING CORRESPONDING FIELDS OF TABLE gt_lfm1
+      FOR ALL ENTRIES IN gt_lfa1_rfq
+      WHERE lifnr = gt_lfa1_rfq-lifnr
+        AND ekorg = 'TNT'
+      ORDER BY PRIMARY KEY.
+
+    lt_lfm1[] = gt_lfm1[].
+    SORT lt_lfm1 BY zterm.
+    DELETE ADJACENT DUPLICATES FROM lt_lfm1 COMPARING zterm.
+    IF lt_lfm1[] IS NOT INITIAL.
+      SELECT *
+        FROM t052u
+        INTO CORRESPONDING FIELDS OF TABLE gt_t052u
+        FOR ALL ENTRIES IN lt_lfm1
+        WHERE spras = sy-langu
+          AND zterm = lt_lfm1-zterm
+        ORDER BY PRIMARY KEY.
+    ENDIF.
+  ENDIF.
+ENDFORM.                    " F_GET_PEMBAYARAN
+
 
 *&---------------------------------------------------------------------*
 *&      Form  F_UPLOAD_DATA
@@ -4916,6 +6097,17 @@ FORM f_print_lampiran  USING    fu_ucomm fu_close fu_open fu_nodialog fu_mail.
   d_ctrl_param-no_open  = fu_open.
   d_ctrl_param-no_close = fu_close.
 
+
+**  CASE fu_ucomm.
+**    WHEN '&POS'.
+**      d_output_opt-tdnoprev     = 'X'.
+**      d_ctrl_param-no_dialog    = fu_nodialog.
+**      d_ctrl_param-preview      = space.
+**      d_ctrl_param-getotf       = 'X'.
+**    WHEN '&PREV'.
+**      d_output_opt-tdnoprint    = 'X'.
+**  ENDCASE.
+
   CASE fu_ucomm.
     WHEN '&POS'.
       d_output_opt-tdnoprev     = 'X'.
@@ -4924,7 +6116,9 @@ FORM f_print_lampiran  USING    fu_ucomm fu_close fu_open fu_nodialog fu_mail.
       d_ctrl_param-getotf       = 'X'.
     WHEN '&PREV'.
       d_output_opt-tdnoprint    = 'X'.
+      d_ctrl_param-preview      = 'X'.
   ENDCASE.
+
 
   CALL FUNCTION d_smrt_funcmod
     EXPORTING
@@ -4982,10 +6176,6 @@ FORM f_save_data CHANGING fc_subrc fc_message.
   CLEAR fc_subrc.
 
   IF gs_x04z IS NOT INITIAL.
-*    DELETE FROM zgdmmt004x WHERE zalno = gs_x04z-zalno.
-*    DELETE FROM zgdmmt004y WHERE zalno = gs_x04z-zalno.
-*    DELETE FROM zgdmmt004z WHERE zalno = gs_x04z-zalno.
-*    DELETE FROM zgdmmt004c WHERE zalno = gs_x04z-zalno.
     DELETE FROM zgdmmt004p WHERE zalno = gs_x04z-zalno.
     IF gt_006[] IS NOT INITIAL.
       DELETE FROM zhsmmmdt006 WHERE zalno = gs_x04z-zalno.
@@ -5115,6 +6305,12 @@ FORM f_save_data CHANGING fc_subrc fc_message.
 *        fc_message = oref->get_text( ).
         fc_message = 'Error when Item detail modify'.
     ENDTRY.
+    TRY .
+        MODIFY zgdmmt004xrfq FROM TABLE gt_04x_rfq.
+      CATCH cx_sy_open_sql_db INTO oref.
+*        fc_message = oref->get_text( ).
+        fc_message = 'Error when Item detail modify'.
+    ENDTRY.
   ENDIF.
 
   IF fc_message IS INITIAL.
@@ -5129,6 +6325,12 @@ FORM f_save_data CHANGING fc_subrc fc_message.
   IF fc_message IS INITIAL.
     TRY .
         MODIFY zgdmmt004c FROM TABLE gt_04c.
+      CATCH cx_sy_open_sql_db INTO oref.
+*        fc_message = oref->get_text( ).
+        fc_message = 'Error when Allocation form modify'.
+    ENDTRY.
+    TRY .
+        MODIFY zgdmmt004crfq FROM TABLE gt_04c_rfq.
       CATCH cx_sy_open_sql_db INTO oref.
 *        fc_message = oref->get_text( ).
         fc_message = 'Error when Allocation form modify'.
@@ -5421,6 +6623,41 @@ FORM f_04x  USING    fu_zalno.
     APPEND ls_04x TO gt_04x.
     CLEAR ls_04x.
   ENDLOOP.
+
+  LOOP AT <fs_main1> ASSIGNING <fs_lmain1>.
+    ls_04x-zalno    = fu_zalno.
+    ASSIGN COMPONENT 'LIFNR' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-lifnr = <fs>.
+    ls_04x-matnr = gs_head-matnr.
+    ls_04x-maktx = gs_head-maktx.
+    ASSIGN COMPONENT 'NAME1' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-name1 = <fs>.
+    ASSIGN COMPONENT 'MFRPN' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-mfrpn = <fs>.
+    ASSIGN COMPONENT 'EBELN' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-ebeln = <fs>.
+    ASSIGN COMPONENT 'NETPR' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-netpr = <fs>.
+    ASSIGN COMPONENT 'WAERS' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-waers = <fs>.
+    ASSIGN COMPONENT 'BOBOT' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-bobot = <fs>.
+    ASSIGN COMPONENT 'MENGE' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-etmen = <fs>.
+    ASSIGN COMPONENT 'ALLOC' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-bamng = <fs>.
+    ASSIGN COMPONENT 'MEINS' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-bamei = <fs>.
+    ASSIGN COMPONENT 'KBETR' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-kbetr = <fs>.
+    ASSIGN COMPONENT 'REVIS' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-menge = <fs>.
+    ASSIGN COMPONENT 'KBETR1' OF STRUCTURE <fs_lmain1> TO <fs>.
+    ls_04x-kbet1 = <fs>.
+    APPEND ls_04x TO gt_04x_rfq.
+    CLEAR ls_04x.
+  ENDLOOP.
+
 ENDFORM.                    " F_04X
 
 *&---------------------------------------------------------------------*
@@ -5767,7 +7004,6 @@ FORM f_04y  USING    fu_zalno.
         APPEND ls_04p TO gt_04p.
         CLEAR ls_04p.
       ENDIF.
-
       APPEND ls_04y TO gt_04y.
       CLEAR ls_04y-bsmng.
     ENDLOOP.
@@ -5883,6 +7119,78 @@ FORM f_get_actual_allocation .
       SELECT *
         FROM ekpo
         INTO CORRESPONDING FIELDS OF TABLE gt_alpo
+        FOR ALL ENTRIES IN gt_alko
+        WHERE ebeln = gt_alko-ebeln
+          AND loekz = space
+          AND werks = so_werks-low
+        ORDER BY PRIMARY KEY.
+
+      gt_xalpo[] = gt_alpo[].
+
+      LOOP AT gt_alpo INTO ls_alpo.
+        CLEAR ls_mara.
+        IF so_werks-low = '1601'.
+          TRANSLATE ls_alpo-afnam TO UPPER CASE.
+          CONDENSE: ls_alpo-afnam.
+          gv_plant = ls_alpo-afnam.
+        ENDIF.
+        READ TABLE gt_mara INTO ls_mara
+                           WITH KEY matnr = ls_alpo-ematn.
+        IF sy-subrc <> 0.
+          DELETE TABLE gt_alpo FROM ls_alpo.
+        ENDIF.
+      ENDLOOP.
+    ENDIF.
+  ENDIF.
+
+  lt_ekko[] = gt_alko[].
+  lt_ekpo[] = gt_alpo[].
+
+  PERFORM f_lampiran_po TABLES lt_ekko
+                               lt_ekpo.
+ENDFORM.                    " F_GET_ACTUAL_ALLOCATION
+
+
+*&---------------------------------------------------------------------*
+*&      Form  F_GET_ACTUAL_ALLOCATION
+*&---------------------------------------------------------------------*
+FORM f_get_actual_allocation_rfq .
+  DATA : lr_bsart TYPE RANGE OF bsart,
+         ls_bsart LIKE LINE OF lr_bsart,
+         lt_ekko  TYPE STANDARD TABLE OF ekko,
+         lt_ekpo  TYPE STANDARD TABLE OF ekpo.
+
+  DATA : ls_alpo LIKE LINE OF gt_alpo,
+         ls_mara LIKE LINE OF gt_mara.
+
+  ls_bsart-low    = 'ZIMP'.
+  ls_bsart-sign   = 'I'.
+  ls_bsart-option = 'EQ'.
+  APPEND ls_bsart TO lr_bsart.
+  CLEAR ls_bsart.
+  ls_bsart-low    = 'ZLOC'.
+  ls_bsart-sign   = 'I'.
+  ls_bsart-option = 'EQ'.
+  APPEND ls_bsart TO lr_bsart.
+  CLEAR ls_bsart.
+
+  IF gt_lfa1_rfq[] IS NOT INITIAL.
+    SELECT *
+      FROM ekko
+      APPENDING CORRESPONDING FIELDS OF TABLE gt_alko
+      FOR ALL ENTRIES IN gt_lfa1_rfq
+      WHERE lifnr = gt_lfa1_rfq-lifnr
+        AND ekorg = 'TNT'
+        AND ekgrp = pa_ekgrp
+        AND bsart IN lr_bsart
+        AND loekz = space
+        AND autlf = space
+      ORDER BY PRIMARY KEY.
+
+    IF gt_alko[] IS NOT INITIAL.
+      SELECT *
+        FROM ekpo
+        APPENDING CORRESPONDING FIELDS OF TABLE gt_alpo
         FOR ALL ENTRIES IN gt_alko
         WHERE ebeln = gt_alko-ebeln
           AND loekz = space
@@ -6830,6 +8138,91 @@ FORM f_alokasi_budget .
 ENDFORM.                    " F_ALOKASI_BUDGET
 
 *&---------------------------------------------------------------------*
+*&      Form  F_ALOKASI_BUDGET
+*&---------------------------------------------------------------------*
+FORM f_alokasi_budget_rfq .
+  DATA: lt_lfa1_rfq           TYPE STANDARD TABLE OF ty_lfa1.
+
+  DATA : lt_zm73  TYPE STANDARD TABLE OF ty_zm73,
+         ls_zm73  LIKE LINE OF lt_zm73,
+         lr_datum TYPE RANGE OF datum,
+         ls_datum LIKE LINE OF lr_datum,
+         lt_a968  TYPE STANDARD TABLE OF a968,
+         ls_a968  LIKE LINE OF lt_a968,
+         lt_konp  TYPE STANDARD TABLE OF konp,
+         ls_konp  LIKE LINE OF lt_konp,
+         ls_aloc  LIKE LINE OF gt_aloc.
+
+  CASE gv_quarter.
+    WHEN 1.
+      CONCATENATE pa_mjahr '0101' INTO ls_datum-low.
+      CONCATENATE pa_mjahr '0630' INTO ls_datum-high.
+      "      lt_zm73[] = gt_zm73_1_rfq[].
+    WHEN 2.
+      CONCATENATE pa_mjahr '0101' INTO ls_datum-low.
+      CONCATENATE pa_mjahr '0630' INTO ls_datum-high.
+      "      lt_zm73[] = gt_zm73_2_rfq[].
+    WHEN 3.
+      CONCATENATE pa_mjahr '0701' INTO ls_datum-low.
+      CONCATENATE pa_mjahr '1231' INTO ls_datum-high.
+      "      lt_zm73[] = gt_zm73_3_rfq[].
+    WHEN 4.
+      CONCATENATE pa_mjahr '0701' INTO ls_datum-low.
+      CONCATENATE pa_mjahr '1231' INTO ls_datum-high.
+      "      lt_zm73[] = gt_zm73_4_rfq[].
+  ENDCASE.
+
+  lt_lfa1_rfq[] = gt_lfa1_rfq[].
+  SORT lt_lfa1_rfq BY lifnr.
+  DELETE ADJACENT DUPLICATES FROM lt_lfa1_rfq COMPARING lifnr.
+  IF lt_lfa1_rfq[] IS NOT INITIAL.
+    SELECT *
+      FROM a968
+      INTO CORRESPONDING FIELDS OF TABLE lt_a968
+      FOR ALL ENTRIES IN lt_lfa1_rfq
+      WHERE kappl = 'M'
+        AND kschl = 'ZBGA'
+        AND ekorg = 'TNT'
+        AND lifnr = lt_lfa1_rfq-lifnr
+        AND matnr = so_matnr-low
+        AND datbi >= ls_datum-low
+        AND datab <= ls_datum-high
+      ORDER BY PRIMARY KEY.
+
+    IF lt_a968[] IS NOT INITIAL.
+      SELECT *
+        FROM konp
+        INTO CORRESPONDING FIELDS OF TABLE lt_konp
+        FOR ALL ENTRIES IN lt_a968
+        WHERE knumh = lt_a968-knumh
+        ORDER BY PRIMARY KEY.
+    ENDIF.
+  ENDIF.
+
+  LOOP AT lt_a968 INTO ls_a968.
+    ls_aloc-lifnr   = ls_a968-lifnr.
+    ls_aloc-datab   = ls_a968-datab.
+
+    CLEAR : lr_datum[], ls_datum.
+    ls_datum-low    = ls_a968-datab.
+    ls_datum-high   = ls_a968-datbi.
+    ls_datum-sign   = 'I'.
+    ls_datum-option = 'BT'.
+    APPEND ls_datum TO lr_datum.
+    CLEAR ls_datum.
+
+    CLEAR ls_konp.
+    READ TABLE lt_konp INTO ls_konp
+                       WITH KEY knumh = ls_a968-knumh.
+    IF sy-subrc = 0.
+      ls_aloc-kbetr = ls_konp-kbetr.
+      ls_aloc-konwa = ls_konp-konwa.
+      APPEND ls_aloc TO gt_aloc.
+    ENDIF.
+  ENDLOOP.
+ENDFORM.                    " F_ALOKASI_BUDGET
+
+*&---------------------------------------------------------------------*
 *&      Form  F_MEINS_CONVERSION
 *&---------------------------------------------------------------------*
 FORM f_meins_conversion  USING    fu_meins
@@ -6974,6 +8367,9 @@ FORM f_get_highest_price  TABLES   ft_eipa STRUCTURE eipa
          lt_xeipa TYPE STANDARD TABLE OF eipa,
          ls_xeipa LIKE LINE OF lt_xeipa,
          ls_xekpo LIKE LINE OF gt_xekpo.
+  DATA : lv_ebeln TYPE ekko-ebeln,
+         lv_knumv TYPE ekko-knumv,
+         lv_preis TYPE p DECIMALS 4.
 
   CONCATENATE sy-datum(4) '0101' INTO lv_datum.
   lt_eipa[] = ft_eipa[].
@@ -7003,12 +8399,28 @@ FORM f_get_highest_price  TABLES   ft_eipa STRUCTURE eipa
   SORT lt_xeipa BY preis DESCENDING bedat DESCENDING.
   READ TABLE lt_xeipa INTO ls_eipa INDEX 1.
   IF sy-subrc = 0.
-    SELECT SINGLE preis bwaer peinh bprme bedat
+    SELECT SINGLE ebeln preis bwaer peinh bprme bedat
       FROM eipa
-      INTO (fc_highp, fc_pwaer, fc_ppeinh, fc_pprme, fc_bedat)
+      INTO (lv_ebeln, fc_highp, fc_pwaer, fc_ppeinh, fc_pprme, fc_bedat)
       WHERE infnr = ls_eipa-infnr
         AND ebeln = ls_eipa-ebeln
         AND ebelp = ls_eipa-ebelp.
+
+
+    SELECT SINGLE knumv
+      FROM ekko
+      INTO lv_knumv
+      WHERE ebeln = lv_ebeln.
+
+    SELECT SINGLE kbetr waers kpein kmein
+      FROM konv
+      INTO (fc_highp, fc_pwaer, fc_ppeinh, fc_pprme)
+      WHERE kappl = 'M'
+        AND kschl = 'ZPB0'
+        AND knumv = lv_knumv
+        AND kposn = ls_eipa-ebelp.
+
+
   ENDIF.
 ENDFORM.                    " F_GET_HIGHEST_PRICE
 
@@ -7564,6 +8976,41 @@ FORM f_get_price_unit .
 ENDFORM.                    " F_GET_PRICE_UNIT
 
 *&---------------------------------------------------------------------*
+*&      Form  F_GET_PRICE_UNIT
+*&---------------------------------------------------------------------*
+FORM f_get_price_unit_rfq .
+  CASE gv_trtyp.
+    WHEN 'H'.
+      IF gt_lfa1_rfq[] IS NOT INITIAL.
+        SELECT *
+          FROM eina
+          APPENDING CORRESPONDING FIELDS OF TABLE gt_eina
+          FOR ALL ENTRIES IN gt_lfa1_rfq
+          WHERE lifnr = gt_lfa1_rfq-lifnr
+            AND loekz = space.
+      ENDIF.
+    WHEN OTHERS.
+      IF gt_x04x[] IS NOT INITIAL.
+        SELECT *
+          FROM eina
+          INTO CORRESPONDING FIELDS OF TABLE gt_eina
+          FOR ALL ENTRIES IN gt_x04x
+          WHERE lifnr = gt_x04x-lifnr
+            AND loekz = space.
+      ENDIF.
+  ENDCASE.
+
+  IF gt_eina[] IS NOT INITIAL.
+    SELECT *
+      FROM eine
+      INTO CORRESPONDING FIELDS OF TABLE gt_eine
+      FOR ALL ENTRIES IN gt_eina
+      WHERE infnr = gt_eina-infnr
+        AND ekorg = 'TNT'.
+  ENDIF.
+ENDFORM.                    " F_GET_PRICE_UNIT
+
+*&---------------------------------------------------------------------*
 *&      Form  F_CHANGE_PIR
 *&---------------------------------------------------------------------*
 FORM f_change_pir .
@@ -8057,5 +9504,162 @@ FORM f_update_pir  USING    p_lifnr
   ENDIF.
 
 
+
+ENDFORM.
+*&---------------------------------------------------------------------*
+*&      Form  F_GET_DATA_RFQ
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM f_get_data_rfq .
+  DATA : lt_xekko TYPE STANDARD TABLE OF ekko,
+         lt_xekpo TYPE STANDARD TABLE OF ekpo,
+         lt_xeket TYPE STANDARD TABLE OF eket,
+         lt_05    TYPE STANDARD TABLE OF zhsmmmdt005,
+         ls_05    LIKE LINE OF lt_05,
+         ls_ekko  LIKE LINE OF gt_ekko,
+         ls_ekpo  LIKE LINE OF gt_ekpo.
+  DATA:       lt_x04x_rfq TYPE STANDARD TABLE OF zgdmmt004x.
+
+  CLEAR gv_upir.
+
+  CASE gv_trtyp.
+    WHEN 'H'.
+
+      IF pa_submi IS INITIAL.
+        "        PERFORM f_get_from_zm73n_rfq.
+      ELSE.
+        SELECT *
+          FROM ekko
+          INTO CORRESPONDING FIELDS OF TABLE gt_ekko_rfq
+          WHERE submi = pa_submi
+            AND ekgrp = pa_ekgrp
+            AND loekz = space
+            AND statu NE 'A'
+          ORDER BY PRIMARY KEY.
+
+        IF gt_ekko_rfq[] IS NOT INITIAL.
+          SELECT *
+            FROM ekpo
+            INTO CORRESPONDING FIELDS OF TABLE gt_ekpo_rfq
+            FOR ALL ENTRIES IN gt_ekko_rfq
+            WHERE ebeln = gt_ekko_rfq-ebeln
+              AND loekz = space
+              AND werks = gs_head-werks
+              AND matnr = gs_head-matnr
+            ORDER BY PRIMARY KEY.
+
+          LOOP AT gt_ekko_rfq INTO ls_ekko.
+            CLEAR ls_ekpo.
+            READ TABLE gt_ekpo_rfq INTO ls_ekpo
+                               WITH KEY ebeln = ls_ekko-ebeln.
+            IF sy-subrc <> 0.
+              DELETE TABLE gt_ekko_rfq FROM ls_ekko.
+            ELSE.
+              IF gs_head-werks = '1601'.
+                TRANSLATE ls_ekpo-afnam TO UPPER CASE.
+                CONDENSE: ls_ekpo-afnam.
+                gv_plant = ls_ekpo-afnam.
+              ENDIF.
+
+            ENDIF.
+          ENDLOOP.
+        ELSE.
+          "          gv_subrc = 1.
+        ENDIF.
+
+        IF gt_ekpo_rfq[] IS NOT INITIAL.
+          SELECT *
+            FROM eket
+            INTO CORRESPONDING FIELDS OF TABLE gt_eket_rfq
+            FOR ALL ENTRIES IN gt_ekpo_rfq
+            WHERE ebeln = gt_ekpo_rfq-ebeln
+              AND ebelp = gt_ekpo_rfq-ebelp
+            ORDER BY PRIMARY KEY.
+        ELSE.
+          "          gv_subrc = 2.
+        ENDIF.
+
+        IF gv_subrc = 0.
+          lt_xekko[] = gt_ekko_rfq[].
+          SORT lt_xekko BY lifnr.
+          DELETE ADJACENT DUPLICATES FROM lt_xekko COMPARING lifnr.
+          IF lt_xekko[] IS NOT INITIAL.
+            SELECT *
+              FROM lfa1
+              INTO CORRESPONDING FIELDS OF TABLE gt_lfa1_rfq
+              FOR ALL ENTRIES IN lt_xekko
+              WHERE lifnr = lt_xekko-lifnr
+              ORDER BY PRIMARY KEY.
+          ENDIF.
+
+          lt_xekpo[] = gt_ekpo_rfq[].
+          SORT lt_xekpo BY matnr.
+          DELETE ADJACENT DUPLICATES FROM lt_xekpo COMPARING matnr.
+          IF lt_xekpo[] IS NOT INITIAL.
+            SELECT *
+              FROM makt
+              APPENDING CORRESPONDING FIELDS OF TABLE gt_makt
+              FOR ALL ENTRIES IN lt_xekpo
+              WHERE spras = sy-langu
+                AND matnr = lt_xekpo-matnr
+              ORDER BY PRIMARY KEY.
+          ENDIF.
+
+          "          PERFORM f_get_from_zm73n_rfq.
+        ENDIF.
+      ENDIF.
+      IF gt_ekko_rfq[] IS NOT INITIAL.
+        PERFORM f_get_last_purchased.
+        PERFORM f_alokasi_budget_rfq.
+        PERFORM f_get_pembayaran_rfq.
+      ENDIF.
+      "      PERFORM f_get_actual_allocation_rfq.
+
+    WHEN 'V' OR 'A'.
+      SELECT *
+        FROM zhsmmmdt005
+        INTO CORRESPONDING FIELDS OF TABLE lt_05
+        WHERE tcode = 'ZMME013'
+          AND ekgrp = pa_ekgrp
+        ORDER BY PRIMARY KEY.
+
+      MOVE-CORRESPONDING gs_x04z TO gs_head.
+
+      gs_head-vrsio = gs_x04z-vrsio.
+      CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+        EXPORTING
+          input  = gs_head-vrsio
+        IMPORTING
+          output = gs_head-vrsio.
+
+      SELECT *
+        FROM zgdmmt004xrfq
+        INTO CORRESPONDING FIELDS OF TABLE gt_x04x_rfq
+        WHERE zalno = gs_x04z-zalno
+        ORDER BY PRIMARY KEY.
+
+      SELECT *
+        FROM zgdmmt004crfq
+        INTO CORRESPONDING FIELDS OF TABLE gt_x04c_rfq
+        WHERE zalno = gs_x04z-zalno
+        ORDER BY PRIMARY KEY.
+
+      lt_x04x_rfq[] = gt_x04x_rfq[].
+      SORT lt_x04x_rfq BY lifnr.
+      DELETE ADJACENT DUPLICATES FROM lt_x04x_rfq COMPARING lifnr.
+      IF lt_x04x_rfq[] IS NOT INITIAL.
+        SELECT *
+          FROM lfa1
+          INTO CORRESPONDING FIELDS OF TABLE gt_lfa1_rfq
+          FOR ALL ENTRIES IN lt_x04x_rfq
+          WHERE lifnr = lt_x04x_rfq-lifnr
+          ORDER BY PRIMARY KEY.
+      ENDIF.
+      PERFORM f_alokasi_budget_rfq.
+  ENDCASE.
 
 ENDFORM.
