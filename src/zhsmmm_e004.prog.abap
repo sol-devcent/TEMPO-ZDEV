@@ -10,10 +10,10 @@ REPORT  zhsmmm_e004 NO STANDARD PAGE HEADING.
 
 INCLUDE zabp_frm.
 
-SELECTION-SCREEN BEGIN OF BLOCK blxx WITH FRAME TITLE text-dat.
-PARAMETERS : p_tdform    LIKE ssfscreen-fname NO-DISPLAY,
-             p_dest      LIKE tsp03-padest NO-DISPLAY,
-             p_disp      LIKE ssfctrlop-preview NO-DISPLAY.
+SELECTION-SCREEN BEGIN OF BLOCK blxx WITH FRAME TITLE TEXT-dat.
+PARAMETERS : p_tdform LIKE ssfscreen-fname NO-DISPLAY,
+             p_dest   LIKE tsp03-padest NO-DISPLAY,
+             p_disp   LIKE ssfctrlop-preview NO-DISPLAY.
 SELECTION-SCREEN END OF BLOCK blxx.
 
 INCLUDE zabp_smartform.
@@ -25,7 +25,7 @@ INCLUDE zhsmmm_e004cl1.
 *&---------------------------------------------------------------------*
 *& SELECTION-SCREEN -> SELECTION
 *&---------------------------------------------------------------------*
-SELECTION-SCREEN BEGIN OF BLOCK data WITH FRAME TITLE text-001.
+SELECTION-SCREEN BEGIN OF BLOCK data WITH FRAME TITLE TEXT-001.
 PARAMETERS pa_ekgrp       TYPE t024-ekgrp
                           MODIF ID pek.
 PARAMETERS pa_submi       TYPE ekko-submi
@@ -42,20 +42,20 @@ SELECTION-SCREEN SKIP 1.
 SELECT-OPTIONS so_lfdat   FOR eban-lfdat.
 SELECTION-SCREEN END OF BLOCK data.
 
-SELECTION-SCREEN BEGIN OF BLOCK option WITH FRAME TITLE text-002.
+SELECTION-SCREEN BEGIN OF BLOCK option WITH FRAME TITLE TEXT-002.
 PARAMETERS radio1 RADIOBUTTON GROUP grp1 USER-COMMAND rad DEFAULT 'X'
                                          MODIF ID rad.
 SELECTION-SCREEN BEGIN OF LINE.
 PARAMETERS radio2 RADIOBUTTON GROUP grp1 MODIF ID rad.
-SELECTION-SCREEN COMMENT 5(27) text-003 FOR FIELD radio2 MODIF ID rad.
+SELECTION-SCREEN COMMENT 5(27) TEXT-003 FOR FIELD radio2 MODIF ID rad.
 PARAMETERS pa_prgrp       TYPE pgmi-prgrp
                           MODIF ID ppr.
 SELECTION-SCREEN END OF LINE.
 SELECTION-SCREEN END OF BLOCK option.
 
-SELECTION-SCREEN BEGIN OF SCREEN 1001 AS WINDOW TITLE text-005.
+SELECTION-SCREEN BEGIN OF SCREEN 1001 AS WINDOW TITLE TEXT-005.
 SELECTION-SCREEN BEGIN OF LINE.
-SELECTION-SCREEN COMMENT 1(32) text-004.
+SELECTION-SCREEN COMMENT 1(32) TEXT-004.
 SELECTION-SCREEN END OF LINE.
 SELECTION-SCREEN SKIP 1.
 PARAMETERS pa_zalno     TYPE zgdmmt004z-zalno.
@@ -122,10 +122,12 @@ START-OF-SELECTION.
   PERFORM f_lock_data USING 'X'.
   IF gv_subrc = 0.
     PERFORM f_get_data.
+    PERFORM f_get_data_rfq.
   ENDIF.
   IF gv_subrc = 0.
     PERFORM f_create_dyn_int_table.
     PERFORM f_process_data.
+    PERFORM f_process_data_rfq.
     PERFORM f_print_data.
   ENDIF.
 
@@ -147,9 +149,6 @@ START-OF-SELECTION.
       MESSAGE s000(zab) WITH 'Vendor' gv_lifnr 'without PIR' DISPLAY LIKE 'E'.
       CLEAR : gv_subrc, gv_lifnr.
   ENDCASE.
-
   INCLUDE zhsmmm_e004m01.
-
   INCLUDE zhsmmm_e004f01.
-
   INCLUDE zhsmmm_e004f02.
