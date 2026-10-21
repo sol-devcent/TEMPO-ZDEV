@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_EXCEL_GRAPH_LINE</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Bars Graphic</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_SHOW_CAT_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Show the category name on the bar chart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_SHOW_LEGEND_KEY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Show the legend key on the bar chart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_SHOW_PERCENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Values as percent</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_SHOW_SER_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Show the serie name on the bar chart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_SHOW_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Show values on the bar chart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_VARYCOLOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Show vary colors</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_AX</CMPNAME>
+     <SCONAME>IP_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>R/2 table</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_SHOW_CAT_NAME</CMPNAME>
+     <SCONAME>IP_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Single-Character Flag</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_SHOW_LEGEND_KEY</CMPNAME>
+     <SCONAME>IP_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Single-Character Flag</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_SHOW_PERCENT</CMPNAME>
+     <SCONAME>IP_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Single-Character Flag</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_SHOW_SER_NAME</CMPNAME>
+     <SCONAME>IP_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Single-Character Flag</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_SHOW_VALUES</CMPNAME>
+     <SCONAME>IP_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Single-Character Flag</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
