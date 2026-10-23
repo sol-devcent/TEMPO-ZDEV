@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Func.grp for KMM FI</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZKMMFITOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZKMMFI</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZKMMFI_UPDATE_XREF2</FUNCNAME>
+     <SHORT_TEXT>Update jurnal flag proses FP Masukan dan Keluaran</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_BUKRS</PARAMETER>
+       <TYP>BUKRS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_BELNR</PARAMETER>
+       <TYP>BELNR_D</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_GJAHR</PARAMETER>
+       <TYP>GJAHR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_HKONT</PARAMETER>
+       <TYP>HKONT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_XREF2</PARAMETER>
+       <TYP>XREF2</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_BUKRS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Company Code</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_BELNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Accounting Document Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_GJAHR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_HKONT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>General Ledger Account</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_XREF2</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business partner reference key</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
