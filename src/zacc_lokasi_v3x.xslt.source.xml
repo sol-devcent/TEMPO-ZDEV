@@ -1,0 +1,59 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+
+  <tt:root name="sarana"/>
+
+  <tt:template>
+    <object>
+      <bool name="status">
+        <tt:value ref="sarana.status"/>
+      </bool>
+      <str name="statusCode">
+        <tt:value ref="sarana.statusCode"/>
+      </str>
+      <str name="message">
+        <tt:value ref="sarana.message"/>
+      </str>
+
+      <object name="data">
+        <num name="total">
+          <tt:value ref="sarana.total"/>
+        </num>
+        <num name="offset">
+          <tt:value ref="sarana.offset"/>
+        </num>
+        <num name="limit">
+          <tt:value ref="sarana.limit"/>
+        </num>
+        <array>
+          <tt:loop ref="sarana.items">
+            <object>
+              <num name="id">
+                <tt:value ref="id"/>
+              </num>
+              <str name="alamat_rekanan">
+                <tt:value ref="alamat_rekanan"/>
+              </str>
+              <str name="no_telp">
+                <tt:value ref="no_telp"/>
+              </str>
+              <str name="fax">
+                <tt:value ref="fax"/>
+              </str>
+              <str name="latitude">
+                <tt:value ref="latitude"/>
+              </str>
+              <str name="longitude">
+                <tt:value ref="longitude"/>
+              </str>
+              <bool name="is_default">
+                <tt:value ref="is_default"/>
+              </bool>
+            </object>
+          </tt:loop>
+        </array>
+      </object>
+    </object>
+  </tt:template>
+
+</tt:transform>

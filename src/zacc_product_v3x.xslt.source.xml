@@ -1,0 +1,53 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+
+  <tt:root name="product"/>
+
+  <tt:template>
+    <object>
+      <bool name="status">
+        <tt:value ref="product.status"/>
+      </bool>
+      <str name="statusCode">
+        <tt:value ref="product.statusCode"/>
+      </str>
+      <str name="message">
+        <tt:value ref="product.message"/>
+      </str>
+
+      <object name="data">
+        <num name="total">
+          <tt:value ref="product.total"/>
+        </num>
+        <num name="offset">
+          <tt:value ref="product.offset"/>
+        </num>
+        <num name="limit">
+          <tt:value ref="product.limit"/>
+        </num>
+        <array>
+          <tt:loop ref="product.items">
+            <object>
+              <str name="primer">
+                <tt:value ref="primer"/>
+              </str>
+              <str name="nie">
+                <tt:value ref="nie"/>
+              </str>
+              <str name="batch_no">
+                <tt:value ref="batch_no"/>
+              </str>
+              <str name="skunder">
+                <tt:value ref="skunder"/>
+              </str>
+              <str name="tersier">
+                <tt:value ref="tersier"/>
+              </str>
+            </object>
+          </tt:loop>
+        </array>
+      </object>
+    </object>
+  </tt:template>
+
+</tt:transform>

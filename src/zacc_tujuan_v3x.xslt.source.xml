@@ -1,0 +1,47 @@
+<?sap.transform simple?>
+<tt:transform xmlns:tt="http://www.sap.com/transformation-templates">
+
+  <tt:root name="tujuan"/>
+
+  <tt:template>
+    <object>
+      <bool name="status">
+        <tt:value ref="tujuan.status"/>
+      </bool>
+      <str name="statusCode">
+        <tt:value ref="tujuan.statusCode"/>
+      </str>
+      <str name="message">
+        <tt:value ref="tujuan.message"/>
+      </str>
+
+      <object name="data">
+        <num name="total">
+          <tt:value ref="tujuan.total"/>
+        </num>
+        <num name="offset">
+          <tt:value ref="tujuan.offset"/>
+        </num>
+        <num name="limit">
+          <tt:value ref="tujuan.limit"/>
+        </num>
+        <array>
+          <tt:loop ref="tujuan.items">
+            <object>
+              <num name="id">
+                <tt:value ref="id"/>
+              </num>
+              <str name="nama_sarana">
+                <tt:value ref="nama_sarana"/>
+              </str>
+              <str name="alamat">
+                <tt:value ref="alamat"/>
+              </str>
+            </object>
+          </tt:loop>
+        </array>
+      </object>
+    </object>
+  </tt:template>
+
+</tt:transform>
