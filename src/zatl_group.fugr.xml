@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group For Project ATL</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZATL_GROUPF01</SOBJ_NAME>
+    <SOBJ_NAME>LZATL_GROUPTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZATL_GROUP</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZATLMM_F001</FUNCNAME>
+     <SHORT_TEXT>RFC Create Order TIMOS</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PI_PROSES</PARAMETER>
+       <TYP>CHAR15</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PI_PO_ATL</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR35</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PE_PO_NUMBER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>EBELN</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_PO_DATE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ERDAT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_TYPE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPI_MTYPE</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BAPI_MSG</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_GR_NUMBER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MBLNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_GR_YEAR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MJAHR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MIRO_NUMBER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MBLNR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_MIRO_YEAR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MJAHR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_INV_NUMBER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BELNR_D</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>PE_INV_YEAR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GJAHR</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CUSTOM_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PI_PROSES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Jenis Proses</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PI_PO_ATL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>No PO ATL</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_PO_NUMBER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>PO Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_PO_DATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>PO Date</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Type</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_GR_NUMBER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>GR Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_GR_YEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>GR Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MIRO_NUMBER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MIRO Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_MIRO_YEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MIRO Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_INV_NUMBER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Assignment of Item Numbers: Material Doc. - Purchasing Doc.</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PE_INV_YEAR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fiscal Year</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CUSTOM_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
