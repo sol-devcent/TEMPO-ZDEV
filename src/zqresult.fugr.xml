@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Result QM</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZQRESULTTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZQRESULT</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZQ_QUALITATIVE_RESULT</FUNCNAME>
+     <SHORT_TEXT>Qualitative  Result</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PRUEFLOS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-PRUEFLOS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VORGLFNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-VORGLFNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MERKNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-MERKNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>STICHPRVER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-STICHPRVER</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CASE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>RESULT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR50</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_QDSV</PARAMETER>
+       <DBSTRUCT>QDSV</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QAMR</PARAMETER>
+       <DBSTRUCT>QAMR</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QASE</PARAMETER>
+       <DBSTRUCT>QASE</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QASR</PARAMETER>
+       <DBSTRUCT>QASR</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QAPP</PARAMETER>
+       <DBSTRUCT>QAPP</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PRUEFLOS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection Lot Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VORGLFNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Current Node Number from Order Counter APLZL</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MERKNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection Characteristic Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STICHPRVER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sampling Procedure in Inspection Characteristic</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CASE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Comment</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QDSV</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sampling procedure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QAMR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Characteristic results during inspection processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QASE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Results table for the sample unit</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QASR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sample results for inspection characteristics</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QAPP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection point</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>ZQ_QUANTITATIVE_RESULT</FUNCNAME>
+     <SHORT_TEXT>Qualitative  Result</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>PRUEFLOS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-PRUEFLOS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>VORGLFNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-VORGLFNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MERKNR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-MERKNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>STELLEN</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>QAMV-STELLEN</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CASE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>RESULT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR50</TYP>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>T_QAMR</PARAMETER>
+       <DBSTRUCT>QAMR</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QASE</PARAMETER>
+       <DBSTRUCT>QASE</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QASR</PARAMETER>
+       <DBSTRUCT>QASR</DBSTRUCT>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>T_QAPP</PARAMETER>
+       <DBSTRUCT>QAPP</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>PRUEFLOS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection Lot Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VORGLFNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Current Node Number from Order Counter APLZL</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MERKNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection Characteristic Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STELLEN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Number of Places to the Right of a Decimal Point (Accuracy)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CASE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Comment</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QAMR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Characteristic results during inspection processing</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QASE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Results table for the sample unit</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QASR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sample results for inspection characteristics</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>T_QAPP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Inspection point</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
