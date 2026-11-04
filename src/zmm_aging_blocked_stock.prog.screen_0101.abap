@@ -1,0 +1,9 @@
+
+PROCESS BEFORE OUTPUT.
+  MODULE status.
+
+PROCESS AFTER INPUT.
+  MODULE user_command.
+
+PROCESS ON VALUE-REQUEST.
+  FIELD gv_reqno MODULE f4_reqno.
