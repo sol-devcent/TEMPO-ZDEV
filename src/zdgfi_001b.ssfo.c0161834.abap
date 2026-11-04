@@ -1,0 +1,24 @@
+TRANSLATE wa_detail-sgtxt TO UPPER CASE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
